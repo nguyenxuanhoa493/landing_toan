@@ -1,0 +1,611 @@
+{
+  "header": {
+    "logo": "Toán Tuổi Thơ",
+    "menu": [
+      {
+        "name": "Trang chủ",
+        "link": "index.html"
+      },
+      {
+        "name": "Thể lệ",
+        "link": "thele.html"
+      },
+      {
+        "name": "Lộ trình",
+        "link": "#roadmap"
+      },
+      {
+        "name": "Tin tức",
+        "link": "https://olympictuoitho.vn/blog"
+      },
+      {
+        "name": "Gallery",
+        "link": "thuvien.html"
+      }
+    ],
+    "actions": {
+      "login": {
+        "text": "Đăng nhập",
+        "link": "https://olympictuoitho.vn/user/login"
+      },
+      "register": {
+        "text": "Đăng ký",
+        "link": "https://olympictuoitho.vn/user/register"
+      }
+    }
+  },
+  "hero": {
+    "title": "Olympic Toán Tuổi thơ Online Toàn quốc",
+    "subtitle": "Sân chơi trí tuệ cho học sinh Tiểu học và THCS yêu thích môn Toán.",
+    "buttons": {
+      "trial": {
+        "text": "Vào thi thử",
+        "link": "#"
+      },
+      "registerNow": {
+        "text": "Đăng ký ngay",
+        "link": "https://olympictuoitho.vn/user/register"
+      }
+    }
+  },
+  "roadmap": {
+    "title": "Lộ trình cuộc thi",
+    "steps": [
+      {
+        "date": "Tháng 2/2026",
+        "event": "Phát động cuộc thi",
+        "details": "Ban tổ chức chính thức công bố cuộc thi Olympic Toán Tuổi thơ Online 2026 trên toàn quốc. Thông tin được gửi đến các trường Tiểu học và THCS trên 63 tỉnh thành."
+      },
+      {
+        "date": "Tháng 3/2026",
+        "event": "Đăng ký dự thi & Thi thử",
+        "details": "Phụ huynh và học sinh đăng ký tài khoản, chọn lớp dự thi. Hệ thống mở đề thi thử miễn phí để làm quen với giao diện và dạng bài."
+      },
+      {
+        "date": "Cuối tháng 3 - Đầu tháng 4/2026",
+        "event": "Vòng 1 - Cấp trường (Thi trực tuyến)",
+        "details": "Thí sinh thi trực tuyến tại nhà hoặc trường. Mỗi em được thi tối đa 3 lần, hệ thống ghi nhận điểm cao nhất. Top thí sinh xuất sắc sẽ vào Vòng 2."
+      },
+      {
+        "date": "Tháng 5/2026",
+        "event": "Vòng 2 - Cấp tỉnh (Thi trực tuyến)",
+        "details": "Các thí sinh vượt qua Vòng 1 sẽ thi Vòng 2 trực tuyến. Đề thi nâng cao hơn, yêu cầu tư duy logic và sáng tạo. Top thí sinh tiếp tục vào Chung kết."
+      },
+      {
+        "date": "Tháng 6/2026",
+        "event": "Vòng 3 - Chung kết toàn quốc (Thi trực tiếp tại Hà Nội)",
+        "details": "Chung kết diễn ra trực tiếp tại Hà Nội. Thí sinh thi 1 lần duy nhất, tranh tài cùng các bạn xuất sắc nhất cả nước. Lễ trao giải trang trọng với nhiều phần thưởng giá trị."
+      }
+    ]
+  },
+  "rules": {
+    "title": "Thể lệ & Đối tượng",
+    "participants": {
+      "title": "Đối tượng",
+      "content": "Học sinh lớp 4, 5, 6, 7, 8 trên toàn quốc."
+    },
+    "structure": {
+      "title": "Cấu trúc bài thi",
+      "content": "15 câu hỏi (10 câu trắc nghiệm, 5 câu trả lời ngắn)."
+    },
+    "time": {
+      "title": "Thời gian làm bài",
+      "content": "Lớp 4-7 (30 phút), Lớp 8 (35 phút)."
+    },
+    "attempts": {
+      "title": "Số lần thi",
+      "content": "Vòng 1 & 2: Thi tối đa 3 lần, lấy điểm cao nhất. Vòng 3: Thi 1 lần duy nhất."
+    }
+  },
+  "gallery": {
+    "title": "Thư viện hình ảnh",
+    "categories": [
+      {
+        "name": "Năm 2005 Nam Định",
+        "list_image": [
+          "assets/gallery/Năm 2005 Nam Định/Bui Thi Minh Trang thu khoa nam 2005 doan TP HCM.webp"
+        ]
+      },
+      {
+        "name": "Năm 2006 Quảng Ninh",
+        "list_image": [
+          "assets/gallery/Năm 2006 Quảng Ninh/Doan Nam Dinh 2006.webp"
+        ]
+      },
+      {
+        "name": "Năm 2007 Hải Phòng",
+        "list_image": [
+          "assets/gallery/Năm 2007 Hải Phòng/4.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/5.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/A tr2.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4127.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4130.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4149.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4152.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4156.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4158.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4165.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4169.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4171.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4173.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4175.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4182.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4193.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4203.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4215.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4216.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4224.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4225.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4228.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4230.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4239.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4247.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4251.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4256.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4262.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4271.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4283.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4285.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4286.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4287.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4288.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4292.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4293.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4294.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4296.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4298.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4300.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4303.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4306.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4308.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4311.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4318.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4319.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4320.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4321.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4324.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4326.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4327.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4332.webp",
+          "assets/gallery/Năm 2007 Hải Phòng/_DSC4334.webp"
+        ]
+      },
+      {
+        "name": "Năm 2008 Hà Nội",
+        "list_image": [
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0134.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0136.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0158.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0193.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0265.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0275.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0322.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0327.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_0915.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_1027.webp",
+          "assets/gallery/Năm 2008 Hà Nội/DSC_1133.webp"
+        ]
+      },
+      {
+        "name": "Năm 2009 Thừa Thiên Huế",
+        "list_image": [
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/Bia 1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/bia 2-1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/bia 2-2.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/bia 2-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 1-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 2-2.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 2-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 2-4.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 3-1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 3-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 4-1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 4-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 4-4.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 5-1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 5-2.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 5-3.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 5-4.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 6-1.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 6-4.webp",
+          "assets/gallery/Năm 2009 Thừa Thiên Huế/tr 6-5.webp"
+        ]
+      },
+      {
+        "name": "Năm 2010 Long An",
+        "list_image": [
+          "assets/gallery/Năm 2010 Long An/IMG_3630.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3668.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3675.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3694.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3718.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3798.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3805.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3817.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3828.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3870.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3938.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3956.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_3977.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_4133.webp",
+          "assets/gallery/Năm 2010 Long An/IMG_4156.webp"
+        ]
+      },
+      {
+        "name": "Năm 2011 Lào Cai",
+        "list_image": [
+          "assets/gallery/Năm 2011 Lào Cai/HZ6Q9634.webp",
+          "assets/gallery/Năm 2011 Lào Cai/HZ6Q9664.webp",
+          "assets/gallery/Năm 2011 Lào Cai/HZ6Q9797.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_3824.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_3943.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_3949.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4002.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4005.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4054.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4057.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4084.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4198.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_4203.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_7984.webp",
+          "assets/gallery/Năm 2011 Lào Cai/IMG_8316.webp"
+        ]
+      },
+      {
+        "name": "Năm 2012 Cà Mau",
+        "list_image": [
+          "assets/gallery/Năm 2012 Cà Mau/IMG_0494.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_0505.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1495 Kien.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1792.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1814.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1840.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1881.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1892.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_1895.webp",
+          "assets/gallery/Năm 2012 Cà Mau/IMG_2034.webp",
+          "assets/gallery/Năm 2012 Cà Mau/P6080196.webp",
+          "assets/gallery/Năm 2012 Cà Mau/P6080206.webp",
+          "assets/gallery/Năm 2012 Cà Mau/P6090363.webp",
+          "assets/gallery/Năm 2012 Cà Mau/P6100451.webp"
+        ]
+      },
+      {
+        "name": "Năm 2013 Vĩnh Phúc",
+        "list_image": [
+          "assets/gallery/Năm 2013 Vĩnh Phúc/Bia 1.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_0505.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_0554.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_1888m.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_1948.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_2108m.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_2111m.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8132t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8204t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8220t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8260t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8277t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8369t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8539t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8561t.webp",
+          "assets/gallery/Năm 2013 Vĩnh Phúc/IMG_8575t.webp"
+        ]
+      },
+      {
+        "name": "Năm 2014 Đắk Lắk",
+        "list_image": [
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0071.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0085.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0145.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0331.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0496.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0519.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0763.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0801.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0824.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0834.webp",
+          "assets/gallery/Năm 2014 Đắk Lắk/DSC_0839.webp"
+        ]
+      },
+      {
+        "name": "Năm 2016 Hà Nội",
+        "list_image": [
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0069.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0080.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0089.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0094.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0117.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0126.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0234.webp",
+          "assets/gallery/Năm 2016 Hà Nội/DSC_0244.webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (3).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (31).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (37).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (46).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (47).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (48).webp",
+          "assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (5).webp",
+          "assets/gallery/Năm 2016 Hà Nội/IMG_3829.webp",
+          "assets/gallery/Năm 2016 Hà Nội/IMG_5359.webp"
+        ]
+      },
+      {
+        "name": "Năm 2017 Trà Vinh",
+        "list_image": [
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_2946.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_2970.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3011.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3087.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3210.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3406.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3408.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3440.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3465.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3700.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3838.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/DSC_3969.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_0083.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_0502.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_0584.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_0632.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_0667.webp",
+          "assets/gallery/Năm 2017 Trà Vinh/IMG_3841.webp"
+        ]
+      },
+      {
+        "name": "Năm 2018 Lào Cai",
+        "list_image": [
+          "assets/gallery/Năm 2018 Lào Cai/IMG_0363.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_6917.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7076.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7084.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7128.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7208.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7224.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7230.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7239.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7250.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7288.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7313.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7325.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7439.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7545.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7845.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7860.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7873.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7968.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_7994 giai dung lien tiep nhieu nhat.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_8001.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_8007.webp",
+          "assets/gallery/Năm 2018 Lào Cai/IMG_8039.webp"
+        ]
+      },
+      {
+        "name": "Năm 2019 Đà Nẵng",
+        "list_image": [
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_8808.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_8986.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9203.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9213.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9218.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9233.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9236.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9249.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9259.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9327.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9334.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9376.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9803.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9853.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9863.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9906.webp",
+          "assets/gallery/Năm 2019 Đà Nẵng/IMG_9948.webp"
+        ]
+      },
+      {
+        "name": "Năm 2024 Thừa Thiên Huế",
+        "list_image": [
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3586.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3593.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3618.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3716.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3731.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3744.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3794.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3817.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3855.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3863.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3868.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3883.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3884.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3957.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4017.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4019.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4035.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4078.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4089.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4235.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4275.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4280.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4512.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4579.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4643.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4648.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4656.webp",
+          "assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4665.webp"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Đơn vị đồng hành",
+    "description": "Những đơn vị uy tín đồng hành cùng Olympic Toán Tuổi thơ qua các mùa thi.",
+    "list": [
+      {
+        "name": "NXB Giáo dục Việt Nam",
+        "logo": "assets/partners/nxbgd.png",
+        "link": "#"
+      },
+      {
+        "name": "Viện NC Sách & Học liệu GD",
+        "logo": "assets/partners/vien.png",
+        "link": "#"
+      },
+      {
+        "name": "Sở GD&ĐT Hà Nội",
+        "logo": "assets/partners/so-gddt-hanoi.png",
+        "link": "#"
+      },
+      {
+        "name": "Fast Lane",
+        "logo": "assets/partners/fast-lane.png",
+        "link": "#"
+      }
+    ]
+  },
+  "experts": {
+    "title": "Chuyên gia đồng hành",
+    "description": "Đội ngũ chuyên gia hàng đầu trong lĩnh vực giáo dục Toán học.",
+    "list": [
+      {
+        "name": "PGS.TS Nguyễn Văn A",
+        "role": "Trưởng ban đề thi",
+        "photo": "assets/experts/expert-1.png"
+      },
+      {
+        "name": "TS. Trần Thị B",
+        "role": "Phản biện đề thi",
+        "photo": "assets/experts/expert-2.png"
+      },
+      {
+        "name": "ThS. Lê Văn C",
+        "role": "Cố vấn chuyên môn",
+        "photo": "assets/experts/expert-3.png"
+      },
+      {
+        "name": "PGS.TS Phạm Văn D",
+        "role": "Chủ tịch Hội đồng",
+        "photo": "assets/experts/expert-4.png"
+      },
+      {
+        "name": "TS. Hoàng Thị E",
+        "role": "Giám khảo chấm thi",
+        "photo": "assets/experts/expert-5.png"
+      },
+      {
+        "name": "PGS.TS Vũ Văn F",
+        "role": "Ủy viên Hội đồng",
+        "photo": "assets/experts/expert-6.png"
+      },
+      {
+        "name": "TS. Đỗ Thị G",
+        "role": "Trưởng ban tổ chức",
+        "photo": "assets/experts/expert-7.png"
+      },
+      {
+        "name": "ThS. Ngô Văn H",
+        "role": "Chuyên viên ra đề",
+        "photo": "assets/experts/expert-8.png"
+      },
+      {
+        "name": "PGS.TS Bùi Thị I",
+        "role": "Cố vấn học thuật",
+        "photo": "assets/experts/expert-9.png"
+      },
+      {
+        "name": "TS. Đinh Văn K",
+        "role": "Thư ký Hội đồng",
+        "photo": "assets/experts/expert-10.png"
+      }
+    ]
+  },
+  "footer": {
+    "column1": {
+      "title": "Đơn vị quản lý",
+      "details": [
+        "Cơ quan chủ quản: CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE.",
+        "Giấy phép: GPKD số 0110122762 cấp ngày 20/09/2022 tại Sở KH&ĐT Hà Nội.",
+        "Người phụ trách: Ông Phạm Ngọc Hiếu – Giám đốc.",
+        "Bản quyền đề thi: Viện Nghiên cứu Sách và học liệu giáo dục - NXB Giáo dục Việt Nam."
+      ]
+    },
+    "column2": {
+      "title": "Chính sách",
+      "links": [
+        {
+          "text": "Chính sách bảo mật thông tin cá nhân",
+          "link": "#"
+        },
+        {
+          "text": "Chính sách thanh toán",
+          "link": "#"
+        },
+        {
+          "text": "Chính sách vận chuyển và giao nhận",
+          "link": "#"
+        },
+        {
+          "text": "Điều kiện giao dịch chung",
+          "link": "#"
+        }
+      ]
+    },
+    "column3": {
+      "title": "Liên hệ",
+      "details": {
+        "address": "Zen Office, tầng 10, tòa nhà Việt Á, số 9 Duy Tân, Cầu Giấy, Hà Nội.",
+        "hotline": "1900.099.937",
+        "email": "support@fastlane.com",
+        "website": "toantuoitho.vn"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Cảm nhận từ học sinh & phụ huynh",
+    "subtitle": "Hàng nghìn gia đình tin tưởng và đồng hành cùng Olympic Toán học Tuổi Thơ qua nhiều năm.",
+    "list": [
+      {
+        "name": "Trần Minh Khôi",
+        "role": "Học sinh lớp 7, Hà Nội",
+        "year": "2024",
+        "rating": 5,
+        "quote": "Cuộc thi giúp mình tự tin hơn rất nhiều vào khả năng giải toán. Đề thi thú vị và vừa sức, không áp lực như mình nghĩ!"
+      },
+      {
+        "name": "Nguyễn Thị Hoa",
+        "role": "Phụ huynh học sinh lớp 5, TP. HCM",
+        "year": "2024",
+        "rating": 5,
+        "quote": "Con tôi rất hào hứng khi tham gia. Ban tổ chức chu đáo, thông tin rõ ràng. Phần thưởng ý nghĩa và truyền cảm hứng cho các bé."
+      },
+      {
+        "name": "Lê Bảo Châu",
+        "role": "Học sinh lớp 8, Đà Nẵng",
+        "year": "2023",
+        "rating": 5,
+        "quote": "Mình đạt giải Nhì vòng 2 năm 2023. Trải nghiệm tuyệt vời, được gặp gỡ các bạn giỏi toán từ khắp nơi trong nước!"
+      },
+      {
+        "name": "Phạm Văn Đức",
+        "role": "Phụ huynh học sinh lớp 6, Cần Thơ",
+        "year": "2023",
+        "rating": 5,
+        "quote": "Hệ thống thi online rất tiện lợi, con có thể thi ngay tại nhà. Kết quả công bố nhanh chóng và minh bạch."
+      },
+      {
+        "name": "Võ Thị Lan Anh",
+        "role": "Học sinh lớp 5, Huế",
+        "year": "2022",
+        "rating": 5,
+        "quote": "Em rất thích phong cách đề thi — nhiều bài toán sáng tạo, không chỉ học thuộc công thức. Em đã học được rất nhiều điều mới!"
+      },
+      {
+        "name": "Ngô Quang Huy",
+        "role": "Phụ huynh học sinh lớp 4, Hải Phòng",
+        "year": "2022",
+        "rating": 5,
+        "quote": "Cuộc thi tạo động lực học tập rất lớn cho con. Sau khi đạt giải, con chủ động xin học thêm toán mà không cần ba mẹ nhắc nữa!"
+      }
+    ]
+  }
+}

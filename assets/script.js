@@ -162,7 +162,7 @@ function renderIndex(data) {
             const rightCol = isLeft ? '' : makeCard(step, idx, c, label, emoji, 'd');
 
             return `
-                <div class="roadmap-step" data-step="${idx}">
+                <div class="roadmap-step" data-step="${idx}" data-reveal="${isLeft ? 'fade-right' : 'fade-left'}" data-reveal-delay="${Math.min(idx * 100, 400)}">
                     <!-- Mobile layout -->
                     <div class="flex items-start gap-4 md:hidden">
                         <div class="roadmap-mobile-dot shrink-0 w-12 h-12 rounded-full bg-gradient-to-br ${c.bg} flex items-center justify-center text-xl shadow-lg ring-4 ${c.ring} ring-offset-2 mt-1 z-10">
@@ -185,6 +185,9 @@ function renderIndex(data) {
             `;
         }).join('');
         document.getElementById('roadmap-container').innerHTML = roadmapHTML;
+
+        // Register newly injected elements with scroll-reveal observer
+        if (typeof window.scrollRevealObserveAll === 'function') window.scrollRevealObserveAll();
 
         // Scatter decorative elements
         scatterRoadmapDecorations();
@@ -948,6 +951,8 @@ function renderTestimonials(t) {
     function observeAll() {
         document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
     }
+    // Expose globally so dynamic renderers can re-register new elements
+    window.scrollRevealObserveAll = observeAll;
 
     // Observe now + re-observe after JS renders dynamic content
     if (document.readyState === 'loading') {

@@ -124,19 +124,7 @@ body {
 }
 
 /* Card entrance animation */
-.roadmap-card {
-    animation: roadmap-pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-.roadmap-step:nth-child(1) .roadmap-card { animation-delay: 0.1s; }
-.roadmap-step:nth-child(2) .roadmap-card { animation-delay: 0.2s; }
-.roadmap-step:nth-child(3) .roadmap-card { animation-delay: 0.3s; }
-.roadmap-step:nth-child(4) .roadmap-card { animation-delay: 0.4s; }
-.roadmap-step:nth-child(5) .roadmap-card { animation-delay: 0.5s; }
-
-@keyframes roadmap-pop-in {
-    0% { opacity: 0; transform: translateY(30px) scale(0.9); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
+/* roadmap-pop-in removed — replaced by scroll-reveal on .roadmap-step */
 
 /* =============================================
    Scroll Reveal System

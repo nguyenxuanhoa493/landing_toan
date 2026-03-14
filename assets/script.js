@@ -978,3 +978,43 @@ function renderTestimonials(t) {
     // Re-check after data.json renders (500ms grace)
     setTimeout(observeAll, 600);
 })();
+
+
+function vongThiSwitchTab(tab) {
+    document.querySelectorAll('[data-tab-panel]').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('border-blue-600','text-blue-600');
+        b.classList.add('border-transparent','text-slate-500');
+    });
+    document.getElementById('tab-' + tab).classList.add('active');
+    const btn = document.querySelector('[data-tab="' + tab + '"]');
+    if (btn) { btn.classList.remove('border-transparent','text-slate-500'); btn.classList.add('border-blue-600','text-blue-600'); }
+}
+
+function vongThiOpenRegModal(date, session, status) {
+    document.getElementById('modal-date').textContent = date + '/2026';
+    document.getElementById('modal-session').textContent = session;
+    const isActive = status === 'active';
+    document.getElementById('modal-title').textContent = isActive ? '🎯 Xác nhận vào thi' : '🔔 Đặt thông báo';
+    document.getElementById('modal-action-active').classList.toggle('hidden', !isActive);
+    document.getElementById('modal-action-notify').classList.toggle('hidden', isActive);
+    document.getElementById('modal-active-info').classList.toggle('hidden', !isActive);
+    document.getElementById('modal-notify-info').classList.toggle('hidden', isActive);
+    document.getElementById('modal-time-label').textContent = isActive ? 'Thời gian còn lại' : 'Thời gian bắt đầu';
+    document.getElementById('modal-time-val').textContent = isActive ? '30 phút' : session.split('–')[0];
+    document.getElementById('reg-modal').classList.remove('hidden');
+}
+
+function vongThiCloseRegModal() {
+    document.getElementById('reg-modal').classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('reg-modal').addEventListener('click', function(e) {
+        if (e.target === this) vongThiCloseRegModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') vongThiCloseRegModal();
+    });
+});
+

@@ -27,8 +27,7 @@
   .math-bg { position:absolute; inset:0; overflow:hidden; pointer-events:none; user-select:none; }
   .math-bg span { position:absolute; font-family:'Lexend',sans-serif; font-weight:900; color:rgba(255,255,255,0.09); line-height:1; white-space:nowrap; }
   .pkg-card { cursor:pointer; transition: all .2s; }
-  .pkg-card:hover { transform: translateY(-2px); }
-  .pkg-card.selected { outline: 3px solid #2563eb; }
+  .pkg-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.15); }
   [data-tab-panel] { display:none; }
   [data-tab-panel].active { display:block; }
   #payment-modal { transition: opacity .2s; }
@@ -190,30 +189,26 @@
       <div class="p-5 space-y-4">
         <div class="grid grid-cols-3 gap-3" id="pkg-list">
           <!-- Gói 1 -->
-          <div class="pkg-card p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/60 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-300 text-center" onclick="selectPkg(this,'pkg1')">
+          <div class="pkg-card p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/60 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-300 text-center" onclick="openPaymentModal('1 lượt','10.000đ','10.000đ / lượt')">
             <div class="text-2xl font-black text-slate-700 dark:text-slate-200 mt-1">10k</div>
             <div class="text-sm font-bold text-blue-600 mt-0.5">× 1 lượt</div>
             <div class="text-xs text-slate-400 mt-1">10.000đ / lượt</div>
           </div>
           <!-- Gói 2 – phổ biến -->
-          <div class="pkg-card p-4 rounded-2xl bg-gradient-to-b from-blue-600 to-blue-500 border-2 border-blue-400 text-center relative shadow-lg shadow-blue-200 selected" onclick="selectPkg(this,'pkg2')">
+          <div class="pkg-card p-4 rounded-2xl bg-gradient-to-b from-blue-600 to-blue-500 border-2 border-blue-400 text-center relative shadow-lg shadow-blue-200" onclick="openPaymentModal('5 lượt','30.000đ','6.000đ / lượt · Tiết kiệm 40%')">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-amber-400 text-amber-900 text-xs font-black rounded-full whitespace-nowrap">⭐ Phổ biến</div>
             <div class="text-2xl font-black text-white mt-1">30k</div>
             <div class="text-sm font-bold text-blue-100 mt-0.5">× 5 lượt</div>
             <div class="text-xs text-blue-200 mt-1">6.000đ / lượt · -40%</div>
           </div>
           <!-- Gói 3 -->
-          <div class="pkg-card p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/60 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-300 text-center" onclick="selectPkg(this,'pkg3')">
+          <div class="pkg-card p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/60 border-2 border-slate-200 dark:border-slate-600 hover:border-blue-300 text-center" onclick="openPaymentModal('10 lượt','50.000đ','5.000đ / lượt · Tiết kiệm 50%')">
             <div class="text-2xl font-black text-slate-700 dark:text-slate-200 mt-1">50k</div>
             <div class="text-sm font-bold text-blue-600 mt-0.5">× 10 lượt</div>
             <div class="text-xs text-slate-400 mt-1">5.000đ / lượt · -50%</div>
           </div>
         </div>
-        <button onclick="openPaymentModal()" class="w-full py-3 bg-blue-600 text-white font-black rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors shadow-md shadow-blue-200 text-sm">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">payment</span>
-          Mua gói đã chọn — 30.000đ
-        </button>
-        <p class="text-center text-xs text-slate-400">🔒 Thanh toán bảo mật · Lượt thi cộng ngay sau thanh toán</p>
+        <p class="text-center text-xs text-slate-400">🔒 Bấm vào gói để thanh toán ngay</p>
       </div>
     </div>
 
@@ -454,12 +449,12 @@
     <div class="p-6 space-y-4">
       <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 flex items-center justify-between">
         <div>
-          <p class="font-black text-slate-700 dark:text-slate-200">Gói × 5 lượt</p>
+          <p class="font-black text-slate-700 dark:text-slate-200">Gói <span id="modal-pkg-qty">× 5 lượt</span></p>
           <p class="text-xs text-slate-500 mt-0.5">Có giá trị đến 28/3/2026</p>
         </div>
         <div class="text-right">
-          <p class="text-2xl font-black text-blue-600">30.000đ</p>
-          <p class="text-xs text-slate-400">6.000đ / lượt</p>
+          <p class="text-2xl font-black text-blue-600" id="modal-pkg-price">30.000đ</p>
+          <p class="text-xs text-slate-400" id="modal-pkg-unit">6.000đ / lượt</p>
         </div>
       </div>
       <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Chọn phương thức thanh toán</p>
@@ -479,7 +474,7 @@
       </div>
       <button class="w-full py-3.5 bg-blue-600 text-white font-black rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 text-base">
         <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">lock</span>
-        Xác nhận thanh toán — 30.000đ
+        Xác nhận thanh toán — <span id="modal-confirm-price">30.000đ</span>
       </button>
       <p class="text-center text-xs text-slate-400">🔒 Kết nối bảo mật SSL · Hóa đơn gửi qua email</p>
     </div>
@@ -511,15 +506,11 @@
 
 <script src="assets/script.js"></script>
 <script>
-let selectedPkg = 'pkg2';
-
-function selectPkg(el, id) {
-  selectedPkg = id;
-  document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function openPaymentModal() {
+function openPaymentModal(qty, price, unit) {
+  document.getElementById('modal-pkg-qty').textContent = '× ' + qty;
+  document.getElementById('modal-pkg-price').textContent = price;
+  document.getElementById('modal-pkg-unit').textContent = unit;
+  document.getElementById('modal-confirm-price').textContent = price;
   const m = document.getElementById('payment-modal');
   m.classList.remove('hidden');
   requestAnimationFrame(() => m.classList.add('opacity-100'));

@@ -400,9 +400,9 @@
         </div>
       </div>
       <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lịch thi dự kiến</p>
-      <div class="space-y-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600">
-          <div class="w-12 text-center"><div class="text-sm font-black text-blue-600">03/5</div><div class="text-xs text-slate-400">T7</div></div>
+          <div class="w-12 text-center flex-shrink-0"><div class="text-sm font-black text-blue-600">03/5</div><div class="text-xs text-slate-400">T7</div></div>
           <div class="flex flex-wrap gap-1.5">
             <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">8:00–8:45</span>
             <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">14:00–14:45</span>
@@ -410,7 +410,7 @@
           </div>
         </div>
         <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600">
-          <div class="w-12 text-center"><div class="text-sm font-black text-blue-600">04/5</div><div class="text-xs text-slate-400">CN</div></div>
+          <div class="w-12 text-center flex-shrink-0"><div class="text-sm font-black text-blue-600">04/5</div><div class="text-xs text-slate-400">CN</div></div>
           <div class="flex flex-wrap gap-1.5">
             <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">8:00–8:45</span>
             <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">14:00–14:45</span>
@@ -421,68 +421,66 @@
     </div>
     <!-- State: active -->
     <div data-state-panel="r2-active" class="p-5 space-y-4">
-      <div class="flex items-center justify-between p-3 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+      <div class="flex items-center justify-between p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-          <span class="text-sm font-bold text-green-700 dark:text-green-300">Đang diễn ra</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+          <span class="text-sm font-bold text-blue-700 dark:text-blue-300">Đang diễn ra</span>
         </div>
         <button class="btn-trial px-4 py-2 bg-blue-600 text-white font-bold rounded-xl flex items-center gap-1.5 text-sm hover:bg-blue-700 transition-colors">
-          <span class="material-symbols-outlined text-base">play_arrow</span>Vào thi
+          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">play_arrow</span>Vào thi
         </button>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="space-y-2">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lịch thi</p>
-          <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600">
-            <div class="w-12 text-center"><div class="text-sm font-black text-blue-600">03/5</div><div class="text-xs text-slate-400">T7</div></div>
-            <div class="flex flex-col gap-1">
-              <span class="px-2 py-0.5 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">8:00–8:45</span>
-              <span class="px-2 py-0.5 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">14:00–14:45</span>
-              <span class="px-2 py-0.5 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">19:00–19:45</span>
-            </div>
+      <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lịch thi</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <!-- 03/5 T7 – tất cả đã kết thúc -->
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600 opacity-55">
+          <div class="w-12 text-center flex-shrink-0"><div class="text-sm font-black text-slate-400">03/5</div><div class="text-xs text-slate-400">T7</div></div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-400 text-xs font-bold line-through">8:00–8:45</span>
+            <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-400 text-xs font-bold line-through">14:00–14:45</span>
+            <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-400 text-xs font-bold line-through">19:00–19:45</span>
           </div>
         </div>
-        <div class="space-y-2">
-          <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="material-symbols-outlined text-amber-500 text-base">warning</span>
-              <span class="text-xs font-bold text-amber-700 dark:text-amber-300">Lưu ý quan trọng</span>
-            </div>
-            <p class="text-xs text-amber-600 dark:text-amber-400">Vòng này chỉ được thi <strong>1 lần duy nhất</strong>. Hãy cân nhắc kỹ trước khi vào thi.</p>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
-            <span class="material-symbols-outlined text-slate-400 text-2xl">pending</span>
-            <p class="text-sm font-bold text-slate-500 mt-1">Chưa thi Vòng 2</p>
+        <!-- 04/5 CN – Ca sáng đang diễn ra -->
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-400 dark:border-blue-600">
+          <div class="w-12 text-center flex-shrink-0"><div class="text-sm font-black text-blue-600">04/5</div><div class="text-xs text-blue-400">CN</div></div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse flex-shrink-0"></span>8:00–8:45</span>
+            <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">14:00–14:45</span>
+            <span class="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">19:00–19:45</span>
           </div>
         </div>
+      </div>
+      <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+        <span class="material-symbols-outlined text-amber-500 text-base">warning</span>
+        <p class="text-xs text-amber-700 dark:text-amber-300">Vòng này chỉ được thi <strong>1 lần duy nhất</strong>. Cân nhắc kỹ trước khi vào thi.</p>
       </div>
     </div>
     <!-- State: ended -->
     <div data-state-panel="r2-ended" class="p-5 space-y-4">
-      <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-        <span class="material-symbols-outlined text-slate-400 text-xl">lock</span>
-        <div>
-          <p class="text-sm font-bold text-slate-600 dark:text-slate-300">Vòng thi đã kết thúc</p>
-          <p class="text-xs text-slate-400">Kết thúc lúc 23:59 ngày 18/5/2026</p>
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-sm font-bold text-slate-500">
+          <span class="material-symbols-outlined text-base">lock</span>
+          Vòng thi đã kết thúc — 18/5/2026
         </div>
+        <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-200 dark:border-slate-600 text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          <span class="material-symbols-outlined text-base">table_view</span>
+          Xem kết quả
+        </button>
       </div>
       <div class="grid grid-cols-3 gap-3">
-        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-center">
+        <div class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-center">
           <div class="text-2xl font-black text-emerald-600">91</div>
           <div class="text-xs text-slate-500 mt-0.5">Điểm số</div>
         </div>
-        <div class="p-3 rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 text-center">
-          <div class="text-2xl font-black text-violet-600">#42</div>
+        <div class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-center">
+          <div class="text-2xl font-black text-blue-600">#42</div>
           <div class="text-xs text-slate-500 mt-0.5">Thứ hạng</div>
         </div>
         <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-center">
           <div class="text-lg font-black text-amber-600">🏆</div>
           <div class="text-xs text-slate-500 mt-0.5">Vào Chung kết</div>
         </div>
-      </div>
-      <div class="rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 grid grid-cols-2 gap-4 text-sm">
-        <div><span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Ngày thi</span><span class="font-bold text-slate-700 dark:text-slate-200">03/5/2026</span></div>
-        <div><span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Thời gian</span><span class="font-bold text-slate-700 dark:text-slate-200">Ca sáng 8:00</span></div>
       </div>
     </div>
   </div>

@@ -141,7 +141,7 @@ function renderIndex(data) {
         ];
 
         const makeCard = (step, idx, c, label, emoji, suffix) => `
-                <div class="roadmap-card bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border-2 ${c.card} cursor-pointer select-none transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group" onclick="toggleRoadmapDetail(this)">
+                <div class="roadmap-card bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border-2 ${c.card} cursor-pointer select-none transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group" onClick="toggleRoadmapDetail(this)">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-2xl">${emoji}</span>
                         <div>
@@ -183,7 +183,7 @@ function renderIndex(data) {
                     <div class="hidden md:grid roadmap-grid">
                         <div class="roadmap-col-left">${leftCol}</div>
                         <div class="roadmap-col-center">
-                            <div class="roadmap-dot w-16 h-16 rounded-full bg-gradient-to-br ${c.bg} flex items-center justify-center text-2xl shadow-xl ring-4 ${c.ring} ring-offset-2 ring-offset-emerald-50 dark:ring-offset-slate-900 cursor-pointer transition-all duration-300 hover:scale-125 hover:ring-offset-4" onclick="toggleRoadmapDetail(this, true)">
+                            <div class="roadmap-dot w-16 h-16 rounded-full bg-gradient-to-br ${c.bg} flex items-center justify-center text-2xl shadow-xl ring-4 ${c.ring} ring-offset-2 ring-offset-emerald-50 dark:ring-offset-slate-900 cursor-pointer transition-all duration-300 hover:scale-125 hover:ring-offset-4" onClick="toggleRoadmapDetail(this, true)">
                                 ${emoji}
                             </div>
                             <span class="text-[10px] font-black text-slate-400 dark:text-slate-500 whitespace-nowrap uppercase tracking-widest mt-2">${label}</span>

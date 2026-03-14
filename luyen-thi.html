@@ -2,28 +2,7 @@
 <html lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/style.css"/>
-<script src="assets/components.js"></script>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "primary": "#2563eb",
-          "secondary": "#3b82f6",
-          "background-light": "#f0f7ff",
-          "background-dark": "#0f172a",
-        },
-        fontFamily: { "display": ["Lexend"] },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
+<script src="assets/head.js"></script>
 <style>
   .math-bg { position:absolute; inset:0; overflow:hidden; pointer-events:none; user-select:none; }
   .math-bg span { position:absolute; font-family:'Lexend',sans-serif; font-weight:900; color:rgba(255,255,255,0.09); line-height:1; white-space:nowrap; }
@@ -439,7 +418,6 @@
 
 <olympic-mobile-nav></olympic-mobile-nav>
 
-<script src="assets/script.js"></script>
 <script>
 function openPaymentModal(qty, price, unit) {
   document.getElementById('modal-pkg-qty').textContent = '× ' + qty;

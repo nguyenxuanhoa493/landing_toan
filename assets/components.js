@@ -1,5 +1,6 @@
 class OlympicHeader extends HTMLElement {
   connectedCallback() {
+    this.style.display = 'contents';
     this.innerHTML = `
       <header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-blue-100 dark:border-blue-900/30">
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
@@ -20,6 +21,7 @@ class OlympicHeader extends HTMLElement {
 
 class OlympicFooter extends HTMLElement {
   connectedCallback() {
+    this.style.display = 'contents';
     this.innerHTML = `
       <footer class="bg-slate-950 text-slate-400 py-16">
         <div class="container mx-auto px-4">
@@ -61,6 +63,7 @@ class OlympicFooter extends HTMLElement {
 
 class OlympicMobileNav extends HTMLElement {
   connectedCallback() {
+    this.style.display = 'contents';
     this.innerHTML = `
       <div id="mobile-nav-bottom" class="fixed bottom-0 left-0 right-0 lg:hidden bg-white dark:bg-slate-900 border-t border-blue-100 dark:border-slate-800 flex justify-around py-3 px-2 z-50"></div>
     `;
@@ -70,4 +73,3 @@ class OlympicMobileNav extends HTMLElement {
 customElements.define('olympic-header', OlympicHeader);
 customElements.define('olympic-footer', OlympicFooter);
 customElements.define('olympic-mobile-nav', OlympicMobileNav);
-

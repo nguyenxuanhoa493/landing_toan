@@ -78,64 +78,27 @@ const ROUND = {
     <span style="right:4%;top:12%;font-size:3rem;transform:rotate(-7deg)">∑n</span>
     <span style="left:48%;top:3%;font-size:2.5rem;transform:rotate(17deg)">n!</span>
   </div>
-  <div class="container mx-auto px-4 py-10 lg:py-14 relative z-10">
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
-      <div class="flex-1 text-white">
-        <div class="flex items-center gap-2 mb-4">
-          <a href="thamgia.html" class="inline-flex items-center gap-1 text-blue-200 hover:text-white text-sm font-bold transition-colors">
-            <span class="material-symbols-outlined text-base">arrow_back</span>Tham gia thi
-          </a>
-          <span class="text-blue-300">/</span>
-          <span class="text-blue-100 text-sm font-bold">Vòng 1 · Cấp Trường</span>
-        </div>
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings:'FILL' 1">school</span>
-          </div>
-          <div>
-            <h1 class="text-3xl lg:text-4xl font-black leading-tight">Vòng 1 · Cấp Trường</h1>
-            <p class="text-blue-100 text-sm">Vòng loại tại trường học — Thi trực tuyến</p>
-          </div>
-        </div>
-        <p class="text-blue-100 text-base max-w-2xl leading-relaxed">
-          Vòng loại đầu tiên, thi trực tuyến tại nhà hoặc trường. Mỗi thí sinh được thi tối đa 3 lần, hệ thống ghi nhận điểm cao nhất. Top thí sinh xuất sắc sẽ vào Vòng 2 Cấp Tỉnh.
-        </p>
-        <div class="flex flex-wrap gap-2 mt-5">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">📅 5/4 – 20/4/2026</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">🔄 Tối đa 3 lần</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">⏱ 30 phút / lần</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">🌐 Trực tuyến</span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/30 text-emerald-100 border border-emerald-400/30">⬆️ Top vào Vòng 2</span>
-        </div>
+  <div class="container mx-auto px-4 py-5 lg:py-7 relative z-10">
+    <div class="flex-1 text-white">
+      <div class="flex items-center gap-2 mb-3">
+        <a href="thamgia.html" class="inline-flex items-center gap-1 text-blue-200 hover:text-white text-sm font-bold transition-colors">
+          <span class="material-symbols-outlined text-base">arrow_back</span>Tham gia thi
+        </a>
+        <span class="text-blue-300">/</span>
+        <span class="text-blue-100 text-sm font-bold">Vòng 1 · Cấp Trường</span>
       </div>
-      <!-- Status Card -->
-      <div class="w-full lg:w-80 flex-shrink-0">
-        <div class="bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl p-5 text-white">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-black text-lg">Đang diễn ra</span>
-            <span class="ml-auto text-xs text-blue-200">Còn 9 ngày</span>
-          </div>
-          <div class="grid grid-cols-3 gap-2 mb-4">
-            <div class="bg-white/10 rounded-xl p-3 text-center">
-              <div class="text-2xl font-black">2</div>
-              <div class="text-blue-100 text-xs">Đã thi</div>
-            </div>
-            <div class="bg-white/10 rounded-xl p-3 text-center">
-              <div class="text-2xl font-black">1</div>
-              <div class="text-blue-100 text-xs">Còn lại</div>
-            </div>
-            <div class="bg-white/10 rounded-xl p-3 text-center">
-              <div class="text-2xl font-black">85</div>
-              <div class="text-blue-100 text-xs">Điểm cao</div>
-            </div>
-          </div>
-          <button onclick="document.getElementById('schedule-section').scrollIntoView({behavior:'smooth'})"
-            class="w-full py-3 bg-white text-blue-600 font-black rounded-xl flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors shadow-lg text-base">
-            <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">event</span>
-            Xem lịch thi
-          </button>
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-white text-xl" style="font-variation-settings:'FILL' 1">school</span>
         </div>
+        <h1 class="text-2xl lg:text-3xl font-black leading-tight">Vòng 1 · Cấp Trường</h1>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">📅 5/4 – 20/4/2026</span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">🔄 Tối đa 3 lần</span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">⏱ 30 phút / lần</span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">🌐 Trực tuyến</span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20">⬆️ Top vào Vòng 2</span>
       </div>
     </div>
   </div>
@@ -157,9 +120,7 @@ const ROUND = {
       <button onclick="switchTab('rules')" data-tab="rules" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
         📋 Thể lệ
       </button>
-      <button onclick="switchTab('organizer')" data-tab="organizer" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
-        🏛 Tổ chức
-      </button>
+
     </div>
   </div>
 </div>
@@ -493,27 +454,12 @@ const ROUND = {
         <!-- Đối tượng -->
         <div class="pt-2 section-divider">
           <p class="text-xs font-black text-slate-500 uppercase tracking-wider mt-4 mb-3">Đối tượng dự thi</p>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-center">
-              <div class="text-2xl mb-1">📗</div>
-              <div class="font-black text-blue-700 dark:text-blue-300">Lớp 3–5</div>
-              <div class="text-xs text-slate-500 mt-0.5">Tiểu học</div>
-            </div>
-            <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-center">
-              <div class="text-2xl mb-1">📘</div>
-              <div class="font-black text-blue-700 dark:text-blue-300">Lớp 6–7</div>
-              <div class="text-xs text-slate-500 mt-0.5">THCS Cơ bản</div>
-            </div>
-            <div class="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-center">
-              <div class="text-2xl mb-1">📙</div>
-              <div class="font-black text-blue-700 dark:text-blue-300">Lớp 8–9</div>
-              <div class="text-xs text-slate-500 mt-0.5">THCS Nâng cao</div>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 text-center">
-              <div class="text-2xl mb-1">🌟</div>
-              <div class="font-black text-slate-600 dark:text-slate-300">Tất cả</div>
-              <div class="text-xs text-slate-500 mt-0.5">Học sinh VN</div>
-            </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-black bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300">📗 Lớp 4</span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-black bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300">📗 Lớp 5</span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-black bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300">📘 Lớp 6</span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-black bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300">📘 Lớp 7</span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-black bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300">📙 Lớp 8</span>
           </div>
         </div>
       </div>
@@ -586,100 +532,7 @@ const ROUND = {
             <li class="flex gap-2"><span class="text-blue-500 flex-shrink-0 mt-0.5">▸</span>Thí sinh đủ điều kiện sẽ nhận email thông báo và được mở khóa đăng ký Vòng 2.</li>
           </ul>
         </div>
-        <div class="section-divider pt-6">
-          <h3 class="font-black text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-black">5</span>
-            Nội dung kiến thức
-          </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <p class="text-xs font-black text-slate-500 uppercase tracking-wider mb-2">Tiểu học (Lớp 3–5)</p>
-              <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Số học, các phép tính cơ bản</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Phân số, số thập phân</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Hình học phẳng, đo lường</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Bài toán ứng dụng thực tế</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs font-black text-slate-500 uppercase tracking-wider mb-2">THCS (Lớp 6–9)</p>
-              <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-300">
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Đại số, phương trình — bất phương trình</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Hình học phẳng và không gian</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Tổ hợp, xác suất cơ bản</li>
-                <li class="flex gap-2"><span class="text-blue-400">•</span>Tư duy logic, suy luận toán học</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- TAB: TỔ CHỨC -->
-  <div id="tab-organizer" data-tab-panel="organizer" class="space-y-6">
-    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
-      <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="font-black text-lg text-slate-800 dark:text-slate-100">🏛 Đơn vị tổ chức &amp; bảo trợ</h2>
-      </div>
-      <div class="p-6 space-y-5">
-        <div class="flex gap-4 p-5 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700">
-          <div class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-200">
-            <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings:'FILL' 1">school</span>
-          </div>
-          <div>
-            <p class="text-xs font-black text-blue-500 uppercase tracking-wide mb-1">Đơn vị chủ trì</p>
-            <p class="font-black text-slate-700 dark:text-slate-200 text-base leading-tight">Công ty Cổ phần Công nghệ Fast Lane</p>
-            <p class="text-xs text-slate-500 mt-1">Tầng 12, 22 Láng Hạ, Đống Đa, Hà Nội</p>
-            <p class="text-xs text-blue-500 mt-0.5 font-semibold">olympictuoitho.vn</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="flex gap-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-blue-500 text-lg" style="font-variation-settings:'FILL' 1">menu_book</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-0.5">Bảo trợ chuyên môn</p>
-              <p class="font-bold text-slate-700 dark:text-slate-200 text-sm">Hội Toán học Việt Nam</p>
-            </div>
-          </div>
-          <div class="flex gap-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-blue-500 text-lg" style="font-variation-settings:'FILL' 1">business</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-0.5">Đồng tổ chức</p>
-              <p class="font-bold text-slate-700 dark:text-slate-200 text-sm">Sở GD&amp;ĐT các tỉnh</p>
-            </div>
-          </div>
-          <div class="flex gap-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-blue-500 text-lg" style="font-variation-settings:'FILL' 1">computer</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-0.5">Hỗ trợ kỹ thuật</p>
-              <p class="font-bold text-slate-700 dark:text-slate-200 text-sm">Fast Lane Technology</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-5 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 text-white">
-          <h3 class="font-black text-base mb-3">📞 Liên hệ hỗ trợ</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div class="bg-white/15 rounded-xl p-3">
-              <p class="text-xs text-blue-100 mb-0.5">Email</p>
-              <p class="font-bold text-sm">support@olympictuoitho.vn</p>
-            </div>
-            <div class="bg-white/15 rounded-xl p-3">
-              <p class="text-xs text-blue-100 mb-0.5">Điện thoại</p>
-              <p class="font-bold text-sm">1800 xxxx (miễn phí)</p>
-            </div>
-            <div class="bg-white/15 rounded-xl p-3">
-              <p class="text-xs text-blue-100 mb-0.5">Facebook</p>
-              <p class="font-bold text-sm">fb.com/olympictuoitho</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

@@ -228,7 +228,7 @@ function renderIndex(data) {
         document.getElementById('experts-title').textContent = data.experts.title;
         document.getElementById('experts-desc').textContent = data.experts.description;
         const expertCard = e => `
-            <div class="expert-card group text-center shrink-0 w-[180px] origin-center will-change-transform">
+            <div class="expert-card group text-center shrink-0 w-[210px] origin-center will-change-transform">
                 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-xl bg-slate-200 dark:bg-slate-700">
                     <img alt="${e.name}" src="${e.photo}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\\'material-symbols-outlined text-5xl text-slate-400 flex items-center justify-center h-full\\'>person</span>'"/>
                 </div>
@@ -239,13 +239,13 @@ function renderIndex(data) {
         const container = document.getElementById('experts-container');
         const wrapper = container.parentElement;
         container.classList.remove('animate-marquee');
-        container.style.cssText = 'animation:none; display:flex; gap:32px;';
+        container.style.cssText = 'animation:none; display:flex; gap:56px;';
         container.innerHTML = items.map(expertCard).join('');
 
         // Recycle approach: move off-screen cards to the end
         let scrollPos = 0;
         const speed = 0.5;
-        const gap = 32;
+        const gap = 56;
         let paused = false;
 
         wrapper.addEventListener('mouseenter', () => { paused = true; });

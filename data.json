@@ -74,22 +74,22 @@
       },
       {
         "date": "Tháng 3/2026",
-        "event": "Đăng ký dự thi & Thi thử",
+        "event": "Đăng ký & Luyện thi",
         "details": "Phụ huynh và học sinh đăng ký tài khoản, chọn lớp dự thi. Hệ thống mở đề thi thử miễn phí để làm quen với giao diện và dạng bài."
       },
       {
-        "date": "Cuối tháng 3 - Đầu tháng 4/2026",
-        "event": "Vòng 1 - Cấp trường (Thi trực tuyến)",
-        "details": "Thí sinh thi trực tuyến tại nhà hoặc trường. Mỗi em được thi tối đa 3 lần, hệ thống ghi nhận điểm cao nhất. Top thí sinh xuất sắc sẽ vào Vòng 2."
+        "date": "28-29/3 · 4-5/4 · 11-12/4/2026",
+        "event": "Vòng 1 - Cấp Trường (Thi trực tuyến)",
+        "details": "Thí sinh thi trực tuyến tại nhà hoặc trường. 3 đợt cuối tuần (thứ Bảy & Chủ nhật). Mỗi em được thi tối đa 3 lần, hệ thống ghi nhận điểm cao nhất. Tối đa 60% thí sinh điểm cao nhất được vào Vòng 2."
       },
       {
-        "date": "Tháng 5/2026",
-        "event": "Vòng 2 - Cấp tỉnh (Thi trực tuyến)",
-        "details": "Các thí sinh vượt qua Vòng 1 sẽ thi Vòng 2 trực tuyến. Đề thi nâng cao hơn, yêu cầu tư duy logic và sáng tạo. Top thí sinh tiếp tục vào Chung kết."
+        "date": "16-17/5/2026",
+        "event": "Vòng 2 - Cấp Tỉnh (Thi trực tuyến)",
+        "details": "Các thí sinh vượt qua Vòng 1 thi trực tuyến. Đề thi nâng cao hơn, yêu cầu tư duy logic và sáng tạo. Tối đa 30% thí sinh điểm cao nhất vào Chung kết."
       },
       {
-        "date": "Tháng 6/2026",
-        "event": "Vòng 3 - Chung kết toàn quốc (Thi trực tiếp trên máy tính tại Hà Nội)",
+        "date": "13-14/6/2026",
+        "event": "Vòng 3 - Chung kết toàn quốc (Thi trực tiếp tại Hà Nội)",
         "details": "Chung kết diễn ra trực tiếp tại Hà Nội. Thí sinh thi 1 lần duy nhất, tranh tài cùng các bạn xuất sắc nhất cả nước. Lễ trao giải trang trọng với nhiều phần thưởng giá trị."
       }
     ]
@@ -102,7 +102,7 @@
     },
     "structure": {
       "title": "Cấu trúc bài thi",
-      "content": "15 câu hỏi (10 câu trắc nghiệm, 5 câu trả lời ngắn)."
+      "content": "15 câu hỏi: 10 câu trắc nghiệm (1 điểm/câu) + 5 câu điền đáp số (2 điểm/câu). Tổng điểm tối đa: 20 điểm."
     },
     "time": {
       "title": "Thời gian làm bài",
@@ -110,7 +110,7 @@
     },
     "attempts": {
       "title": "Số lần thi",
-      "content": "Vòng 1: Thi tối đa 3 lần, lấy điểm cao nhất. Vòng 2 và 3: Thi 1 lần duy nhất."
+      "content": "Luyện thi: 3 lần miễn phí. Vòng 1: thi tối đa 3 lần, lấy điểm cao nhất. Vòng 2 và Vòng 3: thi 1 lần duy nhất."
     }
   },
   "gallery": {

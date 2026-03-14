@@ -1,27 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            renderHeader(data);
-            
-            // Check which page we are on by looking for specific IDs
-            if (document.getElementById('hero-title')) {
-                renderIndex(data);
-            }
-            if (document.getElementById('rules-title') && !document.getElementById('hero-title')) {
-                // If it's pure thele page
-                renderRulesPage(data);
-            }
-            if (document.getElementById('gallery-tabs') && !document.getElementById('hero-title')) {
-                // If it's pure gallery page
-                renderGalleryPage(data);
-            }
-            
-            renderFooter(data);
-        })
-        .catch(error => console.error("Error loading data.json", error));
-});
-
 function renderHeader(data) {
     const headerLogo = document.getElementById('header-logo');
     if (headerLogo) headerLogo.textContent = data.header.logo;
@@ -81,9 +57,12 @@ function renderHeader(data) {
 }
 
 function renderIndex(data) {
+    console.log('Rendering index page with data:', data);
+    console.log(document.getElementById('hero-title'));
     // Hero
     if (document.getElementById('hero-title')) {
         let titleText = data.hero.title;
+
         document.getElementById('hero-title').innerHTML = titleText
             .replace("Môn Toán", "<span class='text-primary underline decoration-blue-500/30'>môn Toán</span>")
             .replace("Online", `<span class="hero-online-badge">Online</span>`);
@@ -96,6 +75,8 @@ function renderIndex(data) {
         // Hero image slideshow — use hero.list_image if defined, else fallback to gallery
         const front = document.getElementById('hero-img-front');
         const back  = document.getElementById('hero-img-back');
+
+        console.log({front, back});
         if (front && back) {
             let allImages = [];
             if (data.hero && data.hero.list_image && data.hero.list_image.length > 0) {
@@ -103,6 +84,8 @@ function renderIndex(data) {
             } else if (data.gallery && data.gallery.categories) {
                 allImages = data.gallery.categories.flatMap(c => c.list_image || []).filter(Boolean);
             }
+            console.log({allImages});
+
             if (allImages.length > 1) {
                 let current = 0;
                 // Shuffle
@@ -141,7 +124,7 @@ function renderIndex(data) {
         ];
 
         const makeCard = (step, idx, c, label, emoji, suffix) => `
-                <div class="roadmap-card bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border-2 ${c.card} cursor-pointer select-none transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group" onclick="toggleRoadmapDetail(this)">
+                <div class="roadmap-card bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-5 rounded-2xl shadow-lg border-2 ${c.card} cursor-pointer select-none transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group" onClick="toggleRoadmapDetail(this)">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-2xl">${emoji}</span>
                         <div>
@@ -183,7 +166,7 @@ function renderIndex(data) {
                     <div class="hidden md:grid roadmap-grid">
                         <div class="roadmap-col-left">${leftCol}</div>
                         <div class="roadmap-col-center">
-                            <div class="roadmap-dot w-16 h-16 rounded-full bg-gradient-to-br ${c.bg} flex items-center justify-center text-2xl shadow-xl ring-4 ${c.ring} ring-offset-2 ring-offset-emerald-50 dark:ring-offset-slate-900 cursor-pointer transition-all duration-300 hover:scale-125 hover:ring-offset-4" onclick="toggleRoadmapDetail(this, true)">
+                            <div class="roadmap-dot w-16 h-16 rounded-full bg-gradient-to-br ${c.bg} flex items-center justify-center text-2xl shadow-xl ring-4 ${c.ring} ring-offset-2 ring-offset-emerald-50 dark:ring-offset-slate-900 cursor-pointer transition-all duration-300 hover:scale-125 hover:ring-offset-4" onClick="toggleRoadmapDetail(this, true)">
                                 ${emoji}
                             </div>
                             <span class="text-[10px] font-black text-slate-400 dark:text-slate-500 whitespace-nowrap uppercase tracking-widest mt-2">${label}</span>
@@ -1018,3 +1001,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function initOlympicApp() {
+    fetch('/o-assets/data.json')
+      .then(response => response.json())
+      .then(data => {
+          renderHeader(data);
+
+          // Check which page we are on by looking for specific IDs
+          if (document.getElementById('hero-title')) {
+              renderIndex(data);
+          }
+          if (document.getElementById('rules-title') && !document.getElementById('hero-title')) {
+              // If it's pure thele page
+              renderRulesPage(data);
+          }
+          if (document.getElementById('gallery-tabs') && !document.getElementById('hero-title')) {
+              // If it's pure gallery page
+              renderGalleryPage(data);
+          }
+
+          renderFooter(data);
+      })
+      .catch(error => console.error("Error loading data.json", error));
+}
+
+// Support both: static HTML pages (DOMContentLoaded not yet fired)
+// and dynamic injection from SPA (DOMContentLoaded already fired)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initOlympicApp);
+} else {
+    initOlympicApp();
+}

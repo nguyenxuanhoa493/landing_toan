@@ -2,68 +2,24 @@
 <html lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/style.css"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "primary": "#2563eb",
-          "secondary": "#3b82f6",
-          "background-light": "#f0f7ff",
-          "background-dark": "#0f172a",
-        },
-        fontFamily: { "display": ["Lexend"] },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
-<style>
-  .math-bg { position:absolute; inset:0; overflow:hidden; pointer-events:none; user-select:none; }
-  .math-bg span { position:absolute; font-family:'Lexend',sans-serif; font-weight:900; color:rgba(255,255,255,0.09); line-height:1; white-space:nowrap; }
-  .pkg-card { cursor:pointer; transition: all .2s; }
-  .pkg-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.15); }
-  [data-tab-panel] { display:none; }
-  [data-tab-panel].active { display:block; }
-  #payment-modal { transition: opacity .2s; }
-  #payment-modal.hidden { pointer-events:none; }
-  .section-divider { border-top: 1px solid rgba(226,232,240,0.7); }
-</style>
+<script src="o-assets/head.js"></script>
 <title>Luyện Thi — Olympic Toán Tuổi thơ 2026</title>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-blue-100 flex flex-col min-h-screen">
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-blue-100 dark:border-blue-900/30">
-<div class="container mx-auto px-4 h-20 flex items-center justify-between">
-  <a href="index.html" class="flex items-center gap-2 group cursor-pointer" style="text-decoration: none;">
-    <img src="assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
-  </a>
-  <nav id="header-nav" class="hidden md:flex items-center gap-4"></nav>
-  <div class="flex items-center gap-3">
-    <a id="header-login" href="#" class="px-4 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-colors hidden md:block">Đăng nhập</a>
-    <a id="header-register" href="#" class="px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-500/20 hover-button-glow hidden md:block">Đăng ký ngay</a>
-    <span class="material-symbols-outlined text-slate-500 md:hidden cursor-pointer p-2">menu</span>
-  </div>
-</div>
-</header>
+<olympic-header></olympic-header>
 
 <main class="flex-grow">
 
 <!-- HERO -->
 <section class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500">
   <div class="math-bg">
-    <span style="left:3%;top:-5%;font-size:5rem;transform:rotate(-10deg)">1+1</span>
-    <span style="left:20%;bottom:-10%;font-size:4rem;transform:rotate(8deg)">×3</span>
-    <span style="right:15%;top:-8%;font-size:4.5rem;transform:rotate(-14deg)">÷4</span>
-    <span style="right:35%;bottom:-12%;font-size:3.5rem;transform:rotate(12deg)">=?</span>
-    <span style="right:5%;top:10%;font-size:3rem;transform:rotate(-6deg)">2²</span>
-    <span style="left:45%;top:5%;font-size:2.5rem;transform:rotate(18deg)">+8</span>
+    <span class="olympic-math-lt-1">1+1</span>
+    <span class="olympic-math-lt-2">×3</span>
+    <span class="olympic-math-lt-3">÷4</span>
+    <span class="olympic-math-lt-4">=?</span>
+    <span class="olympic-math-lt-5">2²</span>
+    <span class="olympic-math-lt-6">+8</span>
   </div>
   <div class="container mx-auto px-4 py-5 lg:py-7 relative z-10">
     <div class="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8">
@@ -77,7 +33,7 @@
         </div>
         <div class="flex items-center gap-3 mb-3">
           <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-white text-xl" style="font-variation-settings:'FILL' 1">exercise</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-white text-xl">exercise</span>
           </div>
           <h1 class="text-2xl lg:text-3xl font-black leading-tight">Luyện Thi</h1>
         </div>
@@ -136,7 +92,7 @@
         </div>
         <!-- CTA -->
         <button class="flex-shrink-0 px-6 py-3 bg-blue-600 text-white font-black rounded-xl flex items-center gap-2 hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 text-base">
-          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">play_arrow</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-lg">play_arrow</span>
           Vào thi
         </button>
       </div>
@@ -147,7 +103,7 @@
     <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
       <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-blue-500 text-xl" style="font-variation-settings:'FILL' 1">shopping_cart</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl">shopping_cart</span>
           <h2 class="font-black text-lg text-slate-800 dark:text-slate-100">Mua thêm lượt thi</h2>
         </div>
         <span class="text-xs text-slate-400 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full font-semibold">Không bắt buộc</span>
@@ -181,7 +137,7 @@
     <!-- ③ Lịch sử kết quả -->
     <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
       <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex items-center gap-3">
-        <span class="material-symbols-outlined text-blue-500 text-xl" style="font-variation-settings:'FILL' 1">history</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl">history</span>
         <h2 class="font-black text-lg text-slate-800 dark:text-slate-100">Lịch sử kết quả</h2>
       </div>
       <div class="overflow-x-auto">
@@ -236,7 +192,7 @@
       <div class="p-6 space-y-5">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="flex gap-3 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800">
-            <span class="material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">calendar_month</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5">calendar_month</span>
             <div>
               <p class="text-xs font-bold text-blue-500 uppercase tracking-wide mb-1">Thời gian</p>
               <p class="font-black text-slate-700 dark:text-slate-200">12/3 – 28/3/2026</p>
@@ -244,7 +200,7 @@
             </div>
           </div>
           <div class="flex gap-3 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800">
-            <span class="material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">schedule</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5">schedule</span>
             <div>
               <p class="text-xs font-bold text-blue-500 uppercase tracking-wide mb-1">Thời gian làm bài</p>
               <p class="font-black text-slate-700 dark:text-slate-200">30 phút / lần</p>
@@ -252,7 +208,7 @@
             </div>
           </div>
           <div class="flex gap-3 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800">
-            <span class="material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">quiz</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5">quiz</span>
             <div>
               <p class="text-xs font-bold text-blue-500 uppercase tracking-wide mb-1">Cấu trúc đề thi</p>
               <p class="font-black text-slate-700 dark:text-slate-200">15 câu trắc nghiệm</p>
@@ -260,7 +216,7 @@
             </div>
           </div>
           <div class="flex gap-3 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800">
-            <span class="material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">devices</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-blue-500 text-xl flex-shrink-0 mt-0.5">devices</span>
             <div>
               <p class="text-xs font-bold text-blue-500 uppercase tracking-wide mb-1">Hình thức</p>
               <p class="font-black text-slate-700 dark:text-slate-200">Trực tuyến, tự do</p>
@@ -268,7 +224,7 @@
             </div>
           </div>
           <div class="flex gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800">
-            <span class="material-symbols-outlined text-emerald-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-emerald-500 text-xl flex-shrink-0 mt-0.5">check_circle</span>
             <div>
               <p class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-1">Lượt thi miễn phí</p>
               <p class="font-black text-slate-700 dark:text-slate-200">3 lần miễn phí</p>
@@ -276,7 +232,7 @@
             </div>
           </div>
           <div class="flex gap-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600">
-            <span class="material-symbols-outlined text-slate-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">grade</span>
+            <span class="olympic-icon-filled material-symbols-outlined text-slate-500 text-xl flex-shrink-0 mt-0.5">grade</span>
             <div>
               <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Ghi nhận điểm</p>
               <p class="font-black text-slate-700 dark:text-slate-200">Điểm cao nhất</p>
@@ -285,7 +241,7 @@
           </div>
         </div>
         <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 flex gap-3">
-          <span class="material-symbols-outlined text-amber-500 text-xl flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1">info</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-amber-500 text-xl flex-shrink-0 mt-0.5">info</span>
           <p class="text-sm text-amber-800 dark:text-amber-300">Luyện Thi không ảnh hưởng đến kết quả xét tuyển tại các vòng thi chính thức. Kết quả dùng để thí sinh tự đánh giá năng lực và làm quen với hệ thống.</p>
         </div>
       </div>
@@ -426,20 +382,20 @@
       <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Chọn phương thức thanh toán</p>
       <div class="grid grid-cols-2 gap-3">
         <button class="p-3.5 rounded-xl border-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20 flex items-center gap-2 font-bold text-blue-600 text-sm">
-          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">account_balance_wallet</span>MoMo
+          <span class="olympic-icon-filled material-symbols-outlined text-lg">account_balance_wallet</span>MoMo
         </button>
         <button class="p-3.5 rounded-xl border-2 border-slate-200 dark:border-slate-600 flex items-center gap-2 font-bold text-slate-600 dark:text-slate-300 text-sm hover:border-blue-300 transition-colors">
-          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">account_balance_wallet</span>ZaloPay
+          <span class="olympic-icon-filled material-symbols-outlined text-lg">account_balance_wallet</span>ZaloPay
         </button>
         <button class="p-3.5 rounded-xl border-2 border-slate-200 dark:border-slate-600 flex items-center gap-2 font-bold text-slate-600 dark:text-slate-300 text-sm hover:border-blue-300 transition-colors">
-          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">account_balance</span>VNPay
+          <span class="olympic-icon-filled material-symbols-outlined text-lg">account_balance</span>VNPay
         </button>
         <button class="p-3.5 rounded-xl border-2 border-slate-200 dark:border-slate-600 flex items-center gap-2 font-bold text-slate-600 dark:text-slate-300 text-sm hover:border-blue-300 transition-colors">
-          <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">credit_card</span>Thẻ ngân hàng
+          <span class="olympic-icon-filled material-symbols-outlined text-lg">credit_card</span>Thẻ ngân hàng
         </button>
       </div>
       <button class="w-full py-3.5 bg-blue-600 text-white font-black rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 text-base">
-        <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">lock</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-lg">lock</span>
         Xác nhận thanh toán — <span id="modal-confirm-price">30.000đ</span>
       </button>
       <p class="text-center text-xs text-slate-400">🔒 Kết nối bảo mật SSL · Hóa đơn gửi qua email</p>
@@ -447,30 +403,10 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="bg-slate-900 dark:bg-black text-slate-300 mt-12">
-  <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div>
-      <h5 class="text-white font-bold mb-4">Olympic Toán Tuổi thơ</h5>
-      <p class="text-sm text-slate-400">Sân chơi toán học trực tuyến dành cho học sinh Tiểu học và THCS toàn quốc.</p>
-    </div>
-    <div>
-      <h5 class="text-white font-bold mb-4">Chính sách</h5>
-      <ul id="footer-col2-links" class="space-y-2 text-sm"></ul>
-    </div>
-    <div>
-      <h5 class="text-white font-bold mb-4">Liên hệ</h5>
-      <ul id="footer-col3-links" class="space-y-2 text-sm"></ul>
-    </div>
-  </div>
-  <div class="border-t border-white/10 container mx-auto px-4 py-5 text-xs text-slate-500">
-    © 2026 CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE. All rights reserved.
-  </div>
-</footer>
+<olympic-footer></olympic-footer>
 
-<div id="mobile-nav-bottom" class="fixed bottom-0 left-0 right-0 lg:hidden bg-white dark:bg-slate-900 border-t border-blue-100 dark:border-slate-800 flex justify-around py-3 px-2 z-50"></div>
+<olympic-mobile-nav></olympic-mobile-nav>
 
-<script src="assets/script.js"></script>
 <script>
 function openPaymentModal(qty, price, unit) {
   document.getElementById('modal-pkg-qty').textContent = '× ' + qty;

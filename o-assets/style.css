@@ -315,3 +315,270 @@ body {
     .btn-trial, .btn-trial-icon { animation: none; }
     .btn-trial::before           { display: none; }
 }
+
+/* =============================================
+   Olympic — Extracted Inline Styles
+   All class names prefixed with "olympic-"
+   ============================================= */
+
+/* --- Shared utilities --- */
+.olympic-icon-filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+.olympic-no-underline {
+  text-decoration: none;
+}
+
+/* --- Animation modifiers --- */
+.olympic-delay-05 { animation-delay: 0.5s; }
+.olympic-delay-1  { animation-delay: 1s; }
+.olympic-delay-2  { animation-delay: 2s; }
+.olympic-duration-4 { animation-duration: 4s; }
+
+/* --- Hero decorative icon positions (index, thamgia, thuvien) --- */
+.olympic-deco-pos-1 { top: 10%; left: 5%; }
+.olympic-deco-pos-2 { top: 20%; right: 10%; }
+.olympic-deco-pos-3 { bottom: 15%; left: 15%; }
+.olympic-deco-pos-4 { bottom: 25%; right: 5%; }
+.olympic-deco-pos-5 { top: 40%; left: 45%; }
+
+/* --- Stat bar scale reveal (index) --- */
+.olympic-scale-reveal {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease 0.3s;
+}
+
+/* --- Dot pattern background (index) --- */
+.olympic-dot-pattern {
+  background-image: radial-gradient(#2563eb 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* --- Math background symbols: luyen-thi --- */
+.olympic-math-lt-1 { left: 3%; top: -5%; font-size: 5rem; transform: rotate(-10deg); }
+.olympic-math-lt-2 { left: 20%; bottom: -10%; font-size: 4rem; transform: rotate(8deg); }
+.olympic-math-lt-3 { right: 15%; top: -8%; font-size: 4.5rem; transform: rotate(-14deg); }
+.olympic-math-lt-4 { right: 35%; bottom: -12%; font-size: 3.5rem; transform: rotate(12deg); }
+.olympic-math-lt-5 { right: 5%; top: 10%; font-size: 3rem; transform: rotate(-6deg); }
+.olympic-math-lt-6 { left: 45%; top: 5%; font-size: 2.5rem; transform: rotate(18deg); }
+
+/* --- Math background symbols: thamgia – trial round --- */
+.olympic-math-trial-1 { right: 7%; top: -12%; font-size: 4.5rem; transform: rotate(-12deg); }
+.olympic-math-trial-2 { right: 27%; top: 8%; font-size: 2.4rem; transform: rotate(10deg); }
+.olympic-math-trial-3 { right: 44%; bottom: -18%; font-size: 3.8rem; transform: rotate(-8deg); }
+.olympic-math-trial-4 { right: 16%; bottom: -10%; font-size: 2.8rem; transform: rotate(16deg); }
+.olympic-math-trial-5 { right: 58%; top: 2%; font-size: 2rem; transform: rotate(-18deg); }
+
+/* --- Math background symbols: thamgia – round 1 --- */
+.olympic-math-r1-1 { right: 5%; top: -10%; font-size: 4rem; transform: rotate(-10deg); }
+.olympic-math-r1-2 { right: 32%; bottom: -12%; font-size: 3.5rem; transform: rotate(12deg); }
+.olympic-math-r1-3 { right: 18%; top: 5%; font-size: 2.6rem; transform: rotate(-15deg); }
+.olympic-math-r1-4 { right: 52%; top: -5%; font-size: 2.2rem; transform: rotate(8deg); }
+
+/* --- Math background symbols: thamgia – round 2 --- */
+.olympic-math-r2-1 { right: 5%; top: -12%; font-size: 4.5rem; transform: rotate(-8deg); }
+.olympic-math-r2-2 { right: 28%; bottom: -15%; font-size: 3.8rem; transform: rotate(10deg); }
+.olympic-math-r2-3 { right: 46%; top: 5%; font-size: 2.8rem; transform: rotate(-18deg); }
+.olympic-math-r2-4 { right: 16%; top: -5%; font-size: 2.2rem; transform: rotate(14deg); }
+
+/* --- Math background symbols: thamgia – round 3 --- */
+.olympic-math-r3-1 { right: 5%; top: -12%; font-size: 4.5rem; transform: rotate(-10deg); }
+.olympic-math-r3-2 { right: 28%; bottom: -15%; font-size: 3.5rem; transform: rotate(12deg); }
+.olympic-math-r3-3 { right: 46%; top: 5%; font-size: 2.6rem; transform: rotate(-15deg); }
+.olympic-math-r3-4 { right: 16%; top: -8%; font-size: 2rem; transform: rotate(18deg); }
+
+/* --- Math background symbols: thele --- */
+.olympic-math-thele-1 { left: 2%; top: -8%; font-size: 5rem; transform: rotate(-10deg); }
+.olympic-math-thele-2 { left: 22%; bottom: -12%; font-size: 4.5rem; transform: rotate(9deg); }
+.olympic-math-thele-3 { right: 12%; top: -5%; font-size: 4rem; transform: rotate(-14deg); }
+.olympic-math-thele-4 { right: 32%; bottom: -10%; font-size: 3.5rem; transform: rotate(12deg); }
+.olympic-math-thele-5 { right: 4%; top: 12%; font-size: 3rem; transform: rotate(-7deg); }
+
+
+/* =============================================
+   Olympic Vòng Thi – Scoped Styles
+   All outer selectors prefixed with "olympic-"
+   ============================================= */
+
+/* --- Layout / Structure --- */
+.theme-default-light .vt-layout {
+  background-color: unset;
+}
+
+.olympic-math-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.olympic-math-bg span {
+  position: absolute;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.09);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.olympic-page [data-tab-panel] {
+  display: none;
+}
+
+.olympic-page [data-tab-panel].active {
+  display: block;
+}
+
+.olympic-session-ended {
+  opacity: 0.55;
+}
+
+.olympic-session-active {
+  outline: 2px solid #2563eb;
+}
+
+.olympic-section-divider {
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.olympic-page #reg-modal {
+  transition: opacity 0.2s;
+}
+
+.olympic-page #reg-modal.hidden {
+  pointer-events: none;
+}
+
+/* --- Math background symbol positions (vòng thi) --- */
+.olympic-math-sym-1 {
+  left: 2%;
+  top: -8%;
+  font-size: 5rem;
+  transform: rotate(-10deg);
+}
+
+.olympic-math-sym-2 {
+  left: 22%;
+  bottom: -12%;
+  font-size: 4.5rem;
+  transform: rotate(9deg);
+}
+
+.olympic-math-sym-3 {
+  right: 12%;
+  top: -5%;
+  font-size: 4rem;
+  transform: rotate(-14deg);
+}
+
+.olympic-math-sym-4 {
+  right: 32%;
+  bottom: -10%;
+  font-size: 3.5rem;
+  transform: rotate(12deg);
+}
+
+.olympic-math-sym-5 {
+  right: 4%;
+  top: 12%;
+  font-size: 3rem;
+  transform: rotate(-7deg);
+}
+
+.olympic-math-sym-6 {
+  left: 48%;
+  top: 3%;
+  font-size: 2.5rem;
+  transform: rotate(17deg);
+}
+
+/* =============================================
+   Shared across pages (thele, luyen-thi, thamgia)
+   ============================================= */
+
+/* --- Math decorative background (hero sections) --- */
+.math-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.math-bg span {
+  position: absolute;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.09);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* =============================================
+   Luyện Thi page
+   ============================================= */
+.pkg-card {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pkg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+[data-tab-panel] {
+  display: none;
+}
+
+[data-tab-panel].active {
+  display: block;
+}
+
+#payment-modal {
+  transition: opacity 0.2s;
+}
+
+#payment-modal.hidden {
+  pointer-events: none;
+}
+
+.section-divider {
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+/* =============================================
+   Tham gia page
+   ============================================= */
+.tag-btn {
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tag-btn:hover {
+  filter: brightness(0.93);
+  transform: scale(1.04);
+}
+
+[data-state-panel] {
+  display: none;
+}
+
+[data-state-panel].active {
+  display: block;
+}
+
+.state-tab {
+  transition: all 0.15s;
+}
+
+#info-modal {
+  transition: opacity 0.2s;
+}
+
+#info-modal.hidden {
+  pointer-events: none;
+}

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const galleryDir = path.join(__dirname, 'assets', 'gallery');
+const galleryDir = path.join(__dirname, 'o-assets', 'gallery');
 const dataJsonPath = path.join(__dirname, 'data.json');
 
 function getGroupedFiles(dirPath) {
@@ -16,7 +16,7 @@ function getGroupedFiles(dirPath) {
             
             innerFiles.forEach(file => {
                 if (file.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
-                    let relPath = path.join('assets/gallery', folderName, file);
+                    let relPath = path.join('o-assets/gallery', folderName, file);
                     relPath = relPath.replace(/\\/g, '/');
                     list_image.push(relPath);
                 }

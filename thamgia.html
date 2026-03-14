@@ -2,70 +2,23 @@
 <html lang="vi"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/style.css"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "primary": "#2563eb",
-          "secondary": "#3b82f6",
-          "background-light": "#f0f7ff",
-          "background-dark": "#0f172a",
-        },
-        fontFamily: { "display": ["Lexend"] },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
-<style>
-  .tag-btn { cursor:pointer; transition: all .15s; }
-  .tag-btn:hover { filter: brightness(.93); transform: scale(1.04); }
-  [data-state-panel] { display:none; }
-  [data-state-panel].active { display:block; }
-  .state-tab { transition: all .15s; }
-  #info-modal { transition: opacity .2s; }
-  #info-modal.hidden { pointer-events:none; }
-  .math-bg { position:absolute; inset:0; overflow:hidden; pointer-events:none; user-select:none; }
-  .math-bg span {
-    position:absolute; font-family:'Lexend',sans-serif; font-weight:900;
-    color:rgba(255,255,255,0.09); line-height:1; white-space:nowrap;
-  }
-</style>
+<script src="o-assets/head.js"></script>
 <title>Tham gia thi - Olympic Toán Tuổi thơ</title>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-blue-100 flex flex-col min-h-screen">
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-blue-100 dark:border-blue-900/30">
-<div class="container mx-auto px-4 h-20 flex items-center justify-between">
-  <a href="index.html" class="flex items-center gap-2 group cursor-pointer" style="text-decoration: none;">
-    <img src="assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
-  </a>
-  <nav id="header-nav" class="hidden md:flex items-center gap-4"></nav>
-  <div class="flex items-center gap-3">
-    <a id="header-login" href="#" class="px-4 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-colors hidden md:block">Đăng nhập</a>
-    <a id="header-register" href="#" class="px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-500/20 hover-button-glow hidden md:block">Đăng ký ngay</a>
-    <span class="material-symbols-outlined text-slate-500 md:hidden cursor-pointer p-2">menu</span>
-  </div>
-</div>
-</header>
+<olympic-header></olympic-header>
 
 <main class="flex-grow">
 
 <!-- HERO BANNER -->
 <section class="relative overflow-hidden py-10 lg:py-14 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500">
   <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-    <span class="material-symbols-outlined absolute text-white text-4xl" style="top:10%;left:5%">star</span>
-    <span class="material-symbols-outlined absolute text-blue-200 text-6xl" style="top:20%;right:10%">military_tech</span>
-    <span class="material-symbols-outlined absolute text-white text-5xl" style="bottom:15%;left:15%">emoji_events</span>
-    <span class="material-symbols-outlined absolute text-blue-300 text-7xl" style="bottom:25%;right:5%">workspace_premium</span>
-    <span class="material-symbols-outlined absolute text-white text-3xl" style="top:40%;left:45%">add</span>
+    <span class="material-symbols-outlined absolute text-white text-4xl olympic-deco-pos-1">star</span>
+    <span class="material-symbols-outlined absolute text-blue-200 text-6xl olympic-deco-pos-2">military_tech</span>
+    <span class="material-symbols-outlined absolute text-white text-5xl olympic-deco-pos-3">emoji_events</span>
+    <span class="material-symbols-outlined absolute text-blue-300 text-7xl olympic-deco-pos-4">workspace_premium</span>
+    <span class="material-symbols-outlined absolute text-white text-3xl olympic-deco-pos-5">add</span>
   </div>
   <div class="container mx-auto px-4 relative z-10 text-center text-white">
     <span class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-wider bg-white/20 rounded-full backdrop-blur-sm border border-white/20">
@@ -85,28 +38,28 @@
     <div class="flex items-center justify-center gap-2 overflow-x-auto pb-1">
       <a href="#round-trial" class="flex flex-col items-center gap-1 min-w-[72px] group">
         <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform border-2 border-blue-300">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">exercise</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-base">exercise</span>
         </div>
         <span class="text-xs font-bold text-slate-600 dark:text-slate-300 whitespace-nowrap">Luyện thi</span>
       </a>
       <div class="flex-1 max-w-[60px] h-0.5 bg-gradient-to-r from-blue-300 to-blue-400 rounded hidden sm:block"></div>
       <a href="#round-1" class="flex flex-col items-center gap-1 min-w-[72px] group">
         <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform border-2 border-blue-300">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">school</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-base">school</span>
         </div>
         <span class="text-xs font-bold text-slate-600 dark:text-slate-300 whitespace-nowrap">Cấp trường</span>
       </a>
       <div class="flex-1 max-w-[60px] h-0.5 bg-gradient-to-r from-blue-300 to-blue-400 rounded hidden sm:block"></div>
       <a href="#round-2" class="flex flex-col items-center gap-1 min-w-[72px] group">
         <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform border-2 border-blue-300">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">location_city</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-base">location_city</span>
         </div>
         <span class="text-xs font-bold text-slate-600 dark:text-slate-300 whitespace-nowrap">Cấp tỉnh</span>
       </a>
       <div class="flex-1 max-w-[60px] h-0.5 bg-gradient-to-r from-blue-300 to-blue-400 rounded hidden sm:block"></div>
       <a href="#round-3" class="flex flex-col items-center gap-1 min-w-[72px] group">
         <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform border-2 border-blue-300">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">emoji_events</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-base">emoji_events</span>
         </div>
         <span class="text-xs font-bold text-slate-600 dark:text-slate-300 whitespace-nowrap">Chung kết</span>
       </a>
@@ -123,14 +76,14 @@
     <!-- Card Header -->
     <div class="px-5 py-4 flex flex-wrap items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-400 relative overflow-hidden">
       <div class="math-bg">
-        <span style="right:7%;top:-12%;font-size:4.5rem;transform:rotate(-12deg)">1+1</span>
-        <span style="right:27%;top:8%;font-size:2.4rem;transform:rotate(10deg)">×3</span>
-        <span style="right:44%;bottom:-18%;font-size:3.8rem;transform:rotate(-8deg)">÷4</span>
-        <span style="right:16%;bottom:-10%;font-size:2.8rem;transform:rotate(16deg)">=?</span>
-        <span style="right:58%;top:2%;font-size:2rem;transform:rotate(-18deg)">2²</span>
+        <span class="olympic-math-trial-1">1+1</span>
+        <span class="olympic-math-trial-2">×3</span>
+        <span class="olympic-math-trial-3">÷4</span>
+        <span class="olympic-math-trial-4">=?</span>
+        <span class="olympic-math-trial-5">2²</span>
       </div>
       <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-        <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1">exercise</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-white text-lg">exercise</span>
       </div>
       <div class="flex-1 min-w-0">
         <h3 class="text-white font-black text-lg leading-tight">Luyện Thi</h3>
@@ -163,7 +116,7 @@
           <p class="text-xs text-slate-500 mt-0.5">Còn 1 lượt</p>
         </div>
         <button class="btn-trial px-5 py-2.5 bg-blue-600 text-white font-bold rounded-xl flex items-center gap-1.5 text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-200">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">play_arrow</span>Vào thi
+          <span class="olympic-icon-filled material-symbols-outlined text-base">play_arrow</span>Vào thi
         </button>
       </div>
       <!-- Mua thêm lượt -->
@@ -225,13 +178,13 @@
   <div id="round-1" class="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
     <div class="px-5 py-4 flex flex-wrap items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-400 relative overflow-hidden">
       <div class="math-bg">
-        <span style="right:5%;top:-10%;font-size:4rem;transform:rotate(-10deg)">a²+b²</span>
-        <span style="right:32%;bottom:-12%;font-size:3.5rem;transform:rotate(12deg)">√x</span>
-        <span style="right:18%;top:5%;font-size:2.6rem;transform:rotate(-15deg)">½</span>
-        <span style="right:52%;top:-5%;font-size:2.2rem;transform:rotate(8deg)">3×4</span>
+        <span class="olympic-math-r1-1">a²+b²</span>
+        <span class="olympic-math-r1-2">√x</span>
+        <span class="olympic-math-r1-3">½</span>
+        <span class="olympic-math-r1-4">3×4</span>
       </div>
       <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-        <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1">school</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-white text-lg">school</span>
       </div>
       <div class="flex-1 min-w-0">
         <h3 class="text-white font-black text-lg leading-tight">Vòng 1 · Cấp Trường</h3>
@@ -300,7 +253,7 @@
           <span class="text-sm font-bold text-blue-700 dark:text-blue-300">Đang diễn ra</span>
         </div>
         <button class="btn-trial px-4 py-2 bg-blue-600 text-white font-bold rounded-xl flex items-center gap-1.5 text-sm hover:bg-blue-700 transition-colors">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">play_arrow</span>Vào thi
+          <span class="olympic-icon-filled material-symbols-outlined text-base">play_arrow</span>Vào thi
         </button>
       </div>
       <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lịch thi</p>
@@ -369,13 +322,13 @@
   <div id="round-2" class="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
     <div class="px-5 py-4 flex flex-wrap items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-400 relative overflow-hidden">
       <div class="math-bg">
-        <span style="right:5%;top:-12%;font-size:4.5rem;transform:rotate(-8deg)">∑n²</span>
-        <span style="right:28%;bottom:-15%;font-size:3.8rem;transform:rotate(10deg)">n!</span>
-        <span style="right:46%;top:5%;font-size:2.8rem;transform:rotate(-18deg)">πr²</span>
-        <span style="right:16%;top:-5%;font-size:2.2rem;transform:rotate(14deg)">∞</span>
+        <span class="olympic-math-r2-1">∑n²</span>
+        <span class="olympic-math-r2-2">n!</span>
+        <span class="olympic-math-r2-3">πr²</span>
+        <span class="olympic-math-r2-4">∞</span>
       </div>
       <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-        <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1">location_city</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-white text-lg">location_city</span>
       </div>
       <div class="flex-1 min-w-0">
         <h3 class="text-white font-black text-lg leading-tight">Vòng 2 · Cấp Tỉnh</h3>
@@ -436,7 +389,7 @@
           <span class="text-sm font-bold text-blue-700 dark:text-blue-300">Đang diễn ra</span>
         </div>
         <button class="btn-trial px-4 py-2 bg-blue-600 text-white font-bold rounded-xl flex items-center gap-1.5 text-sm hover:bg-blue-700 transition-colors">
-          <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1">play_arrow</span>Vào thi
+          <span class="olympic-icon-filled material-symbols-outlined text-base">play_arrow</span>Vào thi
         </button>
       </div>
       <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lịch thi</p>
@@ -498,13 +451,13 @@
   <div id="round-3" class="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
     <div class="px-5 py-4 flex flex-wrap items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-400 relative overflow-hidden">
       <div class="math-bg">
-        <span style="right:5%;top:-12%;font-size:4.5rem;transform:rotate(-10deg)">∑∏</span>
-        <span style="right:28%;bottom:-15%;font-size:3.5rem;transform:rotate(12deg)">√π²</span>
-        <span style="right:46%;top:5%;font-size:2.6rem;transform:rotate(-15deg)">n→∞</span>
-        <span style="right:16%;top:-8%;font-size:2rem;transform:rotate(18deg)">∫dx</span>
+        <span class="olympic-math-r3-1">∑∏</span>
+        <span class="olympic-math-r3-2">√π²</span>
+        <span class="olympic-math-r3-3">n→∞</span>
+        <span class="olympic-math-r3-4">∫dx</span>
       </div>
       <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-        <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1">emoji_events</span>
+        <span class="olympic-icon-filled material-symbols-outlined text-white text-lg">emoji_events</span>
       </div>
       <div class="flex-1 min-w-0">
         <h3 class="text-white font-black text-lg leading-tight">Vòng 3 · Chung Kết</h3>
@@ -526,7 +479,7 @@
     <div data-state-panel="r3-upcoming" class="p-5 space-y-4">
       <div class="flex items-center gap-4 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
         <div class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0">
-          <span class="material-symbols-outlined text-blue-600 text-3xl" style="font-variation-settings:'FILL' 1">emoji_events</span>
+          <span class="olympic-icon-filled material-symbols-outlined text-blue-600 text-3xl">emoji_events</span>
         </div>
         <div>
           <p class="font-black text-blue-700 dark:text-blue-300 text-xl">15/6/2026</p>
@@ -616,47 +569,10 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="bg-slate-950 text-slate-400 py-16">
-<div class="container mx-auto px-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-16">
-    <div>
-      <div class="flex items-center gap-2 mb-6 group cursor-pointer">
-        <img src="assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"/>
-      </div>
-      <ul id="footer-col1-details" class="space-y-4 text-sm leading-relaxed mb-6"></ul>
-      <div class="flex gap-4">
-        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all" href="#">
-          <span class="material-symbols-outlined text-white text-sm">social_leaderboard</span>
-        </a>
-        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all" href="#">
-          <span class="material-symbols-outlined text-white text-sm">alternate_email</span>
-        </a>
-        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all" href="#">
-          <span class="material-symbols-outlined text-white text-sm">share</span>
-        </a>
-      </div>
-    </div>
-    <div>
-      <h5 id="footer-col2-title" class="text-white font-bold mb-6">Chính sách</h5>
-      <ul id="footer-col2-links" class="space-y-4 text-sm"></ul>
-    </div>
-    <div>
-      <h5 id="footer-col3-title" class="text-white font-bold mb-6">Liên hệ</h5>
-      <ul id="footer-col3-links" class="space-y-4 text-sm"></ul>
-    </div>
-  </div>
-  <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-    <p>© <span id="current-year">2026</span> CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE. All rights reserved.</p>
-    <div class="flex gap-6"><span>Designed with Stitch</span></div>
-  </div>
-</div>
-</footer>
+<olympic-footer></olympic-footer>
 
-<div id="mobile-nav-bottom" class="fixed bottom-0 left-0 right-0 lg:hidden bg-white dark:bg-slate-900 border-t border-blue-100 dark:border-slate-800 flex justify-around py-3 px-2 z-50">
-</div>
+<olympic-mobile-nav></olympic-mobile-nav>
 
-<script src="assets/script.js"></script>
 <script>
 // ===== MODAL DATA =====
 const modalData = {

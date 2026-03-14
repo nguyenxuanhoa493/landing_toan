@@ -4,78 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#2563eb",
-                        "secondary": "#3b82f6",
-                        "background-light": "#f0f7ff",
-                        "background-dark": "#0f172a",
-                    },
-                    fontFamily: {
-                        "display": ["Lexend"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
+    <script src="o-assets/head.js"></script>
     <title>Olympic Toán Tuổi thơ Online</title>
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-blue-100">
-    <header
-        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-blue-100 dark:border-blue-900/30">
-        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group cursor-pointer" style="text-decoration: none;">
-                <img src="assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
-            </a>
-            <nav id="header-nav" class="hidden md:flex items-center gap-4">
-                <!-- Desktop nav injected here -->
-            </nav>
-            <div class="flex items-center gap-3">
-                <a id="header-login" href="#"
-                    class="px-4 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-colors hidden md:block">Đăng
-                    nhập</a>
-                <a id="header-register" href="#"
-                    class="px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-500/20 hover-button-glow hidden md:block">
-                    Đăng ký ngay
-                </a>
-                <span class="material-symbols-outlined text-slate-500 md:hidden cursor-pointer p-2">menu</span>
-            </div>
-        </div>
-    </header>
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-blue-100 flex flex-col min-h-screen">
+    <olympic-header></olympic-header>
     <section
         class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-slate-900 dark:to-background-dark">
         <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-            <span class="material-symbols-outlined absolute text-primary text-4xl animate-float"
-                style="top: 10%; left: 5%;">add</span>
-            <span class="material-symbols-outlined absolute text-blue-400 text-6xl animate-drift"
-                style="top: 20%; right: 10%;">functions</span>
-            <span class="material-symbols-outlined absolute text-primary text-5xl animate-float"
-                style="bottom: 15%; left: 15%; animation-delay: 1s;">percent</span>
-            <span class="material-symbols-outlined absolute text-blue-300 text-7xl animate-drift"
-                style="bottom: 25%; right: 5%; animation-delay: 2s;">square</span>
-            <span class="material-symbols-outlined absolute text-primary text-3xl animate-float"
-                style="top: 40%; left: 45%; animation-delay: 0.5s;">equal</span>
+            <span class="material-symbols-outlined absolute text-primary text-4xl animate-float olympic-deco-pos-1">add</span>
+            <span class="material-symbols-outlined absolute text-blue-400 text-6xl animate-drift olympic-deco-pos-2">functions</span>
+            <span class="material-symbols-outlined absolute text-primary text-5xl animate-float olympic-deco-pos-3 olympic-delay-1">percent</span>
+            <span class="material-symbols-outlined absolute text-blue-300 text-7xl animate-drift olympic-deco-pos-4 olympic-delay-2">square</span>
+            <span class="material-symbols-outlined absolute text-primary text-3xl animate-float olympic-deco-pos-5 olympic-delay-05">equal</span>
         </div>
         <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-8 relative z-10">
                 <div data-reveal="fade-up"
                     class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-primary dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
-                    <span class="material-symbols-outlined text-sm animate-spin"
-                        style="animation-duration: 4s;">stars</span>
+                    <span class="material-symbols-outlined text-sm animate-spin olympic-duration-4">stars</span>
                     Olympic Toán học toàn quốc <span class="hero-year-badge">2026</span>
                 </div>
                 <h2 id="hero-title" data-reveal="fade-up" data-reveal-delay="100"
@@ -104,13 +53,11 @@
                 </div>
                 <div
                     class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 animate-float">
-                    <!-- back layer (crossfade) -->
                     <img id="hero-img-back" aria-hidden="true"
                         class="absolute inset-0 w-full h-full object-cover aspect-[4/3]" src="" alt="" />
-                    <!-- front layer -->
                     <img id="hero-img-front" alt="Học sinh Olympic Toán học"
                         class="relative w-full h-full object-cover aspect-[4/3] transition-opacity duration-700"
-                        src="assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3863.webp"/>
+                        src="/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3863.webp"/>
                     <div
                         class="absolute bottom-4 left-4 right-4 p-4 bg-white/95 backdrop-blur rounded-xl border border-white/50 flex items-center justify-between animate-pulse-soft">
                         <div class="flex -space-x-3">
@@ -131,22 +78,16 @@
         </div>
     </section>
     <section id="roadmap" class="relative py-16 overflow-hidden">
-        <!-- Fun gradient background -->
         <div
             class="absolute inset-0 bg-gradient-to-b from-emerald-50 via-sky-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         </div>
-        <!-- Decorative clouds -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-40 dark:opacity-10">
             <div class="absolute top-8 left-[5%] w-24 h-10 bg-white rounded-full blur-sm animate-drift"></div>
-            <div class="absolute top-16 left-[8%] w-16 h-8 bg-white rounded-full blur-sm animate-drift"
-                style="animation-delay:0.5s"></div>
+            <div class="absolute top-16 left-[8%] w-16 h-8 bg-white rounded-full blur-sm animate-drift olympic-delay-05"></div>
             <div class="absolute top-12 right-[10%] w-32 h-12 bg-white rounded-full blur-sm animate-float"></div>
-            <div class="absolute top-20 right-[13%] w-20 h-8 bg-white rounded-full blur-sm animate-float"
-                style="animation-delay:1s"></div>
-            <div class="absolute bottom-[20%] left-[12%] w-28 h-10 bg-white rounded-full blur-sm animate-drift"
-                style="animation-delay:2s"></div>
+            <div class="absolute top-20 right-[13%] w-20 h-8 bg-white rounded-full blur-sm animate-float olympic-delay-1"></div>
+            <div class="absolute bottom-[20%] left-[12%] w-28 h-10 bg-white rounded-full blur-sm animate-drift olympic-delay-2"></div>
         </div>
-        <!-- Decorative ground hills -->
         <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
             <svg class="w-full h-24 text-emerald-100/60 dark:text-emerald-900/20" viewBox="0 0 1440 100"
                 preserveAspectRatio="none">
@@ -166,9 +107,7 @@
                     bản đồ phiêu lưu toán học!</p>
             </div>
             <div class="relative max-w-5xl mx-auto">
-                <!-- SVG road path -->
                 <svg id="roadmap-road-svg" class="absolute inset-0 w-full h-full pointer-events-none z-0"></svg>
-                <!-- Decorative sparkles scattered by JS -->
                 <div id="roadmap-decorations" class="absolute inset-0 pointer-events-none z-[1]"></div>
                 <div id="roadmap-container" class="relative z-10">
                 </div>
@@ -232,12 +171,9 @@
                     </div>
                 </div>
                 <div data-reveal="fade-left" class="grid grid-cols-2 gap-4">
-                    <!-- Col 1 -->
                     <div class="space-y-4">
-                        <!-- 10k+ Thí sinh -->
                         <div
                             class="relative overflow-hidden bg-gradient-to-br from-blue-500 to-primary rounded-3xl p-6 text-white hover-card-lift group">
-                            <!-- decorative rings -->
                             <div
                                 class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-500">
                             </div>
@@ -253,13 +189,11 @@
                                 <p class="text-sm font-semibold mt-1 opacity-80 uppercase tracking-wider">Thí sinh tham
                                     gia</p>
                                 <div class="mt-3 h-1.5 rounded-full bg-white/20 overflow-hidden">
-                                    <div class="h-full w-[78%] rounded-full bg-white/70 stat-bar"
-                                        style="transform:scaleX(0);transform-origin:left;transition:transform 1.2s ease 0.3s">
+                                    <div class="h-full w-[78%] rounded-full bg-white/70 stat-bar olympic-scale-reveal">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 500+ Giải thưởng -->
                         <div
                             class="relative overflow-hidden bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl p-6 text-white hover-card-lift group h-52 flex flex-col justify-between">
                             <div
@@ -279,14 +213,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Col 2 -->
                     <div class="space-y-4 pt-8">
-                        <!-- 63 Tỉnh thành -->
                         <div
                             class="relative overflow-hidden bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-xl border border-blue-50 dark:border-slate-700 h-60 flex flex-col justify-between hover-card-lift group">
-                            <!-- map dot pattern -->
-                            <div class="absolute inset-0 opacity-[0.04] dark:opacity-[0.08]"
-                                style="background-image:radial-gradient(#2563eb 1px,transparent 1px);background-size:18px 18px">
+                            <div class="absolute inset-0 opacity-[0.04] dark:opacity-[0.08] olympic-dot-pattern">
                             </div>
                             <div class="relative z-10 flex items-center justify-between">
                                 <span class="w-10 h-10 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
@@ -302,7 +232,6 @@
                                 <p class="text-xs text-slate-400 mt-1">Phủ sóng từ Bắc chí Nam 🌏</p>
                             </div>
                         </div>
-                        <!-- Cơ cấu lớp -->
                         <div
                             class="relative overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 rounded-3xl p-6 text-white hover-card-lift group">
                             <div
@@ -338,7 +267,6 @@
         </div>
     </section>
 
-    <!-- Đơn vị đồng hành Section -->
     <section class="py-20 bg-white dark:bg-background-dark/50 border-t border-blue-50 dark:border-slate-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -356,7 +284,6 @@
         </div>
     </section>
 
-    <!-- Chuyên gia đồng hành Section -->
     <section class="py-20 bg-background-light dark:bg-background-dark border-t border-blue-50 dark:border-slate-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -376,7 +303,6 @@
         </div>
     </section>
 
-    <!-- Cảm nhận Section -->
     <section id="testimonials" class="py-20 bg-gradient-to-b from-white to-blue-50/60 dark:from-background-dark dark:to-slate-900/60 border-t border-blue-50 dark:border-slate-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -392,7 +318,6 @@
         </div>
     </section>
 
-    <!-- Tin tức Section -->
     <section id="news"
         class="py-20 bg-blue-50/30 dark:bg-slate-900/40 relative border-t border-blue-50 dark:border-slate-800">
         <div class="container mx-auto px-4">
@@ -414,7 +339,6 @@
                 </a>
             </div>
             <div id="news-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-center">
-                <!-- Loading indicator -->
                 <div class="col-span-full flex justify-center py-10">
                     <span class="material-symbols-outlined animate-spin text-4xl text-primary">autorenew</span>
                 </div>
@@ -425,7 +349,6 @@
     <section class="py-20 bg-white dark:bg-background-dark/30">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-                <!-- Left: Info -->
                 <div class="w-full lg:w-1/3 flex flex-col justify-center">
                     <h3 id="gallery-title" data-reveal="fade-right"
                         class="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-6 leading-tight">Thư
@@ -433,7 +356,6 @@
                     <p id="gallery-desc" data-reveal="fade-right" data-reveal-delay="100" class="text-slate-600 dark:text-slate-400 mb-8 text-lg w-full">Những nụ cười,
                         sự tập trung và niềm đam mê của các sĩ tử nhí qua các mùa thi.</p>
 
-                    <!-- Active Slide Info (Dynamic) -->
                     <div
                         class="bg-blue-50 dark:bg-slate-800 rounded-2xl p-6 border border-blue-100 dark:border-slate-700 mb-8 min-h-[120px] transition-all">
                         <h4 id="gallery-slide-title" class="text-xl font-bold text-primary dark:text-blue-400 mb-2">Đang
@@ -441,7 +363,6 @@
                         <div class="flex items-center gap-2 mt-4">
                             <div id="gallery-progress-bar"
                                 class="h-1 bg-blue-200 dark:bg-slate-700 w-full rounded-full overflow-hidden">
-                                <!-- Progress fill via JS -->
                                 <div id="gallery-progress-fill"
                                     class="h-full bg-primary w-0 transition-all duration-[12000ms] ease-linear"></div>
                             </div>
@@ -455,63 +376,14 @@
                     </a>
                 </div>
 
-                <!-- Right: Image Slider -->
                 <div class="w-full lg:w-2/3 h-[400px] lg:h-[500px] relative group" id="gallery-slider-container">
-                    <!-- Images injected here -->
                 </div>
             </div>
         </div>
     </section>
-    <footer class="bg-slate-950 text-slate-400 py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-16">
-                <div>
-                    <div class="flex items-center gap-2 mb-6 group cursor-pointer">
-                        <img src="assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"/>
-                    </div>
-                    <ul id="footer-col1-details" class="space-y-4 text-sm leading-relaxed mb-6">
-                    </ul>
-                    <div class="flex gap-4">
-                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all"
-                            href="#">
-                            <span class="material-symbols-outlined text-white text-sm">social_leaderboard</span>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all"
-                            href="#">
-                            <span class="material-symbols-outlined text-white text-sm">alternate_email</span>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all"
-                            href="#">
-                            <span class="material-symbols-outlined text-white text-sm">share</span>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h5 id="footer-col2-title" class="text-white font-bold mb-6">Chính sách</h5>
-                    <ul id="footer-col2-links" class="space-y-4 text-sm">
-                    </ul>
-                </div>
-                <div>
-                    <h5 id="footer-col3-title" class="text-white font-bold mb-6">Liên hệ</h5>
-                    <ul id="footer-col3-links" class="space-y-4 text-sm">
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-                <p>© <span id="current-year">2026</span> CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <span>Designed with Stitch</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div id="mobile-nav-bottom"
-        class="fixed bottom-0 left-0 right-0 lg:hidden bg-white dark:bg-slate-900 border-t border-blue-100 dark:border-slate-800 flex justify-around py-3 px-2 z-50">
-        <!-- Dynamic mobile bottom nav here -->
-    </div>
+    <olympic-footer></olympic-footer>
+    <olympic-mobile-nav></olympic-mobile-nav>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm">
         <button id="lb-close"
             class="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
@@ -534,7 +406,6 @@
         </div>
     </div>
 
-    <script src="assets/script.js"></script>
 </body>
 
 </html>

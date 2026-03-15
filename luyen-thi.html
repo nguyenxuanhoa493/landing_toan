@@ -52,13 +52,13 @@
 <div class="sticky top-20 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
   <div class="container mx-auto px-4">
     <div class="flex gap-0 overflow-x-auto">
-      <button onclick="switchTab('exam')" data-tab="exam" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-blue-600 text-blue-600 transition-colors">
+      <button onclick="olympicSwitchTab('exam')" data-tab="exam" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-blue-600 text-blue-600 transition-colors">
         🎯 Vào thi
       </button>
-      <button onclick="switchTab('info')" data-tab="info" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
+      <button onclick="olympicSwitchTab('info')" data-tab="info" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
         ℹ️ Thông tin
       </button>
-      <button onclick="switchTab('rules')" data-tab="rules" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
+      <button onclick="olympicSwitchTab('rules')" data-tab="rules" class="tab-btn flex-shrink-0 px-5 py-3.5 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition-colors">
         📋 Thể lệ
       </button>
     </div>
@@ -428,15 +428,5 @@ document.getElementById('payment-modal').addEventListener('click', function(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePaymentModal(); });
 
-function switchTab(tab) {
-  document.querySelectorAll('[data-tab-panel]').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.remove('border-blue-600','text-blue-600');
-    b.classList.add('border-transparent','text-slate-500');
-  });
-  document.getElementById('tab-' + tab).classList.add('active');
-  const btn = document.querySelector('[data-tab="' + tab + '"]');
-  if (btn) { btn.classList.remove('border-transparent','text-slate-500'); btn.classList.add('border-blue-600','text-blue-600'); }
-}
 </script>
 </body></html>

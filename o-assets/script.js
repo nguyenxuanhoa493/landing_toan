@@ -963,7 +963,7 @@ function renderTestimonials(t) {
 })();
 
 
-function vongThiSwitchTab(tab) {
+function olympicSwitchTab(tab) {
     document.querySelectorAll('[data-tab-panel]').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => {
         b.classList.remove('border-blue-600','text-blue-600');

@@ -466,12 +466,12 @@ function renderGalleryPage(data) {
      const categories = data.gallery.categories || [];
      let activeCategory = null; // null = all
 
-     // Lightbox state
-     const lightbox = document.getElementById('lightbox');
-     const lbImg = document.getElementById('lb-img');
-     const lbCaption = document.getElementById('lb-caption');
-     const lbCounter = document.getElementById('lb-counter');
-     const lbCatTabs = document.getElementById('lb-cat-tabs');
+     // Lightbox state — lazy lookups so the element can be rendered after init
+     function getLightbox() { return document.getElementById('lightbox'); }
+     function getLbImg() { return document.getElementById('lb-img'); }
+     function getLbCaption() { return document.getElementById('lb-caption'); }
+     function getLbCounter() { return document.getElementById('lb-counter'); }
+     function getLbCatTabs() { return document.getElementById('lb-cat-tabs'); }
      let lbImages = [];
      let lbIndex = 0;
      let lbCatIndex = null; // category index in lightbox
@@ -527,6 +527,8 @@ function renderGalleryPage(data) {
      }
 
      function openLightbox() {
+         const lightbox = getLightbox();
+         if (!lightbox) return;
          lightbox.classList.remove('hidden');
          lightbox.classList.add('flex');
          document.body.style.overflow = 'hidden';
@@ -534,6 +536,8 @@ function renderGalleryPage(data) {
      }
 
      function closeLightbox() {
+         const lightbox = getLightbox();
+         if (!lightbox) return;
          lightbox.classList.add('hidden');
          lightbox.classList.remove('flex');
          document.body.style.overflow = '';
@@ -542,33 +546,39 @@ function renderGalleryPage(data) {
      function updateLightbox() {
          const item = lbImages[lbIndex];
          if (!item) return;
-         lbImg.src = item.image;
-         lbImg.alt = item.name;
-         lbCaption.textContent = item.name;
-         lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+         const lbImg = getLbImg();
+         const lbCaption = getLbCaption();
+         const lbCounter = getLbCounter();
+         const lbCatTabs = getLbCatTabs();
+         if (lbImg) { lbImg.src = item.image; lbImg.alt = item.name; }
+         if (lbCaption) lbCaption.textContent = item.name;
+         if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
 
          // Render category tabs in lightbox
-         const activeClass = 'bg-primary text-white';
-         const inactiveClass = 'bg-white/10 text-white/70 hover:bg-white/20';
-         let tabsHtml = `<button data-lbcat="all" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === null ? activeClass : inactiveClass}">Tất cả</button>`;
-         categories.forEach((cat, idx) => {
-             tabsHtml += `<button data-lbcat="${idx}" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === idx ? activeClass : inactiveClass}">${cat.name}</button>`;
-         });
-         lbCatTabs.innerHTML = tabsHtml;
-
-         lbCatTabs.querySelectorAll('button').forEach(btn => {
-             btn.addEventListener('click', () => {
-                 const val = btn.dataset.lbcat;
-                 lbCatIndex = val === 'all' ? null : parseInt(val);
-                 lbImages = getFilteredImages(lbCatIndex);
-                 lbIndex = 0;
-                 updateLightbox();
+         if (lbCatTabs) {
+             const activeClass = 'bg-primary text-white';
+             const inactiveClass = 'bg-white/10 text-white/70 hover:bg-white/20';
+             let tabsHtml = `<button data-lbcat="all" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === null ? activeClass : inactiveClass}">Tất cả</button>`;
+             categories.forEach((cat, idx) => {
+                 tabsHtml += `<button data-lbcat="${idx}" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === idx ? activeClass : inactiveClass}">${cat.name}</button>`;
              });
-         });
+             lbCatTabs.innerHTML = tabsHtml;
+
+             lbCatTabs.querySelectorAll('button').forEach(btn => {
+                 btn.addEventListener('click', () => {
+                     const val = btn.dataset.lbcat;
+                     lbCatIndex = val === 'all' ? null : parseInt(val);
+                     lbImages = getFilteredImages(lbCatIndex);
+                     lbIndex = 0;
+                     updateLightbox();
+                 });
+             });
+         }
      }
 
-     // Lightbox controls
-     if (lightbox) {
+     // Lightbox controls — bind once; guards inside handlers tolerate late rendering
+     const _lb = getLightbox();
+     if (_lb) {
          document.getElementById('lb-close').addEventListener('click', closeLightbox);
          document.getElementById('lb-prev').addEventListener('click', () => {
              lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
@@ -578,11 +588,12 @@ function renderGalleryPage(data) {
              lbIndex = (lbIndex + 1) % lbImages.length;
              updateLightbox();
          });
-         lightbox.addEventListener('click', (e) => {
-             if (e.target === lightbox) closeLightbox();
+         _lb.addEventListener('click', (e) => {
+             if (e.target === _lb) closeLightbox();
          });
          document.addEventListener('keydown', (e) => {
-             if (lightbox.classList.contains('hidden')) return;
+             const lb = getLightbox();
+             if (!lb || lb.classList.contains('hidden')) return;
              if (e.key === 'Escape') closeLightbox();
              if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
              if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); }
@@ -989,16 +1000,20 @@ function vongThiOpenRegModal(date, session, status) {
 }
 
 function vongThiCloseRegModal() {
-    document.getElementById('reg-modal').classList.add('hidden');
+    const modal = document.getElementById('reg-modal');
+    if (modal) modal.classList.add('hidden');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('reg-modal').addEventListener('click', function(e) {
-        if (e.target === this) vongThiCloseRegModal();
-    });
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') vongThiCloseRegModal();
-    });
+    const regModal = document.getElementById('reg-modal');
+    if (regModal) {
+        regModal.addEventListener('click', function(e) {
+            if (e.target === this) vongThiCloseRegModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') vongThiCloseRegModal();
+        });
+    }
 });
 
 function initOlympicApp() {

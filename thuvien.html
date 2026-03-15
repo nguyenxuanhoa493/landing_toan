@@ -45,24 +45,6 @@
 <olympic-mobile-nav></olympic-mobile-nav>
 
 <!-- Lightbox Modal -->
-<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-    <button id="lb-close" class="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-        <span class="material-symbols-outlined text-white text-3xl">close</span>
-    </button>
-    <button id="lb-prev" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-        <span class="material-symbols-outlined text-white text-3xl">chevron_left</span>
-    </button>
-    <button id="lb-next" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
-        <span class="material-symbols-outlined text-white text-3xl">chevron_right</span>
-    </button>
-    <div class="flex flex-col items-center max-w-[90vw] max-h-[90vh]">
-        <img id="lb-img" class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl" src="" alt=""/>
-        <div class="mt-4 flex flex-col items-center gap-3">
-            <p id="lb-caption" class="text-white text-sm font-bold"></p>
-            <div id="lb-cat-tabs" class="flex gap-2 flex-wrap justify-center max-w-[90vw]"></div>
-            <p id="lb-counter" class="text-white/60 text-xs"></p>
-        </div>
-    </div>
-</div>
+<olympic-lightbox></olympic-lightbox>
 
 </body></html>

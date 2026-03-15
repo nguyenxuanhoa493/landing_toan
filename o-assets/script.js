@@ -76,7 +76,6 @@ function renderIndex(data) {
         const front = document.getElementById('hero-img-front');
         const back  = document.getElementById('hero-img-back');
 
-        console.log({front, back});
         if (front && back) {
             let allImages = [];
             if (data.hero && data.hero.list_image && data.hero.list_image.length > 0) {

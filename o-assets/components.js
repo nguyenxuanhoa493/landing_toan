@@ -5,7 +5,7 @@ class OlympicHeader extends HTMLElement {
       <header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-blue-100 dark:border-blue-900/30">
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
           <a href="index.html" class="olympic-no-underline flex items-center gap-2 group cursor-pointer">
-            <img src="o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
+            <img src="/o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
           </a>
           <nav id="header-nav" class="hidden md:flex items-center gap-4">
             <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors px-2 lg:px-4" href="index.html">Trang chủ</a>
@@ -36,7 +36,7 @@ class OlympicFooter extends HTMLElement {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-16">
             <div>
               <div class="flex items-center gap-2 mb-6 group cursor-pointer">
-                <img src="o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"/>
+                <img src="/o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"/>
               </div>
               <ul id="footer-col1-details" class="space-y-4 text-sm leading-relaxed mb-6"></ul>
               <div class="flex gap-4">

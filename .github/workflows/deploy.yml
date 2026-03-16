@@ -25,6 +25,10 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Rewrite absolute paths for GitHub Pages subdirectory
+        run: |
+          find . -not -path './.git/*' \( -name "*.html" -o -name "*.js" -o -name "*.css" \) \
+            -exec sed -i 's|"/o-assets/|"/landing_toan/o-assets/|g' {} +
       - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'

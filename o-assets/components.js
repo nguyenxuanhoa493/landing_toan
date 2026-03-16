@@ -62,6 +62,9 @@ class OlympicFooter extends HTMLElement {
           </div>
           <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
             <p>© <span id="current-year">2026</span> CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE. All rights reserved.</p>
+            <a href="http://online.gov.vn/Home/WebDetails/140986" target="_blank" rel="noopener noreferrer">
+              <img src="/o-assets/bct.png" alt="Đã thông báo Bộ Công Thương" class="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"/>
+            </a>
           </div>
         </div>
       </footer>

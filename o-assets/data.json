@@ -484,79 +484,97 @@
     "list": [
       {
         "name": "Cô Trần Thị Kim Cương",
-        "role": "Phó Tổng biên tập Tạp chí Toán tuổi thơ",
+        "role": "Nguyên Phó Tổng biên tập",
+        "org": "Tạp chí Toán tuổi thơ",
         "photo": "/o-assets/experts/cocuong.jpg"
       },
       {
         "name": "Thầy Vũ Văn Dương",
-        "role": "Tác giả SGK Toán 4, 5 Bộ sách KNTT"
+        "role": "Tác giả SGK Toán 4, 5",
+        "org": "Bộ sách KNTT"
       },
       {
         "name": "Cô Nguyễn Thủy Chung",
-        "role": "Chủ nhiệm khoa Giáo dục Tiểu học, Trường ĐHSP Hà Nội",
+        "role": "Trưởng khoa Giáo dục Tiểu học",
+        "org": "Trường ĐHSP Hà Nội",
         "photo": "/o-assets/experts/expert-3.png"
       },
       {
         "name": "Thầy Đỗ Ngọc Thiện",
-        "role": "Phó Hiệu trưởng trường TH Phúc Tân, Hà Nội"
+        "role": "Phó Hiệu trưởng",
+        "org": "Trường TH Phúc Tân, Hà Nội"
       },
       {
         "name": "Thầy Nguyễn Đức Tấn",
-        "role": "Trường THCS Nguyễn Du, TP. Hồ Chí Minh"
+        "role": "Giáo viên",
+        "org": "Trường THCS Nguyễn Du, TP. HCM"
       },
       {
         "name": "Thầy Phan Duy Nghĩa",
-        "role": "Phòng Giáo dục Phổ thông, Sở GD&ĐT Hà Tĩnh",
+        "role": "Phòng Giáo dục Phổ thông",
+        "org": "Sở GD&ĐT Hà Tĩnh",
         "photo": "/o-assets/experts/duynghia.jpg"
       },
       {
         "name": "Cô Lê Thị Hồng Vân",
-        "role": "Trưởng ban Tiểu học – NXBGDVN"
+        "role": "Trưởng ban Tiểu học",
+        "org": "NXBGDVN"
       },
       {
         "name": "Thầy Đỗ Trung Kiên",
-        "role": "Biên tập viên Tạp chí Toán tuổi thơ"
+        "role": "Biên tập viên",
+        "org": "Tạp chí Toán tuổi thơ"
       },
       {
         "name": "Thầy Trần Hữu Nam",
-        "role": "Nguyên Tổng biên tập Tạp chí Toán tuổi thơ"
+        "role": "Nguyên Tổng biên tập",
+        "org": "Tạp chí Toán tuổi thơ"
       },
       {
         "name": "Thầy Nguyễn Ngọc Hân",
-        "role": "Trường THCS Giảng Võ · Nguyên Phó TBT Tạp chí Toán tuổi thơ"
+        "role": "Nguyên Phó TBT",
+        "org": "Trường THCS Giảng Võ · Tạp chí Toán tuổi thơ"
       },
       {
         "name": "Thầy Nguyễn Tiến Lâm",
-        "role": "Trường THPT Chuyên KHTN, ĐHQG Hà Nội"
+        "role": "Giáo viên",
+        "org": "Trường THPT Chuyên KHTN, ĐHQG HN"
       },
       {
         "name": "Thầy Trần Quốc Luật",
-        "role": "Trường THPT Chuyên Lê Hồng Phong, TP. Hồ Chí Minh"
+        "role": "Giáo viên",
+        "org": "Trường THPT Chuyên Lê Hồng Phong"
       },
       {
         "name": "Thầy Lưu Công Đông",
-        "role": "Trường THPT Chuyên ĐHSP Hà Nội"
+        "role": "Giáo viên",
+        "org": "Trường THPT Chuyên ĐHSP Hà Nội"
       },
       {
         "name": "Thầy Võ Quốc Bá Cẩn",
-        "role": "Trường THCS Archimedes, Yên Hòa, Hà Nội"
+        "role": "Giáo viên",
+        "org": "Trường THCS Archimedes, HN"
       },
       {
         "name": "Thầy Hoàng Việt Dũng",
-        "role": "Trường THCS Đặng Thai Mai, Nghệ An"
+        "role": "Giáo viên",
+        "org": "Trường THCS Đặng Thai Mai, Nghệ An"
       },
       {
         "name": "Thầy Nguyễn Cao Cường",
-        "role": "Hiệu trưởng THCS Thái Thịnh · Tác giả SGK Toán 6, 7, 8, 9",
+        "role": "Hiệu trưởng · Tác giả SGK Toán 6–9",
+        "org": "THCS Thái Thịnh, Hà Nội",
         "photo": "/o-assets/experts/caocuong.jpg"
       },
       {
         "name": "Thầy Nguyễn Quang Tuấn",
-        "role": "Biên tập viên Tạp chí Toán tuổi thơ"
+        "role": "Biên tập viên",
+        "org": "Tạp chí Toán tuổi thơ"
       },
       {
         "name": "Cô Trần Kim Thanh",
-        "role": "Biên tập viên Tạp chí Toán tuổi thơ"
+        "role": "Biên tập viên",
+        "org": "Tạp chí Toán tuổi thơ"
       }
     ]
   },
@@ -616,7 +634,7 @@
         "name": "Trần Thị Hương",
         "role": "Phụ huynh học sinh lớp 6 · TP.HCM",
         "rating": 5,
-        "quote": "Ban tổ chức rất chuyên nghiệp, thông báo kịp thời. Con tôi đạt giải Nhì và tự tin hẳn lên sau kỳ thi. Năm nào cũng đăng ký!",
+        "quote": "Ban tổ chức rất chuyên nghiệp, thông báo kịp thời kết quả. Con tôi đạt giải Nhì và tự tin hẳn lên sau kỳ thi. Năm nào cũng đăng ký!",
         "year": "Phụ huynh"
       },
       {
@@ -630,7 +648,7 @@
         "name": "Phạm Thành Long",
         "role": "Phụ huynh học sinh lớp 4 · Cần Thơ",
         "rating": 4,
-        "quote": "Giao diện đăng ký dễ dùng, hướng dẫn rõ ràng. Giải thưởng thiết thực, con rất vui khi nhận được giấy chứng nhận từ Bộ Giáo dục.",
+        "quote": "Giao diện đăng ký dễ dùng, hướng dẫn rõ ràng. Giải thưởng thiết thực, con rất vui khi nhận được giấy chứng nhận từ Ban Tổ chức.",
         "year": "Phụ huynh"
       },
       {

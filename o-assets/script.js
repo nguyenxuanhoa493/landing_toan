@@ -229,6 +229,7 @@ function renderIndex(data) {
                 </div>
                 <h4 class="font-bold text-slate-900 dark:text-white text-sm">${e.name}</h4>
                 <p class="text-xs text-primary dark:text-blue-400 font-medium mt-1">${e.role}</p>
+                ${e.org ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${e.org}</p>` : ''}
             </div>`;
         const items = [...data.experts.list].sort(() => Math.random() - 0.5);
         const container = document.getElementById('experts-container');

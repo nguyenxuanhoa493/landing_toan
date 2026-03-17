@@ -146,7 +146,7 @@ function renderIndex(data) {
         document.getElementById('hero-title').innerHTML = titleText
             .replace("Môn Toán", "<span class='text-primary underline decoration-blue-500/30'>môn Toán</span>")
             .replace("Online", `<span class="hero-online-badge">Online</span>`);
-        document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
+        document.getElementById('hero-subtitle').innerHTML = data.hero.subtitle;
         document.getElementById('hero-btn-trial').innerHTML = `<span class="material-symbols-outlined">play_circle</span> ${data.hero.buttons.trial.text}`;
         document.getElementById('hero-btn-trial').href = data.hero.buttons.trial.link;
         document.getElementById('hero-btn-register-alt').textContent = data.hero.buttons.registerNow.text;

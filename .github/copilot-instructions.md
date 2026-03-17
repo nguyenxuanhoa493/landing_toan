@@ -25,3 +25,23 @@ Nếu cần thao tác với vùng chứa custom element, hãy chọn phần tử
 
 
 2.Sử dụng "onClick" thay vì "onclick" ở html
+
+
+## Quy tắc CSS / Styling
+
+3.**Không được sử dụng inline style (`style="..."`) trong HTML hoặc JS.**
+
+Nếu cần style custom, viết class mới với prefix `olympic-` trong `o-assets/style.css` rồi dùng class đó.
+
+```html
+<!-- ❌ Không được phép -->
+<div style="font-size: 5rem; transform: rotate(-10deg);">...</div>
+
+<!-- ✅ Được phép — định nghĩa class trong o-assets/style.css -->
+<div class="olympic-math-lt-1">...</div>
+```
+
+```css
+/* o-assets/style.css */
+.olympic-math-lt-1 { font-size: 5rem; transform: rotate(-10deg); }
+```

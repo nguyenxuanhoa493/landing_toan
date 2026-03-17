@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "Toán Tuổi Thơ",
+    "logo": "Toán Tuổi thơ",
     "menu": [
       {
         "name": "Trang chủ",
@@ -93,7 +93,7 @@
       },
       {
         "date": "13-14/6/2026",
-        "event": "Vòng 3 - Chung kết toàn quốc (Thi trực tiếp tại Hà Nội)",
+        "event": "Vòng 3 - Chung kết toàn quốc\n (Thi trực tiếp trên máy tính tại Hà Nội)",
         "details": "Chung kết diễn ra trực tiếp tại Hà Nội. Thí sinh thi 1 lần duy nhất, tranh tài cùng các bạn xuất sắc nhất cả nước. Lễ trao giải trang trọng với nhiều phần thưởng giá trị."
       }
     ]
@@ -485,13 +485,13 @@
       {
         "name": "Cô Trần Thị Kim Cương",
         "role": "Nguyên Phó Tổng biên tập",
-        "org": "Tạp chí Toán tuổi thơ",
+        "org": "Tạp chí Toán Tuổi thơ",
         "photo": "/o-assets/experts/cocuong.jpg"
       },
       {
         "name": "Thầy Vũ Văn Dương",
         "role": "Tác giả SGK Toán 4, 5",
-        "org": "Bộ sách KNTT"
+        "org": "NXBGD Việt Nam"
       },
       {
         "name": "Cô Nguyễn Thủy Chung",
@@ -518,27 +518,27 @@
       {
         "name": "Cô Lê Thị Hồng Vân",
         "role": "Trưởng ban Tiểu học",
-        "org": "NXBGDVN"
+        "org": "NXBGD Việt Nam"
       },
       {
         "name": "Thầy Đỗ Trung Kiên",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ"
       },
       {
         "name": "Thầy Trần Hữu Nam",
         "role": "Nguyên Tổng biên tập",
-        "org": "Tạp chí Toán tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ"
       },
       {
         "name": "Thầy Nguyễn Ngọc Hân",
-        "role": "Nguyên Phó TBT",
-        "org": "Trường THCS Giảng Võ · Tạp chí Toán tuổi thơ"
+        "role": "Nguyên Phó TBT Tạp chí Toán Tuổi thơ",
+        "org": "Trường THCS Giảng Võ"
       },
       {
         "name": "Thầy Nguyễn Tiến Lâm",
         "role": "Giáo viên",
-        "org": "Trường THPT Chuyên KHTN, ĐHQG HN"
+        "org": "Trường THPT Chuyên KHTN, ĐHQG Hà Nội"
       },
       {
         "name": "Thầy Trần Quốc Luật",
@@ -562,19 +562,19 @@
       },
       {
         "name": "Thầy Nguyễn Cao Cường",
-        "role": "Hiệu trưởng · Tác giả SGK Toán 6–9",
+        "role": "Hiệu trưởng, Tác giả SGK Toán 6–9",
         "org": "THCS Thái Thịnh, Hà Nội",
         "photo": "/o-assets/experts/caocuong.jpg"
       },
       {
         "name": "Thầy Nguyễn Quang Tuấn",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ"
       },
       {
         "name": "Cô Trần Kim Thanh",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ"
       }
     ]
   },
@@ -621,7 +621,7 @@
   },
   "testimonials": {
     "title": "Cảm nhận từ học sinh & phụ huynh",
-    "subtitle": "Hơn 10.000 thí sinh đã tham gia Olympic Toán Tuổi Thơ các năm qua",
+    "subtitle": "Hơn 10.000 thí sinh đã tham gia Olympic Toán Tuổi thơ các năm qua",
     "list": [
       {
         "name": "Nguyễn Minh Anh",
@@ -692,7 +692,7 @@
       },
       {
         "id": "gIO2YCU7tHM",
-        "title": "Giao Lưu Toán tuổi thơ cấp tiểu học năm học",
+        "title": "Giao Lưu Toán Tuổi thơ cấp tiểu học năm học",
         "thumb": ""
       }
     ]

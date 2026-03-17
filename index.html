@@ -54,6 +54,13 @@
                     Dành cho học sinh từ lớp 4 đến lớp 8 trên toàn quốc. Tham gia ngay để khẳng định tài năng và nhận
                     những giải thưởng giá trị từ vương quốc toán học.
                 </p>
+                <div data-reveal="fade-up" data-reveal-delay="250">
+                    <button id="hero-btn-about" onClick="document.getElementById('modal-about').classList.remove('hidden')"
+                        class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-primary bg-blue-50 dark:bg-blue-950 hover:bg-blue-100 dark:hover:bg-blue-900 rounded-lg border border-blue-200 dark:border-blue-800 transition-colors">
+                        <span class="material-symbols-outlined text-base">info</span>
+                        Tìm hiểu thêm
+                    </button>
+                </div>
                 <div data-reveal="fade-up" data-reveal-delay="300" class="flex flex-wrap gap-4">
                     <a id="hero-btn-trial" href="#"
                         class="btn-trial px-8 py-4 bg-primary text-white font-bold rounded-xl flex items-center gap-2">
@@ -368,6 +375,26 @@
     <olympic-footer></olympic-footer>
     <olympic-mobile-nav></olympic-mobile-nav>
     <olympic-lightbox></olympic-lightbox>
+
+    <!-- Modal: Giới thiệu Olympic Toán Tuổi thơ -->
+    <div id="modal-about" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick="document.getElementById('modal-about').classList.add('hidden')"></div>
+        <div class="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] flex flex-col">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Giới thiệu Olympic Toán Tuổi thơ</h3>
+                <button onClick="document.getElementById('modal-about').classList.add('hidden')"
+                    class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+                    <span class="material-symbols-outlined text-xl">close</span>
+                </button>
+            </div>
+            <div class="overflow-y-auto px-6 py-5 text-slate-700 dark:text-slate-300 text-base leading-relaxed space-y-4">
+                <p>Từ năm 2005, được sự đồng ý của Bộ GD&amp;ĐT, Tạp chí Toán Tuổi thơ (nay thuộc Viện Nghiên cứu Sách và Học liệu giáo dục) đã phối hợp với Sở GD&amp;ĐT các tỉnh, thành tổ chức thành công các kỳ Olympic Toán Tuổi thơ toàn quốc. Đây là một sân chơi trí tuệ, có sức lan tỏa sâu rộng, thu hút không chỉ học sinh tham gia mà còn nhận được sự ủng hộ của các thầy cô giáo, các bậc phụ huynh và đã trở thành một cuộc thi thường niên.</p>
+                <p>Theo kế hoạch về ứng dụng công nghệ trong dạy học ở các trường phổ thông và tạo sân chơi mở rộng cho học sinh trên cả nước, từ năm 2026, Viện Nghiên cứu Sách và Học liệu giáo dục hợp tác với Công ty CP Công nghệ Giáo dục thông minh (Viet ED) tổ chức Olympic Toán Tuổi thơ bằng hình thức Online.</p>
+                <p>Việc tham gia Olympic Toán Tuổi thơ bằng hình thức Online sẽ giúp học sinh rèn luyện và thể hiện trình độ, kĩ năng về Toán - Công nghệ; ngành Giáo dục sớm phát hiện và bồi dưỡng được nguồn nhân lực chất lượng cao. Sân chơi cũng tạo cơ sở và động lực để nhà trường, giáo viên áp dụng phương pháp dạy học phù hợp, bồi dưỡng kĩ năng ứng dụng Toán vào thực tế cho học sinh. Đây cũng là hành động cụ thể, thiết thực trong thực hiện các nghị quyết của Bộ Chính trị về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia (Nghị quyết số 57-NQ/TW) và đột phá về phát triển giáo dục và đào tạo (Nghị quyết số 71-NQ/TW).</p>
+                <p>Viện Nghiên cứu Sách và Học liệu giáo dục - Nhà xuất bản Giáo dục Việt Nam xin trân trọng thông báo và rất mong nhận được sự ủng hộ, hợp tác của Sở GD&amp;ĐT các tỉnh, thành phố cùng các thầy cô giáo, các em học sinh và các vị phụ huynh trong Olympic Toán Tuổi thơ toàn quốc.</p>
+            </div>
+        </div>
+    </div>
 
 </body>
 

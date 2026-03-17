@@ -1128,7 +1128,7 @@ if (document.readyState === 'loading') {
 // =============================================================================
 
 // ===== MODAL DATA =====
-const modalData = {
+var modalData = {
   "trial-time": {
     title: "📅 Thời gian Luyện Thi",
     body: "<p>Luyện thi diễn ra từ ngày <strong>12/3/2026</strong> đến hết ngày <strong>28/3/2026</strong>.</p><p>Đây là cơ hội để làm quen với giao diện thi, cấu trúc đề và thang điểm trước khi bước vào các vòng thi chính thức.</p>"

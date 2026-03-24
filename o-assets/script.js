@@ -1,3 +1,12 @@
+/**
+ * converts \n in JSON strings to <br> so multi-line content renders correctly.
+ * Use instead of direct textContent assignment when the field may contain newlines.
+ */
+function convertsStr(str) {
+  if (str == null) return '';
+  return String(str).replace(/\n/g, '<br>');
+}
+
 function renderHeader(data) {
     // const headerLogo = document.getElementById('header-logo');
     // if (headerLogo) headerLogo.textContent = data.header.logo;
@@ -227,9 +236,9 @@ function renderIndex(data) {
                 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-xl bg-slate-200 dark:bg-slate-700">
                     <img alt="${e.name}" src="${e.photo}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\\'material-symbols-outlined text-5xl text-slate-400 flex items-center justify-center h-full\\'>person</span>'"/>
                 </div>
-                <h4 class="font-bold text-slate-900 dark:text-white text-sm">${e.name}</h4>
-                <p class="text-xs text-primary dark:text-blue-400 font-medium mt-1">${e.role}</p>
-                ${e.org ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${e.org}</p>` : ''}
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">${convertsStr(e.name)}</h4>
+                <p class="text-xs text-primary dark:text-blue-400 font-medium mt-1">${convertsStr(e.role)}</p>
+                ${convertsStr(e.org) ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${convertsStr(e.org)}</p>` : ''}
             </div>`;
         const items = [...data.experts.list].sort(() => Math.random() - 0.5);
         const container = document.getElementById('experts-container');

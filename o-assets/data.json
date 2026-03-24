@@ -507,7 +507,7 @@
       {
         "name": "Thầy Nguyễn Đức Tấn",
         "role": "Giáo viên",
-        "org": "Trường THCS Nguyễn Du, TP. HCM"
+        "org": "Trường THCS Nguyễn Du, \nTP. Hồ Chí Minh"
       },
       {
         "name": "Thầy Phan Duy Nghĩa",
@@ -532,8 +532,8 @@
       },
       {
         "name": "Thầy Nguyễn Ngọc Hân",
-        "role": "Nguyên Phó TBT Tạp chí Toán Tuổi thơ",
-        "org": "Trường THCS Giảng Võ"
+        "role": "Nguyên TBT Tạp chí Toán tuổi thơ",
+        "org": "Giáo viên trường THCS Giảng Võ, \nHà Nội"
       },
       {
         "name": "Thầy Nguyễn Tiến Lâm",
@@ -543,7 +543,7 @@
       {
         "name": "Thầy Trần Quốc Luật",
         "role": "Giáo viên",
-        "org": "Trường THPT Chuyên Lê Hồng Phong"
+        "org": "Trường THPT Chuyên Lê Hồng Phong, \nTP. Hồ Chí Minh"
       },
       {
         "name": "Thầy Lưu Công Đông",
@@ -553,17 +553,17 @@
       {
         "name": "Thầy Võ Quốc Bá Cẩn",
         "role": "Giáo viên",
-        "org": "Trường THCS Archimedes, HN"
+        "org": "Trường THCS Archimedes, Yên Hòa,\nHà Nội"
       },
       {
         "name": "Thầy Hoàng Việt Dũng",
         "role": "Giáo viên",
-        "org": "Trường THCS Đặng Thai Mai, Nghệ An"
+        "org": "Trường THCS Đặng Thai Mai, \nNghệ An"
       },
       {
         "name": "Thầy Nguyễn Cao Cường",
-        "role": "Hiệu trưởng, Tác giả SGK Toán 6–9",
-        "org": "THCS Thái Thịnh, Hà Nội",
+        "role": "Tác giả SGK Toán 6–9",
+        "org": "Hiệu trưởng THCS Thái Thịnh, \nHà Nội",
         "photo": "/o-assets/experts/caocuong.jpg"
       },
       {
@@ -648,7 +648,7 @@
         "name": "Phạm Thành Long",
         "role": "Phụ huynh học sinh lớp 4 · Cần Thơ",
         "rating": 4,
-        "quote": "Giao diện đăng ký dễ dùng, hướng dẫn rõ ràng. Giải thưởng thiết thực, con rất vui khi nhận được giấy chứng nhận từ Ban Tổ chức.",
+        "quote": "Giao diện đăng ký dễ dùng, hướng dẫn rõ ràng. Giải thưởng thiết thực, con rất vui khi nhận được giấy chứng nhận từ Bộ Giáo dục.",
         "year": "Phụ huynh"
       },
       {

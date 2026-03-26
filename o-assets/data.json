@@ -56,16 +56,13 @@
       }
     },
     "list_image": [
-      "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3586.webp",
-      "/o-assets/gallery/Năm 2019 Đà Nẵng/IMG_8808.webp",
-      "/o-assets/gallery/Năm 2018 Lào Cai/IMG_0363.webp",
-      "/o-assets/gallery/Năm 2017 Trà Vinh/DSC_2946.webp",
-      "/o-assets/gallery/Năm 2016 Hà Nội/DSC_0069.webp",
-      "/o-assets/gallery/Năm 2014 Đắk Lắk/DSC_0071.webp",
-      "/o-assets/gallery/Năm 2013 Vĩnh Phúc/Bia 1.webp",
-      "/o-assets/gallery/Năm 2012 Cà Mau/IMG_0494.webp",
-      "/o-assets/gallery/Năm 2011 Lào Cai/HZ6Q9634.webp",
-      "/o-assets/gallery/Năm 2009 Thừa Thiên Huế/Bia 1.webp"
+      "/o-assets/gallery/Năm 2007 Hải Phòng/DSC4193.webp",
+      "/o-assets/gallery/Năm 2008 Hà Nội/DSC_1027.webp",
+      "/o-assets/gallery/Năm 2008 Hà Nội/DSC_0193.webp",
+      "/o-assets/gallery/Năm 2016 Hà Nội/HanoiStar-07062016 thi Toan tuoi tho toan quoc (3).webp",
+      "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3863.webp",
+      "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_3618.webp",
+      "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4512.webp"
     ]
   },
   "roadmap": {
@@ -491,23 +488,26 @@
       {
         "name": "Thầy Vũ Văn Dương",
         "role": "Tác giả SGK Toán 4, 5",
-        "org": "NXBGD Việt Nam"
+        "org": "NXBGD Việt Nam",
+        "photo": "/o-assets/experts/vuvanduong.jpg"
       },
       {
         "name": "Cô Nguyễn Thủy Chung",
         "role": "Trưởng khoa Giáo dục Tiểu học",
         "org": "Trường ĐHSP Hà Nội",
-        "photo": "/o-assets/experts/expert-3.png"
+        "photo": "/o-assets/experts/nguyenthuychung.jpg"
       },
       {
         "name": "Thầy Đỗ Ngọc Thiện",
         "role": "Phó Hiệu trưởng",
-        "org": "Trường TH Phúc Tân, Hà Nội"
+        "org": "Trường TH Phúc Tân, Hà Nội",
+        "photo": "/o-assets/experts/dongocthien.jpg"
       },
       {
         "name": "Thầy Nguyễn Đức Tấn",
         "role": "Giáo viên",
-        "org": "Trường THCS Nguyễn Du, \nTP. Hồ Chí Minh"
+        "org": "Trường THCS Nguyễn Du, \nTP. Hồ Chí Minh",
+        "photo": "/o-assets/experts/thaytan.jpg"
       },
       {
         "name": "Thầy Phan Duy Nghĩa",
@@ -518,12 +518,14 @@
       {
         "name": "Cô Lê Thị Hồng Vân",
         "role": "Trưởng ban Tiểu học",
-        "org": "NXBGD Việt Nam"
+        "org": "NXBGD Việt Nam",
+        "photo": "/o-assets/experts/lehongvan.jpg"
       },
       {
         "name": "Thầy Đỗ Trung Kiên",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán Tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/dotrungkien.jpg"
       },
       {
         "name": "Thầy Trần Hữu Nam",
@@ -543,7 +545,7 @@
       {
         "name": "Thầy Trần Quốc Luật",
         "role": "Giáo viên",
-        "org": "Trường THPT Chuyên Lê Hồng Phong, \nTP. Hồ Chí Minh"
+        "org": "Trường THPT Chuyên Lê Hồng Phong, TP. Hồ Chí Minh"
       },
       {
         "name": "Thầy Lưu Công Đông",
@@ -575,6 +577,12 @@
         "name": "Cô Trần Kim Thanh",
         "role": "Biên tập viên",
         "org": "Tạp chí Toán Tuổi thơ"
+      },
+      {
+        "name": "Thầy Ngô Văn Nghi",
+        "role": "Hiệu trưởng",
+        "org": "Trường Tiểu học Nam Giang, Nam Trực, Ninh Bình",
+        "photo": "/o-assets/experts/ngovannghi.jpg"
       }
     ]
   },

@@ -193,6 +193,7 @@ function renderIndex(data) {
                         }, 700);
                     };
                 }
+
                 setInterval(nextHeroImage, 5000);
             }
         }
@@ -229,6 +230,10 @@ function renderIndex(data) {
 
     // Experts section
     if (document.getElementById('experts-container') && data.experts) {
+        if (window.__expertsAnim && typeof window.__expertsAnim.stop === 'function') {
+            window.__expertsAnim.stop();
+        }
+
         document.getElementById('experts-title').textContent = data.experts.title;
         document.getElementById('experts-desc').textContent = data.experts.description;
         const expertCard = e => `
@@ -245,6 +250,7 @@ function renderIndex(data) {
         const wrapper = container.parentElement;
         container.classList.remove('animate-marquee');
         container.style.cssText = 'animation:none; display:flex; gap:56px;';
+        container.style.willChange = 'transform';
         container.innerHTML = items.map(expertCard).join('');
 
         // Recycle approach: move off-screen cards to the end
@@ -252,9 +258,10 @@ function renderIndex(data) {
         const speed = 0.5;
         const gap = 56;
         let paused = false;
+        let rafId = 0;
 
-        wrapper.addEventListener('mouseenter', () => { paused = true; });
-        wrapper.addEventListener('mouseleave', () => { paused = false; });
+        wrapper.onmouseenter = () => { paused = true; };
+        wrapper.onmouseleave = () => { paused = false; };
 
         function animateLoop() {
             if (!paused) {
@@ -270,9 +277,11 @@ function renderIndex(data) {
                     }
                 }
             }
-            container.style.transform = `translateX(-${scrollPos}px)`;
+            // Round to whole pixels to reduce text shimmer while moving.
+            const smoothPos = Math.round(scrollPos);
+            container.style.transform = `translate3d(-${smoothPos}px,0,0)`;
 
-            // Scale effect
+            // Keep text stable: avoid per-frame scale on entire card.
             const wrapperRect = wrapper.getBoundingClientRect();
             const viewCenter = wrapperRect.left + wrapperRect.width / 2;
             const maxDist = wrapperRect.width / 2;
@@ -283,14 +292,20 @@ function renderIndex(data) {
                 const cardCenter = rect.left + rect.width / 2;
                 const dist = Math.abs(cardCenter - viewCenter);
                 const ratio = Math.min(dist / maxDist, 1);
-                const scale = 1.5 - 1.0 * ratio;
                 const opacity = 1 - 0.5 * ratio;
-                card.style.transform = `scale(${scale})`;
                 card.style.opacity = opacity;
             }
-            requestAnimationFrame(animateLoop);
+            rafId = requestAnimationFrame(animateLoop);
         }
-        requestAnimationFrame(animateLoop);
+        rafId = requestAnimationFrame(animateLoop);
+
+        window.__expertsAnim = {
+            stop() {
+                if (rafId) cancelAnimationFrame(rafId);
+                wrapper.onmouseenter = null;
+                wrapper.onmouseleave = null;
+            }
+        };
     }
 
     // Gallery slider on index page

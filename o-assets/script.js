@@ -234,7 +234,7 @@ function renderIndex(data) {
         const expertCard = e => `
             <div class="expert-card group text-center shrink-0 w-[210px] origin-center will-change-transform">
                 <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-xl bg-slate-200 dark:bg-slate-700">
-                    <img alt="${e.name}" src="${e.photo}" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\\'material-symbols-outlined text-5xl text-slate-400 flex items-center justify-center h-full\\'>person</span>'"/>
+                    <img alt="${e.name}" src="${e.photo}" class="w-full h-full object-cover" onerror="if(this.dataset.fallbacked!=='1'){this.dataset.fallbacked='1';this.src='/o-assets/logo.png';return;}this.style.display='none';this.parentElement.innerHTML='<span class=\\'material-symbols-outlined text-5xl text-slate-400 flex items-center justify-center h-full\\'>person</span>'"/>
                 </div>
                 <h4 class="font-bold text-slate-900 dark:text-white text-sm">${convertsStr(e.name)}</h4>
                 <p class="text-xs text-primary dark:text-blue-400 font-medium mt-1">${convertsStr(e.role)}</p>

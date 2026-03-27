@@ -36,7 +36,7 @@ class OlympicFooter extends HTMLElement {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 mb-16">
             <div>
               <div class="flex items-center gap-2 mb-6 group cursor-pointer">
-                <img src="/o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"/>
+                <img src="/o-assets/logo.png" alt="Toán Tuổi Thơ" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"/>
               </div>
               <ul id="footer-col1-details" class="space-y-4 text-sm leading-relaxed mb-6"></ul>
               <div class="flex gap-4">

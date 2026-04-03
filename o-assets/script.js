@@ -10,7 +10,7 @@ function convertsStr(str) {
 function renderHeader(data) {
     // const headerLogo = document.getElementById('header-logo');
     // if (headerLogo) headerLogo.textContent = data.header.logo;
-    
+
     // Desktop Nav
     // const desktopNav = document.getElementById('header-nav') || document.getElementById('desktop-nav');
     // const resolveNavLink = (link) => link.startsWith('#') ? 'index.html' + link : link;
@@ -158,8 +158,12 @@ function renderIndex(data) {
         document.getElementById('hero-subtitle').innerHTML = data.hero.subtitle;
         document.getElementById('hero-btn-trial').innerHTML = `<span class="material-symbols-outlined">play_circle</span> ${data.hero.buttons.trial.text}`;
         document.getElementById('hero-btn-trial').href = data.hero.buttons.trial.link;
-        document.getElementById('hero-btn-register-alt').textContent = data.hero.buttons.registerNow.text;
-        document.getElementById('hero-btn-register-alt').href = data.hero.buttons.registerNow.link;
+
+        const registerAltBtn = document.getElementById('hero-btn-register-alt');
+        if (registerAltBtn) {
+            registerAltBtn.textContent = data.hero.buttons.registerNow.text;
+            registerAltBtn.href = data.hero.buttons.registerNow.link;
+        }
 
         // Hero image slideshow — use hero.list_image if defined, else fallback to gallery
         const front = document.getElementById('hero-img-front');
@@ -215,7 +219,7 @@ function renderIndex(data) {
              document.getElementById('rule-4-desc').textContent = data.rules.attempts.content;
          }
     }
-    
+
     // Partners section
     if (document.getElementById('partners-container') && data.partners) {
         document.getElementById('partners-title').textContent = data.partners.title;
@@ -296,7 +300,7 @@ function renderIndex(data) {
     // Gallery slider on index page
     if (document.getElementById('gallery-slider-container')) {
         document.getElementById('gallery-title').textContent = data.gallery.title;
-        
+
         const sliderContainer = document.getElementById('gallery-slider-container');
         const slideTitleEl = document.getElementById('gallery-slide-title');
         const progressFill = document.getElementById('gallery-progress-fill');
@@ -308,23 +312,23 @@ function renderIndex(data) {
 
         function renderRandomGallery() {
             if (categories.length === 0) return;
-            
+
             // Pick a random category
             const randomCatIndex = Math.floor(Math.random() * categories.length);
             const category = categories[randomCatIndex];
-            
+
             if (!category || !category.list_image || category.list_image.length === 0) return;
-            
+
             // Update title
             slideTitleEl.textContent = category.name;
             currentCategory = category;
-            
+
             // Pick up to 4 random images from this category
             // Shuffle copy of list_image
             const shuffled = [...category.list_image].sort(() => 0.5 - Math.random());
             const selectedImages = shuffled.slice(0, 4);
             currentImages = selectedImages;
-            
+
             // Render them stacked
             const imagesHtml = selectedImages.map((imgSrc, idx) => {
                 // Stack styles based on index. idx 0 is top
@@ -339,7 +343,7 @@ function renderIndex(data) {
                 } else if (idx === 3) {
                     transform = 'scale(0.7) translate(-30%, 30%) rotate(-6deg)';
                 }
-                
+
                 return `
                     <div class="absolute inset-0 transition-all duration-1000 ease-in-out shadow-[0_10px_30px_rgba(0,0,0,0.3)] rounded-[2rem] overflow-hidden border-8 border-white dark:border-slate-800 cursor-pointer" 
                          data-lb-idx="${idx}"
@@ -348,7 +352,7 @@ function renderIndex(data) {
                     </div>
                 `;
             }).join('');
-            
+
             sliderContainer.innerHTML = imagesHtml;
 
             // Attach click handlers
@@ -358,11 +362,11 @@ function renderIndex(data) {
                     openIndexLightbox(idx);
                 });
             });
-            
+
             // Reset and animate progress bar
             progressFill.style.transition = 'none';
             progressFill.style.width = '0%';
-            
+
             setTimeout(() => {
                 progressFill.style.transition = 'all 12000ms linear';
                 progressFill.style.width = '100%';
@@ -435,13 +439,13 @@ function renderIndex(data) {
             `;
             document.head.appendChild(style);
         }
-        
+
         renderRandomGallery();
-        
+
         // Auto transition logic
         setInterval(renderRandomGallery, 12000);
     }
-    
+
     // News section on index page
     if (document.getElementById('news-container')) {
         fetchNews();
@@ -455,16 +459,16 @@ function renderIndex(data) {
 
 function renderRulesPage(data) {
      if(document.getElementById('page-title')) document.getElementById('page-title').textContent = data.rules.title;
-            
+
      if(document.getElementById('rule-1-title')) document.getElementById('rule-1-title').textContent = data.rules.participants.title;
      if(document.getElementById('rule-1-desc')) document.getElementById('rule-1-desc').textContent = data.rules.participants.content;
-     
+
      if(document.getElementById('rule-2-title')) document.getElementById('rule-2-title').textContent = data.rules.structure.title;
      if(document.getElementById('rule-2-desc')) document.getElementById('rule-2-desc').textContent = data.rules.structure.content;
-     
+
      if(document.getElementById('rule-3-title')) document.getElementById('rule-3-title').textContent = data.rules.time.title;
      if(document.getElementById('rule-3-desc')) document.getElementById('rule-3-desc').textContent = data.rules.time.content;
-     
+
      if(document.getElementById('rule-4-title')) document.getElementById('rule-4-title').textContent = data.rules.attempts.title;
      if(document.getElementById('rule-4-desc')) document.getElementById('rule-4-desc').textContent = data.rules.attempts.content;
 }
@@ -492,7 +496,7 @@ function renderGalleryPage(data) {
      function renderTabs() {
          const activeClass = 'bg-primary text-white shadow-md';
          const inactiveClass = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary';
-         
+
          let html = `<button data-cat="all" class="px-6 py-2.5 rounded-xl text-sm font-bold shrink-0 transition-colors ${activeCategory === null ? activeClass : inactiveClass}">Tất cả</button>`;
          categories.forEach((cat, idx) => {
              html += `<button data-cat="${idx}" class="px-6 py-2.5 rounded-xl text-sm font-bold shrink-0 transition-colors ${activeCategory === idx ? activeClass : inactiveClass}">${cat.name}</button>`;
@@ -686,13 +690,13 @@ function closeVideoModal() {
 function renderFooter(data) {
     const footerLogo = document.getElementById('footer-logo');
     if (footerLogo) footerLogo.textContent = data.header.logo;
-    
+
     // If it's the detailed index footer
     const col1 = document.getElementById('footer-col1-details');
     if(col1) {
         col1.innerHTML = data.footer.column1.details.map(d => `<li class="mb-2">${d}</li>`).join('');
     }
-    
+
     const col2Links = document.getElementById('footer-col2-links');
     if(col2Links){
         document.getElementById('footer-col2-title').textContent = data.footer.column2.title;
@@ -714,13 +718,13 @@ function renderFooter(data) {
     if (document.getElementById('footer-email')) document.getElementById('footer-email').textContent = data.footer.column3.details.email;
     if (document.getElementById('footer-phone')) document.getElementById('footer-phone').textContent = data.footer.column3.details.hotline;
     if (document.getElementById('footer-address')) document.getElementById('footer-address').textContent = data.footer.column3.details.address;
-    
+
     if (document.getElementById('current-year')) document.getElementById('current-year').textContent = new Date().getFullYear();
 }
 
 function fetchNews() {
     const newsApi = 'https://alpha-api.lotuslms.com/page/api/get-news-blogs?order_by=ts&order_direction=-1&page=1&items_per_page=5&submit=1&_sand_ajax=1&_sand_platform=3&_sand_readmin=1&_sand_is_wan=false&_sand_domain=olympictuoitho&_sand_use_internal_network=0&allow_cache_api_cdn=1';
-    
+
     fetch(newsApi)
         .then(res => res.json())
         .then(resData => {
@@ -731,7 +735,7 @@ function fetchNews() {
                 const date = new Date(news.ts * 1000).toLocaleDateString('vi-VN');
                 const img = news.thumbnail || 'https://via.placeholder.com/600x400?text=News';
                 const link = `https://olympictuoitho.vn/blog/${news.slug}.html`;
-                
+
                 return `
                     <a href="${link}" target="_blank" class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg border border-blue-50 dark:border-slate-700 hover-card-lift flex flex-col h-full w-full">
                         <div class="aspect-video bg-slate-200 dark:bg-slate-700 overflow-hidden relative shrink-0">

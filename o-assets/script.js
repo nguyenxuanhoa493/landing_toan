@@ -142,22 +142,26 @@ function renderRoadmap(data) {
 
     // Draw SVG winding road (wait for layout)
     setTimeout(drawRoadmapRoad, 100);
-    window.addEventListener('resize', drawRoadmapRoad);
+    let roadResizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(roadResizeTimer);
+        roadResizeTimer = setTimeout(drawRoadmapRoad, 200);
+    });
 }
 
 function renderIndex(data) {
-    console.log('Rendering index page with data:', data);
-    console.log(document.getElementById('hero-title'));
     // Hero
-    if (document.getElementById('hero-title')) {
+    const heroTitle = document.getElementById('hero-title');
+    if (heroTitle) {
         let titleText = data.hero.title;
 
-        document.getElementById('hero-title').innerHTML = titleText
+        heroTitle.innerHTML = titleText
             .replace("Môn Toán", "<span class='text-primary underline decoration-blue-500/30'>môn Toán</span>")
             .replace("Online", `<span class="hero-online-badge">Online</span>`);
         document.getElementById('hero-subtitle').innerHTML = data.hero.subtitle;
-        document.getElementById('hero-btn-trial').innerHTML = `<span class="material-symbols-outlined">play_circle</span> ${data.hero.buttons.trial.text}`;
-        document.getElementById('hero-btn-trial').href = data.hero.buttons.trial.link;
+        const heroBtn = document.getElementById('hero-btn-trial');
+        heroBtn.innerHTML = `<span class="material-symbols-outlined">play_circle</span> ${data.hero.buttons.trial.text}`;
+        heroBtn.href = data.hero.buttons.trial.link;
 
         const registerAltBtn = document.getElementById('hero-btn-register-alt');
         if (registerAltBtn) {
@@ -176,20 +180,23 @@ function renderIndex(data) {
             } else if (data.gallery && data.gallery.categories) {
                 allImages = data.gallery.categories.flatMap(c => c.list_image || []).filter(Boolean);
             }
-            console.log({allImages});
-
             if (allImages.length > 1) {
                 let current = 0;
-                // Shuffle
                 const pool = [...allImages].sort(() => 0.5 - Math.random());
+
+                // Preload remaining images in background after first paint
+                requestIdleCallback(function() {
+                    for (let i = 1; i < pool.length; i++) {
+                        var img = new Image();
+                        img.src = pool[i];
+                    }
+                });
 
                 function nextHeroImage() {
                     current = (current + 1) % pool.length;
                     const nextSrc = pool[current];
-                    // Preload behind front layer
                     back.src = nextSrc;
                     back.onload = () => {
-                        // Crossfade: fade front out → swap → fade back in
                         front.style.opacity = '0';
                         setTimeout(() => {
                             front.src = nextSrc;
@@ -206,16 +213,18 @@ function renderIndex(data) {
     renderRoadmap(data);
 
     // Rules summary on index page
-    if (document.getElementById('rules-title')) {
-         document.getElementById('rules-title').textContent = data.rules.title;
+    const rulesTitle = document.getElementById('rules-title');
+    if (rulesTitle) {
+         rulesTitle.textContent = data.rules.title;
          document.getElementById('rule-1-title').textContent = data.rules.participants.title;
          document.getElementById('rule-1-desc').textContent = data.rules.participants.content;
          document.getElementById('rule-2-title').textContent = data.rules.structure.title;
          document.getElementById('rule-2-desc').textContent = data.rules.structure.content;
          document.getElementById('rule-3-title').textContent = data.rules.time.title;
          document.getElementById('rule-3-desc').textContent = data.rules.time.content;
-         if (document.getElementById('rule-4-title')) {
-             document.getElementById('rule-4-title').textContent = data.rules.attempts.title;
+         const rule4Title = document.getElementById('rule-4-title');
+         if (rule4Title) {
+             rule4Title.textContent = data.rules.attempts.title;
              document.getElementById('rule-4-desc').textContent = data.rules.attempts.content;
          }
     }
@@ -260,37 +269,50 @@ function renderIndex(data) {
         wrapper.addEventListener('mouseenter', () => { paused = true; });
         wrapper.addEventListener('mouseleave', () => { paused = false; });
 
+        // Cache card width once (all cards same size)
+        let cachedCardW = 0;
+        let cachedWrapperW = 0;
+        let cachedWrapperLeft = 0;
+
+        function updateCachedSizes() {
+            const first = container.firstElementChild;
+            if (first) cachedCardW = first.offsetWidth + gap;
+            const wr = wrapper.getBoundingClientRect();
+            cachedWrapperW = wr.width;
+            cachedWrapperLeft = wr.left;
+        }
+        updateCachedSizes();
+        window.addEventListener('resize', updateCachedSizes);
+
         function animateLoop() {
             if (!paused) {
                 scrollPos += speed;
 
                 // Recycle: if first card is fully off-screen left, move it to end
-                const first = container.firstElementChild;
-                if (first) {
-                    const cardW = first.offsetWidth + gap;
-                    if (scrollPos >= cardW) {
-                        scrollPos -= cardW;
-                        container.appendChild(first);
-                    }
+                if (cachedCardW > 0 && scrollPos >= cachedCardW) {
+                    scrollPos -= cachedCardW;
+                    container.appendChild(container.firstElementChild);
                 }
             }
             container.style.transform = `translateX(-${scrollPos}px)`;
 
-            // Scale effect
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const viewCenter = wrapperRect.left + wrapperRect.width / 2;
-            const maxDist = wrapperRect.width / 2;
+            // Scale effect — compute positions from scrollPos instead of getBoundingClientRect
+            const viewCenter = cachedWrapperLeft + cachedWrapperW / 2;
+            const maxDist = cachedWrapperW / 2;
             const cards = container.children;
+            // Batch: compute all values first, then write all styles
+            const updates = new Array(cards.length);
             for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const rect = card.getBoundingClientRect();
-                const cardCenter = rect.left + rect.width / 2;
+                // Card position = container offset + card index * cardW - scrollPos
+                const cardLeft = cachedWrapperLeft + i * cachedCardW - scrollPos;
+                const cardCenter = cardLeft + (cachedCardW - gap) / 2;
                 const dist = Math.abs(cardCenter - viewCenter);
                 const ratio = Math.min(dist / maxDist, 1);
-                const scale = 1.5 - 1.0 * ratio;
-                const opacity = 1 - 0.5 * ratio;
-                card.style.transform = `scale(${scale})`;
-                card.style.opacity = opacity;
+                updates[i] = { scale: 1.5 - 1.0 * ratio, opacity: 1 - 0.5 * ratio };
+            }
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].style.transform = `scale(${updates[i].scale})`;
+                cards[i].style.opacity = updates[i].opacity;
             }
             requestAnimationFrame(animateLoop);
         }
@@ -348,7 +370,7 @@ function renderIndex(data) {
                     <div class="absolute inset-0 transition-all duration-1000 ease-in-out shadow-[0_10px_30px_rgba(0,0,0,0.3)] rounded-[2rem] overflow-hidden border-8 border-white dark:border-slate-800 cursor-pointer" 
                          data-lb-idx="${idx}"
                          style="z-index: ${zIndex}; --final-transform: ${transform}; opacity: 0; animation: gallery-slide-up 0.8s ease forwards ${idx * 3}s;">
-                        <img alt="${category.name}" class="w-full h-full object-cover bg-slate-200" src="${imgSrc}"/>
+                        <img alt="${category.name}" class="w-full h-full object-cover bg-slate-200" loading="lazy" src="${imgSrc}"/>
                     </div>
                 `;
             }).join('');
@@ -997,21 +1019,27 @@ function renderTestimonials(t) {
         document.head.appendChild(s);
     }
 
-    // Per-card IntersectionObserver: animate in when entering, out when leaving
+    // Single shared IntersectionObserver for all testimonial cards
+    const testimonialObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const idx = parseInt(card.dataset.tIdx, 10);
+            if (entry.isIntersecting) {
+                card.style.animation = `testimonial-in 0.5s cubic-bezier(0.34,1.4,0.64,1) ${idx * 0.08}s forwards`;
+                card.style.animationPlayState = 'running';
+            } else {
+                card.style.animation = `testimonial-out 0.35s ease-in forwards`;
+                card.style.animationPlayState = 'running';
+            }
+        });
+    }, { threshold: 0.2 });
+
     document.getElementById('testimonials-container')
         .querySelectorAll('.testimonial-card')
         .forEach((card, idx) => {
+            card.dataset.tIdx = idx;
             card.style.animationPlayState = 'paused';
-            const observer = new IntersectionObserver(([entry]) => {
-                if (entry.isIntersecting) {
-                    card.style.animation = `testimonial-in 0.5s cubic-bezier(0.34,1.4,0.64,1) ${idx * 0.08}s forwards`;
-                    card.style.animationPlayState = 'running';
-                } else {
-                    card.style.animation = `testimonial-out 0.35s ease-in forwards`;
-                    card.style.animationPlayState = 'running';
-                }
-            }, { threshold: 0.2 });
-            observer.observe(card);
+            testimonialObserver.observe(card);
         });
 }
 
@@ -1025,13 +1053,22 @@ function renderTestimonials(t) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.style.willChange = 'opacity, transform';
                 entry.target.classList.add('is-visible');
                 entry.target.classList.remove('is-hidden');
+                entry.target.addEventListener('transitionend', function handler() {
+                    entry.target.style.willChange = '';
+                    entry.target.removeEventListener('transitionend', handler);
+                }, { once: true });
             } else {
-                // Only disappear if already been visible (not initial hidden state)
                 if (entry.target.classList.contains('is-visible')) {
+                    entry.target.style.willChange = 'opacity, transform';
                     entry.target.classList.remove('is-visible');
                     entry.target.classList.add('is-hidden');
+                    entry.target.addEventListener('transitionend', function handler() {
+                        entry.target.style.willChange = '';
+                        entry.target.removeEventListener('transitionend', handler);
+                    }, { once: true });
                 }
             }
         });

@@ -718,11 +718,11 @@
       { "id": "t4", "label": "Tháng 4" }
     ],
     "subjects": [
-      { "id": "toan1", "label": "Toán 1" },
-      { "id": "toan2", "label": "Toán 2" },
-      { "id": "toantre", "label": "Toán trẻ" },
-      { "id": "vantho", "label": "Văn thơ" },
-      { "id": "vantre", "label": "Văn trẻ" }
+      { "id": "toan1", "label": "Toán tuổi thơ 1" },
+      { "id": "toan2", "label": "Toán tuổi thơ 2" },
+      { "id": "toantre", "label": "Toán tuổi trẻ" },
+      { "id": "vantho", "label": "Văn tuổi thơ" },
+      { "id": "vantre", "label": "Văn tuổi trẻ" }
     ],
     "items": [
       {

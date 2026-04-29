@@ -1098,7 +1098,136 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+function renderMagazine(data) {
+    var tabsContainer = document.getElementById('magazine-tabs');
+    if (!tabsContainer || !data.magazine) return;
+    // Prevent duplicate listeners on re-init
+    if (tabsContainer.dataset.magazineInit) return;
+    tabsContainer.dataset.magazineInit = '1';
 
+    var mag = data.magazine;
+    var activeMonth = mag.months[0].id;
+    var container = document.getElementById('magazine-container');
+
+    // --- Build flat image list for lightbox navigation ---
+    var allImages = []; // [{src, label}]
+    var currentIdx = 0;
+
+    function buildImageList() {
+        allImages = [];
+        var filtered = mag.items.filter(function(item) { return item.month === activeMonth; });
+        filtered.forEach(function(item) {
+            var subjectLabel = '';
+            mag.subjects.forEach(function(s) { if (s.id === item.subject) subjectLabel = s.label; });
+            allImages.push({ src: item.cover, label: subjectLabel + ' — Bìa' });
+            var tocList = Array.isArray(item.toc) ? item.toc : [item.toc];
+            tocList.forEach(function(tocSrc, idx) {
+                if (tocSrc) {
+                    allImages.push({ src: tocSrc, label: subjectLabel + ' — Mục lục' + (tocList.length > 1 ? ' ' + (idx + 1) : '') });
+                }
+            });
+        });
+    }
+
+    // --- Lightbox with prev/next ---
+    var lb = document.getElementById('magazine-lightbox');
+    var lbImg = document.getElementById('magazine-lb-img');
+    var lbCaption = document.getElementById('magazine-lb-caption');
+    var lbCounter = document.getElementById('magazine-lb-counter');
+
+    function showLightboxAt(idx) {
+        if (idx < 0 || idx >= allImages.length) return;
+        currentIdx = idx;
+        lbImg.src = allImages[idx].src;
+        if (lbCaption) lbCaption.textContent = allImages[idx].label;
+        if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + allImages.length;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+    }
+    function closeLightbox() {
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        lbImg.src = '';
+    }
+    function nextImage() { showLightboxAt((currentIdx + 1) % allImages.length); }
+    function prevImage() { showLightboxAt((currentIdx - 1 + allImages.length) % allImages.length); }
+
+    var lbClose = document.getElementById('magazine-lb-close');
+    var lbPrev = document.getElementById('magazine-lb-prev');
+    var lbNext = document.getElementById('magazine-lb-next');
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lbPrev) lbPrev.addEventListener('click', prevImage);
+    if (lbNext) lbNext.addEventListener('click', nextImage);
+    if (lb) lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', function(e) {
+        if (!lb || lb.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+    });
+
+    // --- Month tabs ---
+    function renderTabs() {
+        tabsContainer.innerHTML = mag.months.map(function(month) {
+            var active = month.id === activeMonth;
+            var cls = active
+                ? 'bg-primary text-white shadow-lg shadow-blue-500/20'
+                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-blue-50 dark:hover:bg-slate-700';
+            return '<button data-month="' + month.id + '" class="px-6 py-3 rounded-xl font-bold text-sm transition-all ' + cls + '">' + month.label + '</button>';
+        }).join('');
+    }
+
+    // --- Cover grid (always visible, no accordion) ---
+    function renderGrid() {
+        var filtered = mag.items.filter(function(item) { return item.month === activeMonth; });
+        buildImageList();
+
+        container.innerHTML = '<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">'
+            + filtered.map(function(item) {
+                var subjectLabel = '';
+                mag.subjects.forEach(function(s) { if (s.id === item.subject) subjectLabel = s.label; });
+                var imgIdx = 0;
+                for (var i = 0; i < allImages.length; i++) {
+                    if (allImages[i].src === item.cover) { imgIdx = i; break; }
+                }
+                return '<div class="magazine-card group cursor-pointer" data-img-idx="' + imgIdx + '">'
+                    + '<div class="relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">'
+                    + '<img src="' + item.cover + '" alt="' + subjectLabel + '" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" />'
+                    + '<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">'
+                    + '<span class="material-symbols-outlined text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg">visibility</span>'
+                    + '</div>'
+                    + '</div>'
+                    + '<div class="mt-3 text-center">'
+                    + '<p class="text-sm font-bold text-slate-800 dark:text-white">' + subjectLabel + '</p>'
+                    + '</div>'
+                    + '</div>';
+            }).join('')
+            + '</div>';
+    }
+
+    function render() {
+        renderTabs();
+        renderGrid();
+    }
+
+    // --- Event delegation ---
+    tabsContainer.addEventListener('click', function(e) {
+        var btn = e.target.closest('[data-month]');
+        if (!btn) return;
+        activeMonth = btn.getAttribute('data-month');
+        render();
+    });
+
+    container.addEventListener('click', function(e) {
+        var card = e.target.closest('.magazine-card');
+        if (card) {
+            var idx = parseInt(card.getAttribute('data-img-idx'), 10);
+            showLightboxAt(idx);
+        }
+    });
+
+    render();
+}
 function initOlympicApp() {
     fetch('/o-assets/data.json')
       .then(response => response.json())
@@ -1121,6 +1250,9 @@ function initOlympicApp() {
           if (document.getElementById('roadmap-title') && !document.getElementById('hero-title')) {
               // If it's standalone roadmap page
               renderRoadmap(data);
+          }
+          if (document.getElementById('magazine-tabs')) {
+              renderMagazine(data);
           }
 
           renderFooter(data);

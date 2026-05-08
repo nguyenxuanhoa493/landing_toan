@@ -141,8 +141,12 @@ function renderRoadmap(data) {
     scatterRoadmapDecorations();
 
     // Draw SVG winding road (wait for layout)
-    setTimeout(drawRoadmapRoad, 100);
+    var roadmapTimeout = setTimeout(drawRoadmapRoad, 100);
     window.addEventListener('resize', drawRoadmapRoad);
+    window.__olympicCleanups.push(function() {
+        clearTimeout(roadmapTimeout);
+        window.removeEventListener('resize', drawRoadmapRoad);
+    });
 }
 
 function renderIndex(data) {
@@ -197,7 +201,8 @@ function renderIndex(data) {
                         }, 700);
                     };
                 }
-                setInterval(nextHeroImage, 5000);
+                var heroIntervalId = setInterval(nextHeroImage, 5000);
+                window.__olympicCleanups.push(function() { clearInterval(heroIntervalId); });
             }
         }
     }
@@ -260,6 +265,7 @@ function renderIndex(data) {
         wrapper.addEventListener('mouseenter', () => { paused = true; });
         wrapper.addEventListener('mouseleave', () => { paused = false; });
 
+        let expertsRafId = null;
         function animateLoop() {
             if (!paused) {
                 scrollPos += speed;
@@ -292,9 +298,10 @@ function renderIndex(data) {
                 card.style.transform = `scale(${scale})`;
                 card.style.opacity = opacity;
             }
-            requestAnimationFrame(animateLoop);
+            expertsRafId = requestAnimationFrame(animateLoop);
         }
-        requestAnimationFrame(animateLoop);
+        expertsRafId = requestAnimationFrame(animateLoop);
+        window.__olympicCleanups.push(function() { if (expertsRafId) cancelAnimationFrame(expertsRafId); });
     }
 
     // Gallery slider on index page
@@ -443,7 +450,8 @@ function renderIndex(data) {
         renderRandomGallery();
 
         // Auto transition logic
-        setInterval(renderRandomGallery, 12000);
+        var galleryIntervalId = setInterval(renderRandomGallery, 12000);
+        window.__olympicCleanups.push(function() { clearInterval(galleryIntervalId); });
     }
 
     // News section on index page
@@ -1260,11 +1268,28 @@ function initOlympicApp() {
       .catch(error => console.error("Error loading data.json", error));
 }
 
+// Track all intervals/animation-frames so we can clean up when re-injected in SPA
+window.__olympicCleanups = window.__olympicCleanups || [];
+
+// Clean up any previous instance before starting a new one
+function cleanupOlympicApp() {
+    if (window.__olympicCleanups) {
+        window.__olympicCleanups.forEach(function(fn) {
+            try { fn(); } catch(e) {}
+        });
+        window.__olympicCleanups = [];
+    }
+}
+
 // Support both: static HTML pages (DOMContentLoaded not yet fired)
 // and dynamic injection from SPA (DOMContentLoaded already fired)
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initOlympicApp);
+    document.addEventListener('DOMContentLoaded', function() {
+        cleanupOlympicApp();
+        initOlympicApp();
+    });
 } else {
+    cleanupOlympicApp();
     initOlympicApp();
 }
 

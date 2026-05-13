@@ -151,60 +151,28 @@ function renderRoadmap(data) {
 
 function renderIndex(data) {
     console.log('Rendering index page with data:', data);
-    console.log(document.getElementById('hero-title'));
-    // Hero
-    if (document.getElementById('hero-title')) {
-        let titleText = data.hero.title;
 
-        document.getElementById('hero-title').innerHTML = titleText
-            .replace("Môn Toán", "<span class='text-primary underline decoration-blue-500/30'>môn Toán</span>")
-            .replace("Online", `<span class="hero-online-badge">Online</span>`);
-        document.getElementById('hero-subtitle').innerHTML = data.hero.subtitle;
-        document.getElementById('hero-btn-trial').innerHTML = `<span class="material-symbols-outlined">play_circle</span> ${data.hero.buttons.trial.text}`;
-        document.getElementById('hero-btn-trial').href = data.hero.buttons.trial.link;
+    // Hero marquee
+    var heroContainer = document.getElementById('hero-marquee-container');
+    if (heroContainer && data.hero && data.hero.list_image && data.hero.list_image.length > 0) {
+        var images = data.hero.list_image.filter(Boolean);
+        // Duplicate for seamless infinite scroll
+        var allImages = images.concat(images);
+        heroContainer.innerHTML = allImages.map(function(img) {
+            return '<div class="shrink-0 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-800 hover:scale-105 transition-transform duration-300" style="height:300px">'
+                + '<img src="' + img + '" alt="Olympic Toán Tuổi Thơ" class="h-full w-auto object-contain"/>'
+                + '</div>';
+        }).join('');
+    }
 
-        const registerAltBtn = document.getElementById('hero-btn-register-alt');
-        if (registerAltBtn) {
-            registerAltBtn.textContent = data.hero.buttons.registerNow.text;
-            registerAltBtn.href = data.hero.buttons.registerNow.link;
-        }
-
-        // Hero image slideshow — use hero.list_image if defined, else fallback to gallery
-        const front = document.getElementById('hero-img-front');
-        const back  = document.getElementById('hero-img-back');
-
-        if (front && back) {
-            let allImages = [];
-            if (data.hero && data.hero.list_image && data.hero.list_image.length > 0) {
-                allImages = data.hero.list_image.filter(Boolean);
-            } else if (data.gallery && data.gallery.categories) {
-                allImages = data.gallery.categories.flatMap(c => c.list_image || []).filter(Boolean);
-            }
-            console.log({allImages});
-
-            if (allImages.length > 1) {
-                let current = 0;
-                // Shuffle
-                const pool = [...allImages].sort(() => 0.5 - Math.random());
-
-                function nextHeroImage() {
-                    current = (current + 1) % pool.length;
-                    const nextSrc = pool[current];
-                    // Preload behind front layer
-                    back.src = nextSrc;
-                    back.onload = () => {
-                        // Crossfade: fade front out → swap → fade back in
-                        front.style.opacity = '0';
-                        setTimeout(() => {
-                            front.src = nextSrc;
-                            front.style.opacity = '1';
-                        }, 700);
-                    };
-                }
-                var heroIntervalId = setInterval(nextHeroImage, 5000);
-                window.__olympicCleanups.push(function() { clearInterval(heroIntervalId); });
-            }
-        }
+    // Hero buttons
+    var trialBtn = document.getElementById('hero-btn-trial');
+    if (trialBtn && data.hero && data.hero.buttons && data.hero.buttons.trial) {
+        trialBtn.href = data.hero.buttons.trial.link;
+    }
+    var registerAltBtn = document.getElementById('hero-btn-register-alt');
+    if (registerAltBtn && data.hero && data.hero.buttons && data.hero.buttons.registerNow) {
+        registerAltBtn.href = data.hero.buttons.registerNow.link;
     }
 
     // Roadmap – adventure game map
@@ -230,8 +198,9 @@ function renderIndex(data) {
         document.getElementById('partners-title').textContent = data.partners.title;
         document.getElementById('partners-desc').textContent = data.partners.description;
         document.getElementById('partners-container').innerHTML = data.partners.list.map(p => `
-            <a href="${p.link}" class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border border-blue-50 dark:border-slate-700 hover-card-lift flex items-center justify-center min-h-[120px]">
-                <img alt="${p.name}" src="${p.logo}" class="max-h-16 max-w-full object-contain" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\\'text-sm font-bold text-slate-400 text-center\\'>${p.name}</span>'"/>
+            <a href="${p.link}" class="group bg-white dark:bg-slate-800 rounded-2xl p-5 border border-blue-50 dark:border-slate-700 hover-card-lift flex flex-col items-center justify-center min-h-[160px] text-center">
+                <img alt="${p.name}" src="${p.logo}" class="max-h-20 max-w-full object-contain mb-3" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+                <p class="text-sm font-bold text-slate-500 dark:text-slate-400 hidden">${p.name}</p>
             </a>
         `).join('');
     }
@@ -739,22 +708,24 @@ function fetchNews() {
             if (!resData.success || !resData.result) return;
             // The API returned items_per_page=5 as array in result
             // We configured a 3-column grid for PC, but to show 5 we can just map all 5 items
-            const newsHtml = resData.result.slice(0, 5).map((news) => {
+            var isCompact = document.getElementById('news-container').closest('[data-news-compact]');
+            var maxItems = isCompact ? 3 : 5;
+            const newsHtml = resData.result.slice(0, maxItems).map((news) => {
                 const date = new Date(news.ts * 1000).toLocaleDateString('vi-VN');
                 const img = news.thumbnail || 'https://via.placeholder.com/600x400?text=News';
                 const link = `https://olympictuoitho.vn/blog/${news.slug}.html`;
 
                 return `
-                    <a href="${link}" target="_blank" class="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg border border-blue-50 dark:border-slate-700 hover-card-lift flex flex-col h-full w-full">
-                        <div class="aspect-video bg-slate-200 dark:bg-slate-700 overflow-hidden relative shrink-0">
+                    <a href="${link}" target="_blank" class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm border border-blue-50 dark:border-slate-700 hover-card-lift flex flex-row h-full w-full">
+                        <div class="w-28 h-28 bg-slate-200 dark:bg-slate-700 overflow-hidden relative shrink-0">
                             <img alt="${news.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${img}"/>
                         </div>
-                        <div class="p-5 flex flex-col flex-grow">
-                            <div class="flex items-center gap-1 text-[10px] font-bold text-primary dark:text-blue-400 mb-2 uppercase tracking-wider">
+                        <div class="p-3 flex flex-col justify-center flex-grow min-w-0">
+                            <div class="flex items-center gap-1 text-[10px] font-bold text-primary dark:text-blue-400 mb-1 uppercase tracking-wider">
                                 <span class="material-symbols-outlined text-[14px]">calendar_today</span>
                                 ${date}
                             </div>
-                            <h3 class="text-sm font-black text-slate-900 dark:text-white line-clamp-3 group-hover:text-primary transition-colors">${news.name}</h3>
+                            <h3 class="text-sm font-black text-slate-900 dark:text-white line-clamp-2 group-hover:text-primary transition-colors">${news.name}</h3>
                         </div>
                     </a>
                 `;
@@ -1243,19 +1214,19 @@ function initOlympicApp() {
           renderHeader(data);
 
           // Check which page we are on by looking for specific IDs
-          if (document.getElementById('hero-title')) {
+          if (document.getElementById('hero-marquee-container')) {
               renderIndex(data);
           }
-          if (document.getElementById('rules-title') && !document.getElementById('hero-title')) {
+          if (document.getElementById('rules-title') && !document.getElementById('hero-marquee-container')) {
               // If it's pure thele page
               renderRulesPage(data);
           }
-          if (document.getElementById('gallery-tabs') && !document.getElementById('hero-title')) {
+          if (document.getElementById('gallery-tabs') && !document.getElementById('hero-marquee-container')) {
               // If it's pure gallery page
               renderGalleryPage(data);
               renderVideoSection(data);
           }
-          if (document.getElementById('roadmap-title') && !document.getElementById('hero-title')) {
+          if (document.getElementById('roadmap-title') && !document.getElementById('hero-marquee-container')) {
               // If it's standalone roadmap page
               renderRoadmap(data);
           }

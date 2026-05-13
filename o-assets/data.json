@@ -77,12 +77,12 @@
         "details": "Ban tổ chức chính thức công bố cuộc thi Olympic Toán Tuổi thơ Online 2026 trên toàn quốc. Thông tin được gửi đến các trường Tiểu học và THCS trên 34 tỉnh thành."
       },
       {
-        "date": "Tháng 3/2026",
+        "date": "Tháng 3 - 4 - 5/2026",
         "event": "Đăng ký & Luyện thi",
         "details": "Phụ huynh và học sinh đăng ký tài khoản, chọn lớp dự thi. Hệ thống mở đề thi thử miễn phí để làm quen với giao diện và dạng bài."
       },
       {
-        "date": "Tháng 5 - 6/2026",
+        "date": "Từ ngày 16/5 đến 7/6/2026",
         "event": "Vòng 1 - Cấp Trường (Thi trực tuyến)",
         "details": "Thí sinh thi trực tuyến tại nhà hoặc trường. 3 đợt cuối tuần (thứ Bảy & Chủ nhật). Mỗi em được thi tối đa 3 lần, hệ thống ghi nhận điểm cao nhất. ĐK vào vòng 2: đạt 12/20 điểm"
       },
@@ -468,7 +468,7 @@
       },
       {
         "name": "Các Sở Giáo dục và Đào tạo",
-        "logo": "/o-assets/partners/so-gddt-hanoi.png",
+        "logo": "/o-assets/partners/sgdvdt.png",
         "link": "#"
       },
       {
@@ -538,7 +538,8 @@
       {
         "name": "Thầy Trần Hữu Nam",
         "role": "Nguyên Tổng biên tập",
-        "org": "Tạp chí Toán Tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/tranhuunam.jpg"
       },
       {
         "name": "Thầy Nguyễn Ngọc Hân",
@@ -553,12 +554,14 @@
       {
         "name": "Thầy Trần Quốc Luật",
         "role": "Giáo viên",
-        "org": "Trường THPT Chuyên Lê Hồng Phong, TP. Hồ Chí Minh"
+        "org": "Trường THPT Chuyên Lê Hồng Phong, TP. Hồ Chí Minh",
+        "photo": "/o-assets/experts/tranquocluat.jpg"
       },
       {
         "name": "Thầy Lưu Công Đông",
         "role": "Giáo viên",
-        "org": "Trường THPT Chuyên ĐHSP Hà Nội"
+        "org": "Trường THPT Chuyên ĐHSP Hà Nội",
+        "photo": "/o-assets/experts/luucongdong.jpg"
       },
       {
         "name": "Thầy Võ Quốc Bá Cẩn",
@@ -568,7 +571,8 @@
       {
         "name": "Thầy Hoàng Việt Dũng",
         "role": "Giáo viên",
-        "org": "Trường THCS Đặng Thai Mai, \nNghệ An"
+        "org": "Trường THCS Đặng Thai Mai, \nNghệ An",
+        "photo": "/o-assets/experts/hoangvietdung.jpg"
       },
       {
         "name": "Thầy Nguyễn Cao Cường",
@@ -579,12 +583,14 @@
       {
         "name": "Thầy Nguyễn Quang Tuấn",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán Tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/nguyenquantuan.jpg"
       },
       {
         "name": "Cô Trần Kim Thanh",
         "role": "Biên tập viên",
-        "org": "Tạp chí Toán Tuổi thơ"
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/trankimthanh.jpg"
       },
       {
         "name": "Thầy Ngô Văn Nghi",

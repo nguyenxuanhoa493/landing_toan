@@ -1300,7 +1300,7 @@ var modalData = {
   },
   "r1-advance": {
     title: "⬆️ Điều kiện vào Vòng 2",
-    body: "<p>Thí sinh đạt <strong>điểm cao nhất</strong> trong số tối đa 3 lần thi và lọt vào <strong>top thứ hạng</strong> theo từng khối lớp sẽ được vào Vòng 2.</p><p>Tỉ lệ lọt vào Vòng 2: khoảng <strong>30%</strong> thí sinh tham gia.</p>"
+    body: "<p>Thí sinh đạt <strong>điểm cao nhất</strong> trong số tối đa 3 lần thi và lọt vào <strong>top thứ hạng</strong> theo từng khối lớp sẽ được vào Vòng 2.</p><p>Tỉ lệ lọt vào Vòng 2: Top thí sinh đạt 12/20 điểm.</p>"
   },
   "r2-time": {
     title: "📅 Thời gian Vòng 2",

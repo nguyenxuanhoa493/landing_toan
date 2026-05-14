@@ -152,17 +152,46 @@ function renderRoadmap(data) {
 function renderIndex(data) {
     console.log('Rendering index page with data:', data);
 
-    // Hero marquee
+    // Hero marquee — progressive lazy loading
     var heroContainer = document.getElementById('hero-marquee-container');
     if (heroContainer && data.hero && data.hero.list_image && data.hero.list_image.length > 0) {
         var images = data.hero.list_image.filter(Boolean);
         // Duplicate for seamless infinite scroll
         var allImages = images.concat(images);
-        heroContainer.innerHTML = allImages.map(function(img) {
-            return '<div class="shrink-0 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-800 hover:scale-105 transition-transform duration-300" style="height:300px">'
-                + '<img src="' + img + '" alt="Olympic Toán Tuổi Thơ" class="h-full w-auto object-contain"/>'
+        var EAGER_COUNT = 6; // first N images load immediately
+
+        heroContainer.innerHTML = allImages.map(function(img, idx) {
+            return '<div class="shrink-0 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-800 hover:scale-105 transition-transform duration-300 bg-slate-200 dark:bg-slate-700" style="height:300px;min-width:200px">'
+                + '<img data-src="' + img + '"'
+                + (idx < EAGER_COUNT ? ' src="' + img + '"' : '')
+                + ' alt="Olympic Toán Tuổi Thơ" class="h-full w-auto object-contain transition-opacity duration-300'
+                + (idx < EAGER_COUNT ? '' : ' opacity-0') + '"/>'
                 + '</div>';
         }).join('');
+
+        // Lazy load remaining images in batches using IntersectionObserver
+        var lazyImages = heroContainer.querySelectorAll('img[data-src]:not([src])');
+        if (lazyImages.length > 0 && 'IntersectionObserver' in window) {
+            var heroObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    var img = entry.target;
+                    img.src = img.dataset.src;
+                    img.onload = function() { img.classList.remove('opacity-0'); };
+                    heroObserver.unobserve(img);
+                });
+            }, { rootMargin: '200px 600px 200px 600px' });
+            lazyImages.forEach(function(img) { heroObserver.observe(img); });
+            window.__olympicCleanups.push(function() { heroObserver.disconnect(); });
+        } else {
+            // Fallback: load all after short delay
+            setTimeout(function() {
+                lazyImages.forEach(function(img) {
+                    img.src = img.dataset.src;
+                    img.onload = function() { img.classList.remove('opacity-0'); };
+                });
+            }, 1000);
+        }
     }
 
     // Hero buttons
@@ -218,7 +247,7 @@ function renderIndex(data) {
                 <p class="text-xs text-primary dark:text-blue-400 font-medium mt-1">${convertsStr(e.role)}</p>
                 ${convertsStr(e.org) ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">${convertsStr(e.org)}</p>` : ''}
             </div>`;
-        const items = [...data.experts.list].sort(() => Math.random() - 0.5);
+        const items = data.experts.list;
         const container = document.getElementById('experts-container');
         const wrapper = container.parentElement;
         container.classList.remove('animate-marquee');
@@ -1085,8 +1114,24 @@ function renderMagazine(data) {
     tabsContainer.dataset.magazineInit = '1';
 
     var mag = data.magazine;
-    var activeMonth = mag.months[0].id;
     var container = document.getElementById('magazine-container');
+
+    // Extract unique years from months, default to 2026
+    var yearsSet = {};
+    mag.months.forEach(function(m) {
+        var year = m.id.split('-')[1];
+        if (year) yearsSet[year] = true;
+    });
+    var years = Object.keys(yearsSet).sort();
+    var activeYear = years.indexOf('2026') !== -1 ? '2026' : years[years.length - 1];
+
+    // Get months for active year
+    function getMonthsForYear(year) {
+        return mag.months.filter(function(m) { return m.id.endsWith('-' + year); });
+    }
+
+    var yearMonths = getMonthsForYear(activeYear);
+    var activeMonth = yearMonths.length > 0 ? yearMonths[0].id : mag.months[0].id;
 
     // --- Build flat image list for lightbox navigation ---
     var allImages = []; // [{src, label}]
@@ -1145,15 +1190,45 @@ function renderMagazine(data) {
         if (e.key === 'ArrowLeft') prevImage();
     });
 
-    // --- Month tabs ---
+    // --- Year + Month tabs ---
+    // Sort years descending (newest first)
+    years.sort(function(a, b) { return parseInt(b) - parseInt(a); });
+    var VISIBLE_YEAR_COUNT = 5;
+    var yearExpanded = false;
+
     function renderTabs() {
-        tabsContainer.innerHTML = mag.months.map(function(month) {
-            var active = month.id === activeMonth;
-            var cls = active
-                ? 'bg-primary text-white shadow-lg shadow-blue-500/20'
-                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-blue-50 dark:hover:bg-slate-700';
-            return '<button data-month="' + month.id + '" class="px-6 py-3 rounded-xl font-bold text-sm transition-all ' + cls + '">' + month.label + '</button>';
+        var activeYearCls = 'bg-primary text-white shadow-lg shadow-blue-500/20';
+        var inactiveYearCls = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-blue-50 dark:hover:bg-slate-700';
+
+        var visibleYears = yearExpanded ? years : years.slice(0, VISIBLE_YEAR_COUNT);
+        var hasMore = years.length > VISIBLE_YEAR_COUNT;
+
+        var yearHtml = visibleYears.map(function(year) {
+            var cls = year === activeYear ? activeYearCls : inactiveYearCls;
+            return '<button data-year="' + year + '" class="px-5 py-2.5 rounded-xl font-bold text-sm transition-all ' + cls + '">Năm ' + year + '</button>';
         }).join('');
+
+        if (hasMore) {
+            var toggleCls = 'bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border border-dashed border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600';
+            var toggleIcon = yearExpanded ? 'expand_less' : 'expand_more';
+            var toggleLabel = yearExpanded ? 'Thu gọn' : (years.length - VISIBLE_YEAR_COUNT) + ' năm khác';
+            yearHtml += '<button data-toggle-years class="px-4 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-1 ' + toggleCls + '">'
+                + '<span class="material-symbols-outlined text-sm">' + toggleIcon + '</span>' + toggleLabel + '</button>';
+        }
+
+        var monthActiveCls = 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20';
+        var monthInactiveCls = 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600';
+
+        yearMonths = getMonthsForYear(activeYear);
+        var monthHtml = yearMonths.map(function(month) {
+            var label = 'T' + month.id.split('-')[0].replace('t', '');
+            var cls = month.id === activeMonth ? monthActiveCls : monthInactiveCls;
+            return '<button data-month="' + month.id + '" class="px-4 py-2 rounded-lg font-bold text-xs transition-all ' + cls + '">' + label + '</button>';
+        }).join('');
+
+        tabsContainer.innerHTML =
+            '<div class="flex flex-wrap justify-center gap-2 mb-3">' + yearHtml + '</div>'
+            + '<div class="flex flex-wrap justify-center gap-1.5">' + monthHtml + '</div>';
     }
 
     // --- Cover grid (always visible, no accordion) ---
@@ -1191,6 +1266,20 @@ function renderMagazine(data) {
 
     // --- Event delegation ---
     tabsContainer.addEventListener('click', function(e) {
+        var toggleBtn = e.target.closest('[data-toggle-years]');
+        if (toggleBtn) {
+            yearExpanded = !yearExpanded;
+            renderTabs();
+            return;
+        }
+        var yearBtn = e.target.closest('[data-year]');
+        if (yearBtn) {
+            activeYear = yearBtn.getAttribute('data-year');
+            yearMonths = getMonthsForYear(activeYear);
+            activeMonth = yearMonths.length > 0 ? yearMonths[0].id : '';
+            render();
+            return;
+        }
         var btn = e.target.closest('[data-month]');
         if (!btn) return;
         activeMonth = btn.getAttribute('data-month');

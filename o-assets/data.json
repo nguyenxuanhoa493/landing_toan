@@ -56,16 +56,39 @@
       }
     },
     "list_image": [
-      "/o-assets/hero/2002-t8.jpg",
-      "/o-assets/hero/2004-t4.jpg",
-      "/o-assets/hero/2008-t3.jpg",
-      "/o-assets/hero/2011-t6.jpg",
-      "/o-assets/hero/2014-t12.jpg",
-      "/o-assets/hero/2015-t3.jpg",
-      "/o-assets/hero/2016-t3.jpg",
-      "/o-assets/hero/2019-t11.jpg",
-      "/o-assets/hero/2021-t2.jpg",
-      "/o-assets/hero/2023-t12.jpg"
+
+      "/o-assets/magazine/toan1/TTT1so296_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so297+298_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so299_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so300+301_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so302_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so303_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so304_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so305_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so306+307_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan1/TTT1so308_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so266_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so267_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so268_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so269+270_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so271_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so272+273_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so274_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so275_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so276_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so277_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so278+279_Bia1 RGB.jpg",
+      "/o-assets/magazine/toan2/TTT2so280_Bia1 RGB.jpg",
+      "/o-assets/magazine/toantre/2002-t8.jpg",
+      "/o-assets/magazine/toantre/2004-t4.jpg",
+      "/o-assets/magazine/toantre/2008-t3.jpg",
+      "/o-assets/magazine/toantre/2011-t6.jpg",
+      "/o-assets/magazine/toantre/2014-t12.jpg",
+      "/o-assets/magazine/toantre/2015-t3.jpg",
+      "/o-assets/magazine/toantre/2016-t3.jpg",
+      "/o-assets/magazine/toantre/2019-t11.jpg",
+      "/o-assets/magazine/toantre/2021-t2.jpg",
+      "/o-assets/magazine/toantre/2023-t12.jpg"
     ]
   },
   "roadmap": {
@@ -488,6 +511,12 @@
     "description": "Đội ngũ chuyên gia hàng đầu trong lĩnh vực giáo dục Toán học.",
     "list": [
       {
+        "name": "TS. Trần Hữu Nam",
+        "role": "Nguyên Tổng biên tập",
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/tranhuunam.jpg"
+      },
+      {
         "name": "Cô Trần Thị Kim Cương",
         "role": "Nguyên Phó Tổng biên tập",
         "org": "Tạp chí Toán Tuổi thơ",
@@ -500,10 +529,22 @@
         "photo": "/o-assets/experts/vuvanduong.jpg"
       },
       {
-        "name": "Cô Nguyễn Thủy Chung",
-        "role": "Trưởng khoa Giáo dục Tiểu học",
+        "name": "TS. Nguyễn Thủy Chung",
+        "role": "Chủ nhiệm khoa Giáo dục Tiểu học",
         "org": "Trường ĐHSP Hà Nội",
         "photo": "/o-assets/experts/nguyenthuychung.jpg"
+      },
+      {
+        "name": "Thầy Nguyễn Cao Cường",
+        "role": "Tác giả SGK Toán 6–9",
+        "org": "Hiệu trưởng THCS Thái Thịnh, \nHà Nội",
+        "photo": "/o-assets/experts/caocuong.jpg"
+      },
+      {
+        "name": "Thầy Nguyễn Ngọc Hân",
+        "role": "Nguyên TBT Tạp chí Toán tuổi thơ",
+        "org": "Giáo viên trường THCS Giảng Võ 2, \nHà Nội",
+        "photo": "/o-assets/experts/nguyenngochan.jpg"
       },
       {
         "name": "Thầy Đỗ Ngọc Thiện",
@@ -515,7 +556,7 @@
         "name": "Thầy Nguyễn Đức Tấn",
         "role": "Giáo viên",
         "org": "Trường THCS Nguyễn Du, \nTP. Hồ Chí Minh",
-        "photo": "/o-assets/experts/thaytan.jpg"
+        "photo": "/o-assets/experts/nguyenductan.jpg"
       },
       {
         "name": "Thầy Phan Duy Nghĩa",
@@ -534,17 +575,6 @@
         "role": "Biên tập viên",
         "org": "Tạp chí Toán Tuổi thơ",
         "photo": "/o-assets/experts/dotrungkien.jpg"
-      },
-      {
-        "name": "Thầy Trần Hữu Nam",
-        "role": "Nguyên Tổng biên tập",
-        "org": "Tạp chí Toán Tuổi thơ",
-        "photo": "/o-assets/experts/tranhuunam.jpg"
-      },
-      {
-        "name": "Thầy Nguyễn Ngọc Hân",
-        "role": "Nguyên TBT Tạp chí Toán tuổi thơ",
-        "org": "Giáo viên trường THCS Giảng Võ, \nHà Nội"
       },
       {
         "name": "Thầy Nguyễn Tiến Lâm",
@@ -573,12 +603,6 @@
         "role": "Giáo viên",
         "org": "Trường THCS Đặng Thai Mai, \nNghệ An",
         "photo": "/o-assets/experts/hoangvietdung.jpg"
-      },
-      {
-        "name": "Thầy Nguyễn Cao Cường",
-        "role": "Tác giả SGK Toán 6–9",
-        "org": "Hiệu trưởng THCS Thái Thịnh, \nHà Nội",
-        "photo": "/o-assets/experts/caocuong.jpg"
       },
       {
         "name": "Thầy Nguyễn Quang Tuấn",
@@ -721,10 +745,34 @@
   },
   "magazine": {
     "months": [
-      { "id": "t1", "label": "Tháng 1" },
-      { "id": "t2", "label": "Tháng 2" },
-      { "id": "t3", "label": "Tháng 3" },
-      { "id": "t4", "label": "Tháng 4" }
+      { "id": "t8-2002", "label": "Tháng 8/2002" },
+      { "id": "t4-2004", "label": "Tháng 4/2004" },
+      { "id": "t3-2008", "label": "Tháng 3/2008" },
+      { "id": "t6-2011", "label": "Tháng 6/2011" },
+      { "id": "t12-2014", "label": "Tháng 12/2014" },
+      { "id": "t3-2015", "label": "Tháng 3/2015" },
+      { "id": "t3-2016", "label": "Tháng 3/2016" },
+      { "id": "t11-2019", "label": "Tháng 11/2019" },
+      { "id": "t2-2021", "label": "Tháng 2/2021" },
+      { "id": "t12-2023", "label": "Tháng 12/2023" },
+      { "id": "t9-2024", "label": "Tháng 9/2024" },
+      { "id": "t10-2024", "label": "Tháng 10/2024" },
+      { "id": "t11-2024", "label": "Tháng 11/2024" },
+      { "id": "t12-2024", "label": "Tháng 12/2024" },
+      { "id": "t1-2025", "label": "Tháng 1/2025" },
+      { "id": "t2-2025", "label": "Tháng 2/2025" },
+      { "id": "t3-2025", "label": "Tháng 3/2025" },
+      { "id": "t4-2025", "label": "Tháng 4/2025" },
+      { "id": "t5-2025", "label": "Tháng 5/2025" },
+      { "id": "t9-2025", "label": "Tháng 9/2025" },
+      { "id": "t10-2025", "label": "Tháng 10/2025" },
+      { "id": "t11-2025", "label": "Tháng 11/2025" },
+      { "id": "t12-2025", "label": "Tháng 12/2025" },
+      { "id": "t1-2026", "label": "Tháng 1/2026" },
+      { "id": "t2-2026", "label": "Tháng 2/2026" },
+      { "id": "t3-2026", "label": "Tháng 3/2026" },
+      { "id": "t4-2026", "label": "Tháng 4/2026" },
+      { "id": "t5-2026", "label": "Tháng 5/2026" }
     ],
     "subjects": [
       { "id": "toan1", "label": "Toán tuổi thơ 1" },
@@ -734,149 +782,69 @@
       { "id": "vantre", "label": "Văn tuổi trẻ" }
     ],
     "items": [
-      {
-        "month": "t1",
-        "subject": "toan1",
-        "cover": "/o-assets/magazine/toan1/t1-cover.jpg",
-        "toc": "/o-assets/magazine/toan1/t1-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t1",
-        "subject": "toan2",
-        "cover": "/o-assets/magazine/toan2/t1-cover.jpg",
-        "toc": "/o-assets/magazine/toan2/t1-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t1",
-        "subject": "toantre",
-        "cover": "/o-assets/magazine/toantre/t1-cover.jpg",
-        "toc": "/o-assets/magazine/toantre/t1-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t1",
-        "subject": "vantho",
-        "cover": "/o-assets/magazine/vantho/t1-cover.jpg",
-        "toc": "/o-assets/magazine/vantho/t1-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t1",
-        "subject": "vantre",
-        "cover": "/o-assets/magazine/vantre/t1-cover.jpg",
-        "toc": "/o-assets/magazine/vantre/t1-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t2",
-        "subject": "toan1",
-        "cover": "/o-assets/magazine/toan1/t2-cover.jpg",
-        "toc": "/o-assets/magazine/toan1/t2-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t2",
-        "subject": "toan2",
-        "cover": "/o-assets/magazine/toan2/t2-cover.jpg",
-        "toc": "/o-assets/magazine/toan2/t2-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t2",
-        "subject": "toantre",
-        "cover": "/o-assets/magazine/toantre/t2-cover.jpg",
-        "toc": "/o-assets/magazine/toantre/t2-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t2",
-        "subject": "vantho",
-        "cover": "/o-assets/magazine/vantho/t2-cover.jpg",
-        "toc": "/o-assets/magazine/vantho/t2-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t2",
-        "subject": "vantre",
-        "cover": "/o-assets/magazine/vantre/t2-cover.jpg",
-        "toc": "/o-assets/magazine/vantre/t2-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t3",
-        "subject": "toan1",
-        "cover": "/o-assets/magazine/toan1/t3-cover.jpg",
-        "toc": "/o-assets/magazine/toan1/t3-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t3",
-        "subject": "toan2",
-        "cover": "/o-assets/magazine/toan2/t3-cover.jpg",
-        "toc": "/o-assets/magazine/toan2/t3-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t3",
-        "subject": "toantre",
-        "cover": "/o-assets/magazine/toantre/t3-cover.jpg",
-        "toc": "/o-assets/magazine/toantre/t3-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t3",
-        "subject": "vantho",
-        "cover": "/o-assets/magazine/vantho/t3-cover.jpg",
-        "toc": "/o-assets/magazine/vantho/t3-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t3",
-        "subject": "vantre",
-        "cover": "/o-assets/magazine/vantre/t3-cover.jpg",
-        "toc": "/o-assets/magazine/vantre/t3-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t4",
-        "subject": "toan1",
-        "cover": "/o-assets/magazine/toan1/t4-cover.jpg",
-        "toc": "/o-assets/magazine/toan1/t4-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t4",
-        "subject": "toan2",
-        "cover": "/o-assets/magazine/toan2/t4-cover.jpg",
-        "toc": "/o-assets/magazine/toan2/t4-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t4",
-        "subject": "toantre",
-        "cover": "/o-assets/magazine/toantre/t4-cover.jpg",
-        "toc": "/o-assets/magazine/toantre/t4-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t4",
-        "subject": "vantho",
-        "cover": "/o-assets/magazine/vantho/t4-cover.jpg",
-        "toc": "/o-assets/magazine/vantho/t4-toc.jpg",
-        "link": ""
-      },
-      {
-        "month": "t4",
-        "subject": "vantre",
-        "cover": "/o-assets/magazine/vantre/t4-cover.jpg",
-        "toc": [
-          "/o-assets/magazine/vantre/t4-toc-1.jpg",
-          "/o-assets/magazine/vantre/t4-toc-2.jpg"
-        ],
-        "link": ""
-      }
+      { "month": "t9-2024", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so285+286_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t10-2024", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so287_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t11-2024", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so288+289_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t12-2024", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so290_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t1-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so291_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t2-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so292+293_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t3-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so294_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t4-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so295_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t5-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so296_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t9-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so297+298_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t10-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so299_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t11-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so300+301_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t12-2025", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so302_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t1-2026", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so303_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan1/TTT1so303_Mucluc.jpg", "link": "" },
+      { "month": "t2-2026", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so304_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan1/TTT1so304_Mucluc.jpg", "link": "" },
+      { "month": "t3-2026", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so305_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan1/TTT1so305_Mucluc.jpg", "link": "" },
+      { "month": "t4-2026", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so306+307_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan1/TTT1so306+307_Mucluc.jpg", "link": "" },
+      { "month": "t5-2026", "subject": "toan1", "cover": "/o-assets/magazine/toan1/TTT1so308_Bia1 RGB.jpg", "toc": "", "link": "" },
+
+      { "month": "t9-2024", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so257+258_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t10-2024", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so259_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t11-2024", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so260+261_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t12-2024", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so262_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t1-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so263_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t2-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so264+265_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t3-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so266_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t4-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so267_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t5-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so268_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t9-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so269+270_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t10-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so271_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t11-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so272+273_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t12-2025", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so274_Bia1 RGB.jpg", "toc": "", "link": "" },
+      { "month": "t1-2026", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so275_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan2/TTT2so275_Mucluc.jpg", "link": "" },
+      { "month": "t2-2026", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so276_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan2/TTT2so276_Mucluc.jpg", "link": "" },
+      { "month": "t3-2026", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so277_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan2/TTT2so277_Mucluc.jpg", "link": "" },
+      { "month": "t4-2026", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so278+279_Bia1 RGB.jpg", "toc": "/o-assets/magazine/toan2/TTT2so278+279_Mucluc.jpg", "link": "" },
+      { "month": "t5-2026", "subject": "toan2", "cover": "/o-assets/magazine/toan2/TTT2so280_Bia1 RGB.jpg", "toc": "", "link": "" },
+
+      { "month": "t1-2026", "subject": "toantre", "cover": "/o-assets/magazine/toantre/t1-2026-cover.jpg", "toc": "/o-assets/magazine/toantre/t1-2026-toc.jpg", "link": "" },
+      { "month": "t2-2026", "subject": "toantre", "cover": "/o-assets/magazine/toantre/t2-2026-cover.jpg", "toc": "/o-assets/magazine/toantre/t2-2026-toc.jpg", "link": "" },
+      { "month": "t3-2026", "subject": "toantre", "cover": "/o-assets/magazine/toantre/t3-2026-cover.jpg", "toc": "/o-assets/magazine/toantre/t3-2026-toc.jpg", "link": "" },
+      { "month": "t4-2026", "subject": "toantre", "cover": "/o-assets/magazine/toantre/t4-2026-cover.jpg", "toc": "/o-assets/magazine/toantre/t4-2026-toc.jpg", "link": "" },
+
+      { "month": "t1-2026", "subject": "vantho", "cover": "/o-assets/magazine/vantho/t1-2026-cover.jpg", "toc": "/o-assets/magazine/vantho/t1-2026-toc.jpg", "link": "" },
+      { "month": "t2-2026", "subject": "vantho", "cover": "/o-assets/magazine/vantho/t2-2026-cover.jpg", "toc": "/o-assets/magazine/vantho/t2-2026-toc.jpg", "link": "" },
+      { "month": "t3-2026", "subject": "vantho", "cover": "/o-assets/magazine/vantho/t3-2026-cover.jpg", "toc": "/o-assets/magazine/vantho/t3-2026-toc.jpg", "link": "" },
+      { "month": "t4-2026", "subject": "vantho", "cover": "/o-assets/magazine/vantho/t4-2026-cover.jpg", "toc": "/o-assets/magazine/vantho/t4-2026-toc.jpg", "link": "" },
+
+      { "month": "t1-2026", "subject": "vantre", "cover": "/o-assets/magazine/vantre/t1-2026-cover.jpg", "toc": "/o-assets/magazine/vantre/t1-2026-toc.jpg", "link": "" },
+      { "month": "t2-2026", "subject": "vantre", "cover": "/o-assets/magazine/vantre/t2-2026-cover.jpg", "toc": "/o-assets/magazine/vantre/t2-2026-toc.jpg", "link": "" },
+      { "month": "t3-2026", "subject": "vantre", "cover": "/o-assets/magazine/vantre/t3-2026-cover.jpg", "toc": "/o-assets/magazine/vantre/t3-2026-toc.jpg", "link": "" },
+      { "month": "t4-2026", "subject": "vantre", "cover": "/o-assets/magazine/vantre/t4-2026-cover.jpg", "toc": ["/o-assets/magazine/vantre/t4-2026-toc-1.jpg", "/o-assets/magazine/vantre/t4-2026-toc-2.jpg"], "link": "" },
+
+      { "month": "t8-2002", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2002-t8.jpg", "toc": "", "link": "" },
+      { "month": "t4-2004", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2004-t4.jpg", "toc": "", "link": "" },
+      { "month": "t3-2008", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2008-t3.jpg", "toc": "", "link": "" },
+      { "month": "t6-2011", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2011-t6.jpg", "toc": "", "link": "" },
+      { "month": "t12-2014", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2014-t12.jpg", "toc": "", "link": "" },
+      { "month": "t3-2015", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2015-t3.jpg", "toc": "", "link": "" },
+      { "month": "t3-2016", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2016-t3.jpg", "toc": "", "link": "" },
+      { "month": "t11-2019", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2019-t11.jpg", "toc": "", "link": "" },
+      { "month": "t2-2021", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2021-t2.jpg", "toc": "", "link": "" },
+      { "month": "t12-2023", "subject": "toantre", "cover": "/o-assets/magazine/toantre/2023-t12.jpg", "toc": "", "link": "" }
     ]
   }
 }

@@ -1191,14 +1191,30 @@ function renderMagazine(data) {
     });
 
     // --- Year + Month tabs ---
+    // Sort years descending (newest first)
+    years.sort(function(a, b) { return parseInt(b) - parseInt(a); });
+    var VISIBLE_YEAR_COUNT = 5;
+    var yearExpanded = false;
+
     function renderTabs() {
         var activeYearCls = 'bg-primary text-white shadow-lg shadow-blue-500/20';
         var inactiveYearCls = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-blue-50 dark:hover:bg-slate-700';
 
-        var yearHtml = years.map(function(year) {
+        var visibleYears = yearExpanded ? years : years.slice(0, VISIBLE_YEAR_COUNT);
+        var hasMore = years.length > VISIBLE_YEAR_COUNT;
+
+        var yearHtml = visibleYears.map(function(year) {
             var cls = year === activeYear ? activeYearCls : inactiveYearCls;
             return '<button data-year="' + year + '" class="px-5 py-2.5 rounded-xl font-bold text-sm transition-all ' + cls + '">Năm ' + year + '</button>';
         }).join('');
+
+        if (hasMore) {
+            var toggleCls = 'bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border border-dashed border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600';
+            var toggleIcon = yearExpanded ? 'expand_less' : 'expand_more';
+            var toggleLabel = yearExpanded ? 'Thu gọn' : (years.length - VISIBLE_YEAR_COUNT) + ' năm khác';
+            yearHtml += '<button data-toggle-years class="px-4 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-1 ' + toggleCls + '">'
+                + '<span class="material-symbols-outlined text-sm">' + toggleIcon + '</span>' + toggleLabel + '</button>';
+        }
 
         var monthActiveCls = 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20';
         var monthInactiveCls = 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600';
@@ -1250,6 +1266,12 @@ function renderMagazine(data) {
 
     // --- Event delegation ---
     tabsContainer.addEventListener('click', function(e) {
+        var toggleBtn = e.target.closest('[data-toggle-years]');
+        if (toggleBtn) {
+            yearExpanded = !yearExpanded;
+            renderTabs();
+            return;
+        }
         var yearBtn = e.target.closest('[data-year]');
         if (yearBtn) {
             activeYear = yearBtn.getAttribute('data-year');

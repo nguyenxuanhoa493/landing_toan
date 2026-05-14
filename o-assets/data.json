@@ -511,6 +511,12 @@
     "description": "Đội ngũ chuyên gia hàng đầu trong lĩnh vực giáo dục Toán học.",
     "list": [
       {
+        "name": "Cô Lê Thị Hồng Vân",
+        "role": "Trưởng ban Tiểu học",
+        "org": "NXBGD Việt Nam",
+        "photo": "/o-assets/experts/lehongvan.jpg"
+      },
+      {
         "name": "TS. Trần Hữu Nam",
         "role": "Nguyên Tổng biên tập",
         "org": "Tạp chí Toán Tuổi thơ",
@@ -547,6 +553,18 @@
         "photo": "/o-assets/experts/nguyenngochan.jpg"
       },
       {
+        "name": "Thầy Nguyễn Quang Tuấn",
+        "role": "Biên tập viên",
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/nguyenquantuan.jpg"
+      },
+      {
+        "name": "Cô Trần Kim Thanh",
+        "role": "Biên tập viên",
+        "org": "Tạp chí Toán Tuổi thơ",
+        "photo": "/o-assets/experts/trankimthanh.jpg"
+      },
+      {
         "name": "Thầy Đỗ Ngọc Thiện",
         "role": "Phó Hiệu trưởng",
         "org": "Trường TH Phúc Tân, Hà Nội",
@@ -563,12 +581,6 @@
         "role": "Phòng Giáo dục Phổ thông",
         "org": "Sở GD&ĐT Hà Tĩnh",
         "photo": "/o-assets/experts/duynghia.jpg"
-      },
-      {
-        "name": "Cô Lê Thị Hồng Vân",
-        "role": "Trưởng ban Tiểu học",
-        "org": "NXBGD Việt Nam",
-        "photo": "/o-assets/experts/lehongvan.jpg"
       },
       {
         "name": "Thầy Đỗ Trung Kiên",
@@ -603,18 +615,6 @@
         "role": "Giáo viên",
         "org": "Trường THCS Đặng Thai Mai, \nNghệ An",
         "photo": "/o-assets/experts/hoangvietdung.jpg"
-      },
-      {
-        "name": "Thầy Nguyễn Quang Tuấn",
-        "role": "Biên tập viên",
-        "org": "Tạp chí Toán Tuổi thơ",
-        "photo": "/o-assets/experts/nguyenquantuan.jpg"
-      },
-      {
-        "name": "Cô Trần Kim Thanh",
-        "role": "Biên tập viên",
-        "org": "Tạp chí Toán Tuổi thơ",
-        "photo": "/o-assets/experts/trankimthanh.jpg"
       },
       {
         "name": "Thầy Ngô Văn Nghi",

@@ -477,6 +477,17 @@
           "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4656.webp",
           "/o-assets/gallery/Năm 2024 Thừa Thiên Huế/IMG_4665.webp"
         ]
+      },
+      {
+        "name": "Năm 2026 Hà Nội",
+        "list_image": [
+          "/o-assets/gallery/Năm 2026 Hà Nội/doanthidiem-1.jpg",
+          "/o-assets/gallery/Năm 2026 Hà Nội/doanthidiem-2.jpg",
+          "/o-assets/gallery/Năm 2026 Hà Nội/doanthidiem-3.jpg",
+          "/o-assets/gallery/Năm 2026 Hà Nội/thaithinh-1.jpg",
+          "/o-assets/gallery/Năm 2026 Hà Nội/thaithinh-2.jpg",
+          "/o-assets/gallery/Năm 2026 Hà Nội/thaithinh-3.jpg"
+        ]
       }
     ]
   },
@@ -556,7 +567,7 @@
         "name": "Thầy Nguyễn Quang Tuấn",
         "role": "Biên tập viên",
         "org": "Tạp chí Toán Tuổi thơ",
-        "photo": "/o-assets/experts/nguyenquantuan.jpg"
+        "photo": "/o-assets/experts/nguyenquangtuan.jpg"
       },
       {
         "name": "Cô Trần Kim Thanh",
@@ -608,7 +619,8 @@
       {
         "name": "Thầy Võ Quốc Bá Cẩn",
         "role": "Giáo viên",
-        "org": "Trường THCS Archimedes, Yên Hòa,\nHà Nội"
+        "org": "Trường THCS Archimedes, Yên Hòa,\nHà Nội",
+        "photo": "/o-assets/experts/bacan.jpg"
       },
       {
         "name": "Thầy Hoàng Việt Dũng",
@@ -628,10 +640,11 @@
     "column1": {
       "title": "Đơn vị quản lý",
       "details": [
-        "Cơ quan chủ quản: CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE.",
+        "Cơ quan tổ chức thi: Viện Nghiên cứu Sách và Học liệu Giáo dục - NXBGD Việt Nam.",
+        "Cơ quản đăng ký/quản lý trang Web: CÔNG TY CỔ PHẦN CÔNG NGHỆ FAST LANE.",
         "Giấy phép: GPKD số 0110122762 cấp ngày 20/09/2022 tại Sở KH&ĐT Hà Nội.",
         "Người phụ trách: Ông Phạm Ngọc Hiếu – Giám đốc.",
-        "Bản quyền cuộc thi: Viện Nghiên cứu Sách và học liệu giáo dục - NXB Giáo dục Việt Nam."
+        "Bản quyền cuộc thi: Viện Nghiên cứu Sách và Học liệu Giáo dục - NXBGD Việt Nam."
       ]
     },
     "column2": {

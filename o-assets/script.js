@@ -739,7 +739,8 @@ function fetchNews() {
             // We configured a 3-column grid for PC, but to show 5 we can just map all 5 items
             var isCompact = document.getElementById('news-container').closest('[data-news-compact]');
             var maxItems = isCompact ? 3 : 5;
-            const newsHtml = resData.result.slice(0, maxItems).map((news) => {
+            var sortedNews = resData.result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+            const newsHtml = sortedNews.slice(0, maxItems).map((news) => {
                 const date = new Date(news.ts * 1000).toLocaleDateString('vi-VN');
                 const img = news.thumbnail || 'https://via.placeholder.com/600x400?text=News';
                 const link = `https://olympictuoitho.vn/blog/${news.slug}.html`;

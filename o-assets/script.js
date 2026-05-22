@@ -192,6 +192,47 @@ function renderIndex(data) {
                 });
             }, 1000);
         }
+
+        // JS-based marquee (pixel-based, consistent across browsers)
+        var heroWrapper = heroContainer.parentElement;
+        var heroScrollPos = 0;
+        var heroSpeed = 1;
+        var heroPaused = false;
+        var heroGap = 24; // gap-6 = 24px
+
+        heroWrapper.addEventListener('mouseenter', function() { heroPaused = true; });
+        heroWrapper.addEventListener('mouseleave', function() { heroPaused = false; });
+        heroWrapper.addEventListener('touchstart', function() { heroPaused = true; }, { passive: true });
+        document.addEventListener('scroll', function() { heroPaused = false; }, true);
+
+        var heroRafId = null;
+        var heroVisible = true;
+        var heroCardW = 0;
+        var heroVisObs = new IntersectionObserver(function(entries) {
+            heroVisible = entries[0].isIntersecting;
+            if (heroVisible && !heroRafId) heroRafId = requestAnimationFrame(heroAnimateLoop);
+        });
+        heroVisObs.observe(heroWrapper);
+
+        function heroAnimateLoop() {
+            if (!heroVisible) { heroRafId = null; return; }
+            if (!heroPaused) {
+                heroScrollPos += heroSpeed;
+                var first = heroContainer.firstElementChild;
+                if (first) {
+                    if (!heroCardW) heroCardW = first.offsetWidth + heroGap;
+                    if (heroScrollPos >= heroCardW) {
+                        heroScrollPos -= heroCardW;
+                        heroContainer.appendChild(first);
+                        heroCardW = 0; // recalc after recycle
+                    }
+                }
+            }
+            heroContainer.style.transform = 'translateX(-' + heroScrollPos + 'px)';
+            heroRafId = requestAnimationFrame(heroAnimateLoop);
+        }
+        heroRafId = requestAnimationFrame(heroAnimateLoop);
+        window.__olympicCleanups.push(function() { heroVisObs.disconnect(); if (heroRafId) cancelAnimationFrame(heroRafId); });
     }
 
     // Hero buttons
@@ -262,44 +303,59 @@ function renderIndex(data) {
 
         wrapper.addEventListener('mouseenter', () => { paused = true; });
         wrapper.addEventListener('mouseleave', () => { paused = false; });
+        wrapper.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+        document.addEventListener('scroll', () => { paused = false; }, true);
 
         let expertsRafId = null;
+        let expertsVisible = true;
+        let cachedCardW = 0;
+        let frameCount = 0;
+        const expertsVisObs = new IntersectionObserver((entries) => {
+            expertsVisible = entries[0].isIntersecting;
+            if (expertsVisible && !expertsRafId) expertsRafId = requestAnimationFrame(animateLoop);
+        });
+        expertsVisObs.observe(wrapper);
+
         function animateLoop() {
+            if (!expertsVisible) { expertsRafId = null; return; }
             if (!paused) {
                 scrollPos += speed;
 
-                // Recycle: if first card is fully off-screen left, move it to end
                 const first = container.firstElementChild;
                 if (first) {
-                    const cardW = first.offsetWidth + gap;
-                    if (scrollPos >= cardW) {
-                        scrollPos -= cardW;
+                    if (!cachedCardW) cachedCardW = first.offsetWidth + gap;
+                    if (scrollPos >= cachedCardW) {
+                        scrollPos -= cachedCardW;
                         container.appendChild(first);
+                        cachedCardW = 0;
                     }
                 }
             }
             container.style.transform = `translateX(-${scrollPos}px)`;
 
-            // Scale effect
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const viewCenter = wrapperRect.left + wrapperRect.width / 2;
-            const maxDist = wrapperRect.width / 2;
-            const cards = container.children;
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const rect = card.getBoundingClientRect();
-                const cardCenter = rect.left + rect.width / 2;
-                const dist = Math.abs(cardCenter - viewCenter);
-                const ratio = Math.min(dist / maxDist, 1);
-                const scale = 1.5 - 1.0 * ratio;
-                const opacity = 1 - 0.5 * ratio;
-                card.style.transform = `scale(${scale})`;
-                card.style.opacity = opacity;
+            // Scale effect — only every 3rd frame to reduce layout thrashing
+            frameCount++;
+            if (frameCount % 3 === 0) {
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const viewCenter = wrapperRect.left + wrapperRect.width / 2;
+                const maxDist = wrapperRect.width / 2;
+                const cards = container.children;
+                for (let i = 0; i < cards.length; i++) {
+                    const card = cards[i];
+                    const rect = card.getBoundingClientRect();
+                    const cardCenter = rect.left + rect.width / 2;
+                    const dist = Math.abs(cardCenter - viewCenter);
+                    const ratio = Math.min(dist / maxDist, 1);
+                    const scale = 1.5 - 1.0 * ratio;
+                    const opacity = 1 - 0.5 * ratio;
+                    card.style.transform = `scale(${scale})`;
+                    card.style.opacity = opacity;
+                }
             }
             expertsRafId = requestAnimationFrame(animateLoop);
         }
         expertsRafId = requestAnimationFrame(animateLoop);
-        window.__olympicCleanups.push(function() { if (expertsRafId) cancelAnimationFrame(expertsRafId); });
+        window.__olympicCleanups.push(function() { expertsVisObs.disconnect(); if (expertsRafId) cancelAnimationFrame(expertsRafId); });
     }
 
     // Gallery slider on index page

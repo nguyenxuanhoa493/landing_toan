@@ -490,7 +490,7 @@ function renderGalleryPage(data) {
 
      // --- Parse years from category names and group ---
      const VISIBLE_YEAR_COUNT = 5;
-     const IMAGES_PER_PAGE = 5;
+     const IMAGES_PER_PAGE = 8;
      let yearExpanded = false;
      let visibleImageCount = IMAGES_PER_PAGE;
 

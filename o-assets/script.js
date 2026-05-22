@@ -487,70 +487,123 @@ function renderGalleryPage(data) {
      if (!tabsContainer || !gridContainer) return;
 
      const categories = data.gallery.categories || [];
-     let activeCategory = null; // null = all
 
-     // Lightbox state — lazy lookups so the element can be rendered after init
+     // --- Parse years from category names and group ---
+     const VISIBLE_YEAR_COUNT = 5;
+     const IMAGES_PER_PAGE = 8;
+     let yearExpanded = false;
+     let visibleImageCount = IMAGES_PER_PAGE;
+
+     function parseYear(catName) {
+         var match = catName.match(/(\d{4})/);
+         return match ? parseInt(match[1]) : null;
+     }
+
+     var yearMap = {};
+     categories.forEach(function(cat, idx) {
+         var year = parseYear(cat.name) || 0;
+         if (!yearMap[year]) yearMap[year] = [];
+         yearMap[year].push(idx);
+     });
+     var years = Object.keys(yearMap).map(Number).sort(function(a, b) { return b - a; });
+
+     var activeYear = years[0] || 0;
+     var activeCategory = yearMap[activeYear] ? yearMap[activeYear][0] : 0;
+
+     // Lightbox state
      function getLightbox() { return document.getElementById('lightbox'); }
      function getLbImg() { return document.getElementById('lb-img'); }
      function getLbCaption() { return document.getElementById('lb-caption'); }
      function getLbCounter() { return document.getElementById('lb-counter'); }
      function getLbCatTabs() { return document.getElementById('lb-cat-tabs'); }
-     let lbImages = [];
-     let lbIndex = 0;
-     let lbCatIndex = null; // category index in lightbox
+     var lbImages = [];
+     var lbIndex = 0;
+     var lbCatIndex = null;
 
-     function renderTabs() {
-         const activeClass = 'bg-primary text-white shadow-md';
-         const inactiveClass = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary';
-
-         let html = `<button data-cat="all" class="px-6 py-2.5 rounded-xl text-sm font-bold shrink-0 transition-colors ${activeCategory === null ? activeClass : inactiveClass}">Tất cả</button>`;
-         categories.forEach((cat, idx) => {
-             html += `<button data-cat="${idx}" class="px-6 py-2.5 rounded-xl text-sm font-bold shrink-0 transition-colors ${activeCategory === idx ? activeClass : inactiveClass}">${cat.name}</button>`;
-         });
-         tabsContainer.innerHTML = html;
-
-         tabsContainer.querySelectorAll('button').forEach(btn => {
-             btn.addEventListener('click', () => {
-                 const val = btn.dataset.cat;
-                 activeCategory = val === 'all' ? null : parseInt(val);
-                 renderTabs();
-                 renderGrid();
-             });
+     function getFilteredImages(catIdx) {
+         return (categories[catIdx].list_image || []).map(function(img) {
+             return { name: categories[catIdx].name, image: img };
          });
      }
 
-     function getFilteredImages(catIdx) {
-         return catIdx === null
-             ? categories.flatMap(cat => (cat.list_image || []).map(img => ({ name: cat.name, image: img })))
-             : (categories[catIdx].list_image || []).map(img => ({ name: categories[catIdx].name, image: img }));
+     function getCatShortName(cat) {
+         return cat.name.replace(/Năm\s*\d{4}\s*/i, '').trim() || cat.name;
+     }
+
+     function renderTabs() {
+         var activeYearCls = 'bg-primary text-white shadow-lg shadow-blue-500/20';
+         var inactiveYearCls = 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary';
+         var activeCatCls = 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20';
+         var inactiveCatCls = 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600';
+
+         var visibleYears = yearExpanded ? years : years.slice(0, VISIBLE_YEAR_COUNT);
+         var hasMoreYears = years.length > VISIBLE_YEAR_COUNT;
+
+         var yearHtml = visibleYears.map(function(year) {
+             var cls = year === activeYear ? activeYearCls : inactiveYearCls;
+             return '<button data-year="' + year + '" class="px-5 py-2.5 rounded-xl font-bold text-sm transition-all ' + cls + '">Năm ' + year + '</button>';
+         }).join('');
+
+         if (hasMoreYears) {
+             var toggleCls = 'bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border border-dashed border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600';
+             var toggleIcon = yearExpanded ? 'expand_less' : 'expand_more';
+             var toggleLabel = yearExpanded ? 'Thu gọn' : (years.length - VISIBLE_YEAR_COUNT) + ' năm khác';
+             yearHtml += '<button data-toggle-years class="px-4 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-1 ' + toggleCls + '"><span class="material-symbols-outlined text-sm">' + toggleIcon + '</span>' + toggleLabel + '</button>';
+         }
+
+         var catIndices = yearMap[activeYear] || [];
+         var catHtml = catIndices.map(function(idx) {
+             var cat = categories[idx];
+             var cls = idx === activeCategory ? activeCatCls : inactiveCatCls;
+             return '<button data-cat="' + idx + '" class="px-4 py-2 rounded-lg font-bold text-xs transition-all ' + cls + '">' + getCatShortName(cat) + '</button>';
+         }).join('');
+
+         tabsContainer.innerHTML =
+             '<div class="flex flex-wrap justify-center gap-2 mb-3">' + yearHtml + '</div>'
+             + (catIndices.length > 1 ? '<div class="flex flex-wrap justify-center gap-1.5">' + catHtml + '</div>' : '');
      }
 
      function renderGrid() {
-         const filtered = getFilteredImages(activeCategory);
+         visibleImageCount = IMAGES_PER_PAGE;
+         var filtered = getFilteredImages(activeCategory);
+         renderGridItems(filtered);
+     }
 
-         gridContainer.innerHTML = filtered.map((item, idx) => `
-             <div class="group rounded-2xl overflow-hidden shadow-lg border border-blue-50 dark:border-slate-700 hover-card-lift bg-white dark:bg-slate-800 cursor-pointer" data-lb-idx="${idx}">
-                 <div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
-                     <img alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${item.image}"/>
-                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                         <p class="text-white text-xs font-bold">${item.name}</p>
-                     </div>
-                 </div>
-             </div>
-         `).join('');
+     function renderGridItems(filtered) {
+         var visible = filtered.slice(0, visibleImageCount);
+         var hasMore = filtered.length > visibleImageCount;
+         var remaining = filtered.length - visibleImageCount;
 
-         gridContainer.querySelectorAll('[data-lb-idx]').forEach(el => {
-             el.addEventListener('click', () => {
+         gridContainer.innerHTML = visible.map(function(item, idx) {
+             return '<div class="group rounded-2xl overflow-hidden shadow-lg border border-blue-50 dark:border-slate-700 hover-card-lift bg-white dark:bg-slate-800 cursor-pointer" data-lb-idx="' + idx + '">'
+                 + '<div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden relative">'
+                 + '<img alt="' + item.name + '" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="' + item.image + '"/>'
+                 + '<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">'
+                 + '<p class="text-white text-xs font-bold">' + item.name + '</p>'
+                 + '</div></div></div>';
+         }).join('')
+         + (hasMore ? '<div class="col-span-full flex justify-center pt-4"><button id="gallery-load-more" class="px-8 py-3 rounded-xl bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-colors shadow-md flex items-center gap-2"><span class="material-symbols-outlined text-sm">add</span>Xem thêm ảnh (' + remaining + ' ảnh)</button></div>' : '');
+
+         gridContainer.querySelectorAll('[data-lb-idx]').forEach(function(el) {
+             el.addEventListener('click', function() {
                  lbCatIndex = activeCategory;
                  lbImages = filtered;
                  lbIndex = parseInt(el.dataset.lbIdx);
                  openLightbox();
              });
          });
+
+         var loadMoreBtn = document.getElementById('gallery-load-more');
+         if (loadMoreBtn) {
+             loadMoreBtn.addEventListener('click', function() {
+                 visibleImageCount += IMAGES_PER_PAGE;
+                 renderGridItems(getFilteredImages(activeCategory));
+             });
+         }
      }
 
      function openLightbox() {
-         const lightbox = getLightbox();
+         var lightbox = getLightbox();
          if (!lightbox) return;
          lightbox.classList.remove('hidden');
          lightbox.classList.add('flex');
@@ -559,7 +612,7 @@ function renderGalleryPage(data) {
      }
 
      function closeLightbox() {
-         const lightbox = getLightbox();
+         var lightbox = getLightbox();
          if (!lightbox) return;
          lightbox.classList.add('hidden');
          lightbox.classList.remove('flex');
@@ -567,30 +620,30 @@ function renderGalleryPage(data) {
      }
 
      function updateLightbox() {
-         const item = lbImages[lbIndex];
+         var item = lbImages[lbIndex];
          if (!item) return;
-         const lbImg = getLbImg();
-         const lbCaption = getLbCaption();
-         const lbCounter = getLbCounter();
-         const lbCatTabs = getLbCatTabs();
+         var lbImg = getLbImg();
+         var lbCaption = getLbCaption();
+         var lbCounter = getLbCounter();
+         var lbCatTabs = getLbCatTabs();
          if (lbImg) { lbImg.src = item.image; lbImg.alt = item.name; }
          if (lbCaption) lbCaption.textContent = item.name;
-         if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+         if (lbCounter) lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
 
-         // Render category tabs in lightbox
          if (lbCatTabs) {
-             const activeClass = 'bg-primary text-white';
-             const inactiveClass = 'bg-white/10 text-white/70 hover:bg-white/20';
-             let tabsHtml = `<button data-lbcat="all" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === null ? activeClass : inactiveClass}">Tất cả</button>`;
-             categories.forEach((cat, idx) => {
-                 tabsHtml += `<button data-lbcat="${idx}" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ${lbCatIndex === idx ? activeClass : inactiveClass}">${cat.name}</button>`;
+             var activeClass = 'bg-primary text-white';
+             var inactiveClass = 'bg-white/10 text-white/70 hover:bg-white/20';
+             var catIndices = yearMap[activeYear] || [];
+             var tabsHtml = '';
+             catIndices.forEach(function(idx) {
+                 var cat = categories[idx];
+                 tabsHtml += '<button data-lbcat="' + idx + '" class="px-3 py-1 rounded-lg text-xs font-bold transition-colors ' + (lbCatIndex === idx ? activeClass : inactiveClass) + '">' + getCatShortName(cat) + '</button>';
              });
              lbCatTabs.innerHTML = tabsHtml;
 
-             lbCatTabs.querySelectorAll('button').forEach(btn => {
-                 btn.addEventListener('click', () => {
-                     const val = btn.dataset.lbcat;
-                     lbCatIndex = val === 'all' ? null : parseInt(val);
+             lbCatTabs.querySelectorAll('button').forEach(function(btn) {
+                 btn.addEventListener('click', function() {
+                     lbCatIndex = parseInt(btn.dataset.lbcat);
                      lbImages = getFilteredImages(lbCatIndex);
                      lbIndex = 0;
                      updateLightbox();
@@ -599,23 +652,48 @@ function renderGalleryPage(data) {
          }
      }
 
-     // Lightbox controls — bind once; guards inside handlers tolerate late rendering
-     const _lb = getLightbox();
+     // Event delegation for tabs
+     tabsContainer.addEventListener('click', function(e) {
+         var toggleBtn = e.target.closest('[data-toggle-years]');
+         if (toggleBtn) {
+             yearExpanded = !yearExpanded;
+             renderTabs();
+             return;
+         }
+         var yearBtn = e.target.closest('[data-year]');
+         if (yearBtn) {
+             activeYear = parseInt(yearBtn.dataset.year);
+             var catIndices = yearMap[activeYear] || [];
+             activeCategory = catIndices.length > 0 ? catIndices[0] : 0;
+             renderTabs();
+             renderGrid();
+             return;
+         }
+         var catBtn = e.target.closest('[data-cat]');
+         if (catBtn) {
+             activeCategory = parseInt(catBtn.dataset.cat);
+             renderTabs();
+             renderGrid();
+         }
+     });
+
+     // Lightbox controls
+     var _lb = getLightbox();
      if (_lb) {
          document.getElementById('lb-close').addEventListener('click', closeLightbox);
-         document.getElementById('lb-prev').addEventListener('click', () => {
+         document.getElementById('lb-prev').addEventListener('click', function() {
              lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
              updateLightbox();
          });
-         document.getElementById('lb-next').addEventListener('click', () => {
+         document.getElementById('lb-next').addEventListener('click', function() {
              lbIndex = (lbIndex + 1) % lbImages.length;
              updateLightbox();
          });
-         _lb.addEventListener('click', (e) => {
+         _lb.addEventListener('click', function(e) {
              if (e.target === _lb) closeLightbox();
          });
-         document.addEventListener('keydown', (e) => {
-             const lb = getLightbox();
+         document.addEventListener('keydown', function(e) {
+             var lb = getLightbox();
              if (!lb || lb.classList.contains('hidden')) return;
              if (e.key === 'Escape') closeLightbox();
              if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }

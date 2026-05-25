@@ -834,7 +834,11 @@ function renderFooter(data) {
     // If it's the detailed index footer
     const col1 = document.getElementById('footer-col1-details');
     if(col1) {
-        col1.innerHTML = data.footer.column1.details.map(d => `<li class="mb-2">${d}</li>`).join('');
+        col1.innerHTML = data.footer.column1.details.map((d, i) => `<li class="mb-2 ${i >= 2 ? 'hidden sm:list-item' : ''}">${d}</li>`).join('');
+    }
+    const col1Desktop = document.getElementById('footer-col1-details-desktop');
+    if(col1Desktop) {
+        col1Desktop.innerHTML = data.footer.column1.details.map(d => `<li class="mb-2">${d}</li>`).join('');
     }
 
     const col2Links = document.getElementById('footer-col2-links');
